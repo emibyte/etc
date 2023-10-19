@@ -28,7 +28,7 @@
     in
       {
         nixosConfigurations = {
-          tuxedo = lib.nixosSystem {
+          fevy = lib.nixosSystem {
   	    inherit system;
       	    modules = [
 	      ./configuration.nix
