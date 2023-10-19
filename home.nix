@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 let
-  # TODO: according to documentation giving the path where the flake.nix resides should work
-  # but seems to not work
+  # for this command to work the hostname has to match the a profile in the flake.nix
   rebuild-system = pkgs.writeShellScriptBin "rebuild-system" ''
     nixos-rebuild switch --flake ${config.home.homeDirectory}/etc --verbose
   '';
