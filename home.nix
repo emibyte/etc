@@ -58,6 +58,17 @@ in
       color_scheme = 6;
     };
   };
+  
+  xdg.userDirs = {
+    enable = true;
+    desktop = "$HOME/";
+    documents = "HOME/";
+    download = "$HOME/";
+    music = "$HOME/";
+    pictures = "$HOME/";
+    templates = "$HOME/";
+    videos = "$HOME/";
+  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
