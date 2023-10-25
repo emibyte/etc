@@ -27,7 +27,7 @@ in
   ];
 
   # configuration only, setting it as login shell has
-  # happen on system level (configuration.nix)
+  # to happen on system level (configuration.nix)
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
