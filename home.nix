@@ -17,13 +17,14 @@ in
 
     pkgs.keepassxc
 
+    # utils
+    pkgs.hyfetch
     pkgs.acpi
     pkgs.unzip
     pkgs.zip
     pkgs.sqlite
     pkgs.gdb
 
-    # pkgs.fortune
   ];
 
   # configuration only, setting it as login shell has
