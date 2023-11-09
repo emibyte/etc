@@ -27,6 +27,12 @@ in
 
   ];
 
+  home.file."wezterm" = {
+    source = ./config/wezterm;
+    target = ".config/wezterm";
+    recursive = true;
+  };
+
   # configuration only, setting it as login shell has
   # to happen on system level (configuration.nix)
   programs.zsh = {
