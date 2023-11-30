@@ -32,6 +32,51 @@ in
     pkgs.zip
     pkgs.sqlite
     pkgs.gdb
+    pkgs.ripgrep
+
+    # pkgs that are exclusively for nvim pretty much
+    # could be under programs.neovim.extraPackages but not sure
+    # if i wanna put them there
+    # languages
+    pkgs.dotnet-sdk_8
+    pkgs.jsonnet
+    pkgs.nodejs
+    pkgs.python310Full
+    pkgs.rustc
+
+    # language servers
+    pkgs.cuelsp
+    pkgs.haskell-language-server
+    pkgs.jsonnet-language-server
+    pkgs.lua-language-server
+    pkgs.nil
+    pkgs.nodePackages."bash-language-server"
+    pkgs.nodePackages."diagnostic-languageserver"
+    pkgs.nodePackages."dockerfile-language-server-nodejs"
+    pkgs.nodePackages."pyright"
+    pkgs.nodePackages."typescript"
+    pkgs.nodePackages."typescript-language-server"
+    pkgs.nodePackages."vscode-langservers-extracted"
+    pkgs.nodePackages."yaml-language-server"
+    pkgs.omnisharp-roslyn
+    pkgs.gopls
+    pkgs.rust-analyzer
+    pkgs.terraform-ls
+
+    # formatters
+    pkgs.nixpkgs-fmt
+    pkgs.gofumpt
+    pkgs.golines
+    pkgs.python310Packages.black
+    pkgs.rustfmt
+    pkgs.terraform
+
+    # tools
+    pkgs.cargo
+    pkgs.fd
+    pkgs.gcc
+    pkgs.lazydocker
+    pkgs.yarn
   ];
 
   home.file."wezterm" = {
@@ -40,11 +85,47 @@ in
     recursive = true;
   };
 
-  # home.file."nvim" = {
-  #   source = ./config/nvim;
-  #   target = ".config/nvim";
-  #   recursive = true;
-  # };
+  home.file."nvim" = { 
+    source = ./config/nvim; 
+    target = ".config/nvim"; 
+    recursive = true;
+  };
+
+  programs.neovim = {
+    enable = true;
+    vimAlias = true;
+
+    plugins = with pkgs; [
+      # languages
+      vimPlugins.nvim-lspconfig
+      vimPlugins.nvim-treesitter.withAllGrammars
+      vimPlugins.rust-tools-nvim
+      vimPlugins.vim-cue
+
+      # telescope
+      vimPlugins.plenary-nvim
+      vimPlugins.popup-nvim
+      vimPlugins.telescope-nvim
+
+      # theme
+      vimPlugins.catppuccin-nvim
+
+      # floaterm
+      vimPlugins.vim-floaterm
+
+      # extras
+      # vimPlugins.copilot-lua
+      vimPlugins.gitsigns-nvim
+      vimPlugins.lualine-nvim
+      vimPlugins.nerdcommenter
+      vimPlugins.nui-nvim
+      vimPlugins.nvim-colorizer-lua
+      vimPlugins.nvim-notify
+      vimPlugins.nvim-treesitter-context
+      vimPlugins.nvim-ts-rainbow2
+      vimPlugins.omnisharp-extended-lsp-nvim
+    ];
+  };
 
   # configuration only, setting it as login shell has
   # to happen on system level (configuration.nix)
