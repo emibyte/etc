@@ -20,7 +20,8 @@ config.colors = {}
 config.colors.background = '#111111'
 
 config.font = wezterm.font_with_fallback {
-  'Jetbrains Mono',
+  --'Jetbrains Mono',
+  'Liberation Mono',
   'Iosevka Comfy',
   'nonicons',
 }
@@ -28,7 +29,6 @@ config.font = wezterm.font_with_fallback {
 -- default is true, has more "native" look
 config.use_fancy_tab_bar = false
 
--- I don't like putting anything at the edge if i can help it.
 config.enable_scroll_bar = false
 config.window_padding= {
   left = 0,

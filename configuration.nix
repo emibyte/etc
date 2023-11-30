@@ -70,8 +70,8 @@ in
   sound.enable = true;
   hardware = {
     pulseaudio.enable = true;
-    pulseaudio.support32bit = true;
-  }
+    pulseaudio.support32Bit = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -110,8 +110,6 @@ in
       neovim
       git
       killall
-
-      wezterm
     ];
   };
 
@@ -145,6 +143,7 @@ in
   fonts.fonts = with pkgs; [
     iosevka-comfy.comfy
     jetbrains-mono
+    liberation_ttf
   ];
   
   nix = {

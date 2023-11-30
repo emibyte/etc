@@ -4,6 +4,10 @@ let
   rebuild-system = pkgs.writeShellScriptBin "rebuild-system" ''
     nixos-rebuild switch --flake ${config.home.homeDirectory}/etc --verbose
   '';
+  
+  ghc = pkgs.haskellPackages.ghcWithPackages (hspkgs: [
+    hspkgs.cabal-install
+  ]);
 in
 {
   # Home Manager needs a bit of information about you and the
@@ -14,8 +18,12 @@ in
   # Packages that should be installed to the user profile.
   home.packages = [
     rebuild-system
+    ghc
 
     pkgs.keepassxc
+    pkgs.aseprite
+
+    pkgs.wezterm
 
     # utils
     pkgs.hyfetch
@@ -24,7 +32,6 @@ in
     pkgs.zip
     pkgs.sqlite
     pkgs.gdb
-
   ];
 
   home.file."wezterm" = {
@@ -32,6 +39,12 @@ in
     target = ".config/wezterm";
     recursive = true;
   };
+
+  # home.file."nvim" = {
+  #   source = ./config/nvim;
+  #   target = ".config/nvim";
+  #   recursive = true;
+  # };
 
   # configuration only, setting it as login shell has
   # to happen on system level (configuration.nix)
