@@ -43,6 +43,7 @@ in
     pkgs.nodejs
     pkgs.python310Full
     pkgs.rustc
+    pkgs.go
 
     # language servers
     pkgs.cuelsp
