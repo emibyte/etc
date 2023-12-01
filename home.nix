@@ -20,6 +20,8 @@ in
     rebuild-system
     ghc
 
+    pkgs.emacs29
+
     pkgs.keepassxc
     pkgs.aseprite
 
@@ -34,7 +36,7 @@ in
     pkgs.gdb
     pkgs.ripgrep
 
-    # pkgs that are exclusively for nvim pretty much
+    # pkgs that are (pretty much) exclusively for nvim
     # could be under programs.neovim.extraPackages but not sure
     # if i wanna put them there
     # languages
@@ -44,6 +46,7 @@ in
     pkgs.python310Full
     pkgs.rustc
     pkgs.go
+    pkgs.lua
 
     # language servers
     pkgs.cuelsp
@@ -125,6 +128,14 @@ in
       vimPlugins.nvim-treesitter-context
       vimPlugins.nvim-ts-rainbow2
       vimPlugins.omnisharp-extended-lsp-nvim
+
+      # autocomplete
+      vimPlugins.nvim-cmp
+      vimPlugins.cmp-nvim-lsp
+      vimPlugins.luasnip
+      vimPlugins.cmp_luasnip
+      vimPlugins.friendly-snippets
+      vimPlugins.neodev-nvim
     ];
   };
 

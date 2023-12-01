@@ -130,6 +130,7 @@ local function init()
                     },
                     workspace = {
                         library = vim.api.nvim_get_runtime_file("", true),
+                        checkThirdParty = false,
                     },
                 },
             }
@@ -196,6 +197,15 @@ local function init()
     }
 
     treesitter_context.setup()
+
+    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+        border = "rounded",
+    })
+
+    require('neodev').setup()
+
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 end
 
 return {
