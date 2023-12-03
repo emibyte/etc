@@ -88,13 +88,13 @@ in
   ];
 
   home.file."wezterm" = {
-    source = ./config/wezterm;
+    source = ./dotfiles/wezterm;
     target = ".config/wezterm";
     recursive = true;
   };
 
   home.file."nvim" = { 
-    source = ./config/nvim; 
+    source = ./dotfiles/nvim; 
     target = ".config/nvim"; 
     recursive = true;
   };
