@@ -54,6 +54,9 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Enable corsair driver
+  hardware.ckb-next.enable = true;
+
   # Configure keymap in X11
   services.xserver = {
     layout = "de";
@@ -140,7 +143,7 @@ in
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     iosevka-comfy.comfy
     jetbrains-mono
     liberation_ttf

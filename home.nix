@@ -7,6 +7,7 @@ let
   
   ghc = pkgs.haskellPackages.ghcWithPackages (hspkgs: [
     hspkgs.cabal-install
+    hspkgs.safe
   ]);
 in
 {
@@ -26,6 +27,9 @@ in
     pkgs.aseprite
 
     pkgs.wezterm
+
+    # corsair open source drivers
+    pkgs.ckb-next
 
     # utils
     pkgs.hyfetch
