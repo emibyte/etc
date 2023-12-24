@@ -5,6 +5,7 @@ let
     nixos-rebuild switch --flake ${config.home.homeDirectory}/etc --verbose
   '';
   
+  # maybe use ghcup instead?
   ghc = pkgs.haskellPackages.ghcWithPackages (hspkgs: [
     hspkgs.cabal-install
     hspkgs.safe
@@ -27,9 +28,10 @@ in
     pkgs.aseprite
 
     pkgs.wezterm
+    pkgs.starship
 
-    # corsair open source drivers
-    pkgs.ckb-next
+    # corsair opensource driver
+    # pkgs.ckb-next
 
     # utils
     pkgs.hyfetch
@@ -143,6 +145,8 @@ in
     ];
   };
 
+  programs.starship.enable = true;
+
   # configuration only, setting it as login shell has
   # to happen on system level (configuration.nix)
   programs.zsh = {
@@ -150,7 +154,7 @@ in
     enableAutosuggestions = true;
     enableCompletion = true;
     oh-my-zsh = {
-      enable = true;
+      enable = false;
       theme = "robbyrussell";
     };
   };

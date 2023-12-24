@@ -113,6 +113,7 @@ in
       neovim
       git
       killall
+      ckb-next
     ];
   };
 
