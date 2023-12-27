@@ -26,7 +26,7 @@ config.font = wezterm.font_with_fallback {
   'nonicons',
 }
 
-config.window_background_opacity = 0.5
+config.window_background_opacity = 1
 
 -- default is true, has more "native" look
 config.use_fancy_tab_bar = false

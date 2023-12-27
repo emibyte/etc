@@ -101,6 +101,14 @@ in
     recursive = true;
   };
 
+  programs.starship = {
+      enable = true;
+      settings.character = {
+      success_symbol = "[➜](bold green)";
+      error_symbol = "[➜](bold red)";
+      };
+  };
+
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -144,8 +152,6 @@ in
       vimPlugins.neodev-nvim
     ];
   };
-
-  programs.starship.enable = true;
 
   # configuration only, setting it as login shell has
   # to happen on system level (configuration.nix)
