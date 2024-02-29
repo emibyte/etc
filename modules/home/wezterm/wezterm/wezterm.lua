@@ -15,16 +15,23 @@ end
 -- For example, changing the color scheme:
 -- config.color_scheme = 'Batman'
 
+config.adjust_window_size_when_changing_font_size = false;
+
 -- Set background to same color as neovim
 config.colors = {}
 config.colors.background = '#111111'
 
-config.font = wezterm.font_with_fallback {
-  --'Jetbrains Mono',
-  'Liberation Mono',
-  'Iosevka Comfy',
-  'nonicons',
+wezterm.font = {
+    family = 'Iosevka Term',
+    stretch = 'Expanded',
+    weight = 'Regular',
 }
+
+
+-- config.font = wezterm.font_with_fallback {
+--     'Iosevka-Comfy',
+--     'JetBrains Mono',
+-- }
 
 config.window_background_opacity = 1
 

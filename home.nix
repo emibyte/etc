@@ -4,7 +4,7 @@ let
   rebuild-system = pkgs.writeShellScriptBin "rebuild-system" ''
     nixos-rebuild switch --flake ${config.home.homeDirectory}/etc --verbose
   '';
-  
+
   # maybe use ghcup instead?
   ghc = pkgs.haskellPackages.ghcWithPackages (hspkgs: [
     hspkgs.cabal-install
@@ -12,6 +12,12 @@ let
   ]);
 in
 {
+  imports = [ 
+      # ./modules/home/wayland/waybar/default.nix
+      # ./modules/home/wayland/sway.nix 
+      ./modules/home/nvim
+      ./modules/home/wezterm
+      ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "fevy";
@@ -89,24 +95,21 @@ in
     pkgs.yarn
   ];
 
-  home.file."wezterm" = {
-    source = ./dotfiles/wezterm;
-    target = ".config/wezterm";
-    recursive = true;
-  };
-
-  home.file."nvim" = { 
-    source = ./dotfiles/nvim; 
-    target = ".config/nvim"; 
-    recursive = true;
-  };
+  services.sxhkd.enable = true;
 
   programs.starship = {
-      enable = true;
-      settings.character = {
-      success_symbol = "[➜](bold green)";
-      error_symbol = "[➜](bold red)";
+    enable = true;
+    settings = {
+      character = {
+        success_symbol = "[➜](bold green)";
+        error_symbol = "[➜](bold red)";
       };
+
+      nix_shell = {
+        format = "[$symbol$state]($style) ";
+        symbol = "❄️";
+      };
+    };
   };
 
   programs.neovim = {
@@ -140,7 +143,7 @@ in
       vimPlugins.nvim-colorizer-lua
       vimPlugins.nvim-notify
       vimPlugins.nvim-treesitter-context
-      vimPlugins.nvim-ts-rainbow2
+      vimPlugins.rainbow-delimiters-nvim
       vimPlugins.omnisharp-extended-lsp-nvim
 
       # autocomplete
@@ -166,9 +169,9 @@ in
   };
 
   programs.git = {
-   enable = true;
-   userName = "FevyFevy";
-   userEmail = "fevymarine@gmail.com";
+    enable = true;
+    userName = "FevyFevy";
+    userEmail = "fevymarine@gmail.com";
   };
 
   programs.ssh = {
@@ -185,7 +188,7 @@ in
       color_scheme = 6;
     };
   };
-  
+
   xdg.userDirs = {
     enable = true;
     desktop = "$HOME/";

@@ -7,4 +7,4 @@ nixos config
 - [ ] implement context menu for keybinds similar to kickstart
 - [ ] dap for debuggin
 - [x] autocompletion
-- [ ] bspwm or i3
+- [ ] sway

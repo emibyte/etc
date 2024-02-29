@@ -4,12 +4,13 @@
 
 { config, pkgs, ... }:
 
-let 
+let
   user = "fevy";
 in
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
 
@@ -46,22 +47,40 @@ in
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  programs.sway.enable = true;
 
-  # TODO: tiling window manager without gnome running
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # Enable the X11 windowing system.
+  services.xserver = {
+    enable = true;
+
+    layout = "de";
+    xkbVariant = "";
+
+    displayManager = {
+      sddm.enable = true;
+      defaultSession = "sway";
+    };
+  };
+
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
+  security.polkit.enable = true;
+  security.pam.services.swaylock = { };
+  hardware.opengl.enable = true;
+
+  xdg = {
+    portal = {
+      enable = true;
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-wlr
+        xdg-desktop-portal-gtk
+      ];
+      # config.common.default = "*";
+    };
+  };
 
   # Enable corsair driver
   hardware.ckb-next.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "de";
-    xkbVariant = "";
-  };
 
   # Configure console keymap
   console.keyMap = "de";
@@ -70,10 +89,16 @@ in
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
-  hardware = {
-    pulseaudio.enable = true;
-    pulseaudio.support32Bit = true;
+  sound.enable = false;
+  hardware.pulseaudio.enable = false;
+  services.pipewire = {
+    enable = true;
+    pulse.enable = true;
+
+    alsa = {
+      enable = true;
+      support32Bit = true;
+    };
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -90,7 +115,7 @@ in
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -114,6 +139,8 @@ in
       git
       killall
       ckb-next
+      pulseaudio
+      pavucontrol
     ];
   };
 
@@ -146,10 +173,20 @@ in
 
   fonts.packages = with pkgs; [
     iosevka-comfy.comfy
-    jetbrains-mono
-    liberation_ttf
+    noto-fonts
+    nerdfonts
+
+    (nerdfonts.override {
+      fonts = [
+        "JetBrainsMono"
+        "Mononoki"
+        "IosevkaTerm"
+        "DejaVuSansMono"
+        "UbuntuMono"
+      ];
+    })
   ];
-  
+
   nix = {
     settings = {
       auto-optimise-store = true;
