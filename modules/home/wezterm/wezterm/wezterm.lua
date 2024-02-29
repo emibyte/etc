@@ -16,22 +16,23 @@ end
 -- config.color_scheme = 'Batman'
 
 config.adjust_window_size_when_changing_font_size = false;
+-- config.hide_mouse_cursor_when_typing = false;
 
 -- Set background to same color as neovim
 config.colors = {}
 config.colors.background = '#111111'
 
-wezterm.font = {
-    family = 'Iosevka Term',
-    stretch = 'Expanded',
-    weight = 'Regular',
-}
-
-
--- config.font = wezterm.font_with_fallback {
---     'Iosevka-Comfy',
---     'JetBrains Mono',
+-- wezterm.font = {
+--     family = 'Iosevka Term',
+--     stretch = 'Expanded',
+--     weight = 'Regular',
 -- }
+
+
+config.font = wezterm.font_with_fallback {
+    'JetBrainsMono Nerd Font Mono',
+    -- 'FantasqueSansM Nerd Font',
+}
 
 config.window_background_opacity = 1
 

@@ -16,7 +16,7 @@
     wlr-randr
   ];
 
-  programs.rofi.package = pkgs.rofi-wayland;
+  # programs.rofi.package = pkgs.rofi-wayland;
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
@@ -33,7 +33,7 @@
     config = {
       modifier = "Mod4";
       terminal = "wezterm";
-      menu = "wofi --show run";
+      menu = "rofi -show run";
       bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
       # output = {
       #   eDP-1 = {
@@ -51,7 +51,26 @@
         };
       };
 
-      startup = [{ command = "systemctl --user import-environment"; }];
+      startup = [
+      { command = "systemctl --user import-environment"; }
+      { command = "autotiling"; }
+      {
+        command = let
+          setWallpaper = pkgs.writeShellScript "set-wallpaper" ''
+            ${pkgs.killall}/bin/killall swaybg
+            ${pkgs.swaybg}/bin/swaybg -m fill -i ${/home/fevy/wps/LaptopWPs/wallhaven-85prg1_2560x1600.png}
+          '';
+          in "${setWallpaper}";
+          always = true;
+      }
+      ];
+      window.border = 3;
+      window.titlebar = false;
+      gaps.inner = 10;
     };
+    extraConfig = ''
+      for_window [class=".*"] opacity 0.9
+      for_window [app_id=".*"] opacity 0.9
+    '';
   };
 }

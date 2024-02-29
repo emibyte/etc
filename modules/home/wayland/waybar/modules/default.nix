@@ -13,18 +13,19 @@ pkgs: {
       "9" = [];
       "10" = [];
     };
+    format-icons = {default = "";};
     enable-bar-scroll = true;
     disable-scroll-wraparound = true;
   };
 
-  # CENTER
-  # "custom/spotify" = import ./spotify.nix pkgs;
-
   # RIGHT
   backlight = {
     device = "intel_backlight";
-    format = " {percent}%";
+    format = "{icon}";
     scroll-step = 10.0;
+    format-icons = ["" "" "" "" "" "" "" "" ""];
+    tooltip = true;
+    tooltip-format = "{percent}%";
   };
 
   pulseaudio = {
@@ -44,29 +45,21 @@ pkgs: {
     on-click-right = "pavucontrol";
   };
 
-  memory = {
-    interval = 1;
-    format = "  {:02}%";
-  };
-
-  cpu = {
-    interval = 1;
-    tooltip = false;
-    # format = " {usage:02}%";
-    format = "󰍛 {icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7} {usage:02}%";
-    format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
-  };
-
   network = {
-    tooltip = false;
+      format-wifi = "";
+      format-disconnected = "睊";
+      tooltip = true;
+      tooltip-format = "{essid} @ {signalStrength}%";
 
-    format = "{ifname}";
-    format-wifi = "  {essid}";
-    format-ethernet = "󰈀 {ipaddr}";
-    format-disconnected = "";
+      format = "{ifname}";
+      format-ethernet = "󰈀 {ipaddr}";
   };
 
-  # "custom/vpn" = import ./vpn.nix pkgs;
+  memory = {
+      interval = 5;
+      format = "󰍛 {}%";
+      max-length = 10;
+  };
 
   battery = {
     tooltip = false;
@@ -79,6 +72,7 @@ pkgs: {
     format-charging = "{icon}  {capacity}% 󰚥";
 
     format-icons = ["" "" "" "" ""];
+    # format-icons = [ "󰁺" "󰁻" "󰁼" "󰁽" "󰁾" "󰁿" "󰂀" "󰂁" "󰂂" "󰁹"];
   };
 
   clock = {
@@ -91,10 +85,8 @@ pkgs: {
     format = "  {:%d/%m/%Y}";
   };
 
-  # "custom/notifs" = import ./notifs.nix pkgs;
-
   tray = {
     icon-size = 20;
-    spacing = 2;
+    spacing = 10;
   };
 }

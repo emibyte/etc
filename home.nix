@@ -47,6 +47,7 @@ in
     pkgs.sqlite
     pkgs.gdb
     pkgs.ripgrep
+    pkgs.tree
 
     # pkgs that are (pretty much) exclusively for nvim
     # could be under programs.neovim.extraPackages but not sure

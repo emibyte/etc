@@ -47,6 +47,16 @@ in
     LC_TIME = "de_DE.UTF-8";
   };
 
+  programs.thunar.enable = true;
+  services = {
+    # Mount, trash, and other functionalities
+    gvfs.enable = true;
+
+    # Thumbnail support for images
+    tumbler.enable = true;
+  };
+
+  programs.light.enable = true;
   programs.sway.enable = true;
 
   # Enable the X11 windowing system.
@@ -57,7 +67,11 @@ in
     xkbVariant = "";
 
     displayManager = {
+      sddm.wayland.enable = true;
       sddm.enable = true;
+      # sddm.theme = "where_is_my_sddm_theme";
+      # sddm.theme = "chili";
+      sddm.theme = "catppuccin-sddm-corners";
       defaultSession = "sway";
     };
   };
@@ -141,6 +155,12 @@ in
       ckb-next
       pulseaudio
       pavucontrol
+      where-is-my-sddm-theme
+      catppuccin-sddm-corners
+      sddm-chili-theme
+      # dependency for catppuccin-sddm-corners
+      libsForQt5.sddm
+      autotiling
     ];
   };
 
@@ -179,6 +199,7 @@ in
     (nerdfonts.override {
       fonts = [
         "JetBrainsMono"
+        "FantasqueSansMono"
         "Mononoki"
         "IosevkaTerm"
         "DejaVuSansMono"

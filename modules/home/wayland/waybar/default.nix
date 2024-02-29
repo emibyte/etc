@@ -9,25 +9,23 @@
         {
           layer = "top";
           position = "top";
-          height = 32;
+          spacing = 0;
+          height = 34;
 
           fixed-center = false;
 
           modules-left = ["sway/workspaces"];
           modules-center = ["custom/spotify"];
           modules-right = [
-            "backlight"
-            "pulseaudio"
+            "tray"
             "memory"
-            "cpu"
-            "network"
-            "custom/vpn"
+            "pulseaudio"
+            "backlight"
             "battery"
+            "network"
             "clock"
             "clock#date"
-            "custom/notifs"
 
-            "tray"
           ];
         }
         // (import ./modules pkgs)
