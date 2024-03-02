@@ -1,10 +1,13 @@
 { pkgs, ... }:
 {
 
-  imports = [ ./rofi.nix ];
+  imports = [ 
+  ./rofi.nix 
+  ./kanshi.nix
+  ];
 
   home.packages = with pkgs; [
-    swaylock
+    swaylock-fancy
     swayidle
     wl-clipboard
     mako
@@ -26,6 +29,14 @@
     QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
     _JAVA_AWT_WM_NONREPARENTING = "1";
     XDG_SESSION_TYPE = "wayland";
+  };
+
+  programs.swaylock = {
+      enable = true;
+      package = pkgs.swaylock-fancy;
+      settings = {
+          daemonize = true;
+      };
   };
 
   wayland.windowManager.sway = {
@@ -54,6 +65,7 @@
       startup = [
       { command = "systemctl --user import-environment"; }
       { command = "autotiling"; }
+      { command = "ckb-next --background"; }
       {
         command = let
           setWallpaper = pkgs.writeShellScript "set-wallpaper" ''
@@ -61,6 +73,10 @@
             ${pkgs.swaybg}/bin/swaybg -m fill -i ${/home/fevy/wps/LaptopWPs/wallhaven-85prg1_2560x1600.png}
           '';
           in "${setWallpaper}";
+          always = true;
+      }
+      { 
+          command = "${pkgs.kanshi}/bin/kanshi"; 
           always = true;
       }
       ];
