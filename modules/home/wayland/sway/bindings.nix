@@ -76,10 +76,12 @@
           "${mod}+Shift+i" = "exec doas rfkill unblock bluetooth";
           "${mod}+Ctrl+i" = "exec doas rfkill block bluetooth";
 
+          # TODO: VPN
           # Wireguard (VPN)
           "${mod}+u" = "exec doas systemctl start wg-quick-wg0";
           "${mod}+Shift+u" = "exec doas systemctl stop wg-quick-wg0";
 
+          # TODO: Dunst
           # Dunst (notifications)
           # "${mod}+n" = "exec ${pkgs.mako}/bin/makoctl set-mode silent";
           # "${mod}+Shift+n" = "exec ${pkgs.mako}/bin/makoctl set-mode default";
@@ -106,9 +108,6 @@
 
           # file manager
           "${mod}+F3" = "exec ${pkgs.xfce.thunar}/bin/thunar";
-
-          "${mod}+Shift+F7" = "exec bg_stream lofi";
-          "${mod}+F7" = "exec bg_stream stop";
         }
         ########
         # Sway #
@@ -163,6 +162,7 @@
 
           "${mod}+a" = "workspace number 1";
         }
+        # TODO: im still not sure how this works but it does
         // (
           lib.listToAttrs (
             lib.flatten (
