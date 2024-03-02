@@ -87,6 +87,7 @@
     extraConfig = ''
       for_window [class=".*"] opacity 0.9
       for_window [app_id=".*"] opacity 0.9
+      client.focused #FFADAD #FFADAD #FFADAD #FFADAD
     '';
   };
 }
