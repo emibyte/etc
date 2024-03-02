@@ -13,10 +13,9 @@ let
 in
 {
   imports = [ 
-      # ./modules/home/wayland/waybar/default.nix
-      # ./modules/home/wayland/sway.nix 
       ./modules/home/nvim
       ./modules/home/wezterm
+      ./modules/home/wayland
       ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.

@@ -42,8 +42,6 @@
               home-manager.users.fevy = {
                 imports = [ 
                     ./home.nix 
-                    ./modules/home/wayland/waybar/default.nix
-                    ./modules/home/wayland/sway.nix 
                 ];
               };
             }

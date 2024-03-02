@@ -1,43 +1,6 @@
 { pkgs, ... }:
 {
-
-  imports = [ 
-  ./rofi.nix 
-  ./kanshi.nix
-  ];
-
-  home.packages = with pkgs; [
-    swaylock-fancy
-    swayidle
-    wl-clipboard
-    mako
-    wofi
-    waybar
-    swaybg
-
-    wdisplays
-    wlr-randr
-  ];
-
-  # programs.rofi.package = pkgs.rofi-wayland;
-
-  home.sessionVariables = {
-    NIXOS_OZONE_WL = 1;
-
-    SDL_VIDEODRIVER = "wayland";
-    QT_QPA_PLATFORM = "wayland";
-    QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-    _JAVA_AWT_WM_NONREPARENTING = "1";
-    XDG_SESSION_TYPE = "wayland";
-  };
-
-  programs.swaylock = {
-      enable = true;
-      package = pkgs.swaylock-fancy;
-      settings = {
-          daemonize = true;
-      };
-  };
+  imports = [ ./bindings.nix ];
 
   wayland.windowManager.sway = {
     enable = true;
@@ -46,11 +9,6 @@
       terminal = "wezterm";
       menu = "rofi -show run";
       bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
-      # output = {
-      #   eDP-1 = {
-      #     scale = "1";
-      #   };
-      # };
       input = {
         "type:keyboard" = {
           xkb_layout = "de";

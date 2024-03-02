@@ -102,6 +102,7 @@ in
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # TODO: move to sound.nix file that i still need to create
   # Enable sound with pipewire.
   sound.enable = false;
   hardware.pulseaudio.enable = false;
@@ -153,8 +154,12 @@ in
       git
       killall
       ckb-next
+
+      # TODO: move this into a sound.nix file
       pulseaudio
       pavucontrol
+      playerctl
+
       where-is-my-sddm-theme
       catppuccin-sddm-corners
       sddm-chili-theme
