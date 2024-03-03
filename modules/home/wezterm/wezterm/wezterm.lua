@@ -22,6 +22,8 @@ config.adjust_window_size_when_changing_font_size = false;
 config.colors = {}
 config.colors.background = '#111111'
 
+config.enable_tab_bar = false
+
 -- wezterm.font = {
 --     family = 'Iosevka Term',
 --     stretch = 'Expanded',
@@ -31,6 +33,7 @@ config.colors.background = '#111111'
 
 config.font = wezterm.font_with_fallback {
     'JetBrainsMono Nerd Font Mono',
+    'Font Awesome 6 Brands',
     -- 'FantasqueSansM Nerd Font',
 }
 

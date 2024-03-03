@@ -8,9 +8,9 @@ nixos config
 - [ ] dap for debuggin
 - [x] autocompletion
 - [x] sway
-- [ ] vim alias for nvim
-- [ ] rofi theme (preferably catppuccin)
+- [x] vim alias for nvim
+- [x] rofi theme (preferably catppuccin)
 - [ ] vesktop!?
 - [ ] consider p10k instead of starship (font awesome 5)
-- [ ] waybar shutdown / logout menu button (maybe nwgbar or use rofi?!)
+- [x] waybar shutdown / logout menu button (maybe nwgbar or use rofi?!)
 - [ ] write a script to kill ckb-next process and restart it

@@ -30,6 +30,8 @@ in
     rebuild-system
     ghc
 
+    pkgs.librewolf
+    pkgs.font-awesome
     pkgs.emacs29
 
     pkgs.keepassxc
