@@ -63,8 +63,8 @@ in
   services.xserver = {
     enable = true;
 
-    layout = "de";
-    xkbVariant = "";
+    xkb.layout = "de";
+    xkb.variant = "";
 
     displayManager = {
       sddm.wayland.enable = true;

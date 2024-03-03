@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }: {
-  # TODO: understand this file lmao
-  #       did this because for some reason as soon as im importing some
-  #       some keybinds from this file all default keybinds from sway are gone.
+  # NOTE: this overwrites everything and removes all default sway bindings
+  #       if i just wanted to add a few bindings i should use
+  #       lib.mkOptionDefault {}
 
   wayland.windowManager.sway = {
     config =
@@ -18,6 +18,28 @@
               '';
             in
             "exec ${lock}";
+
+          "${mod}+p" =
+            let
+              powermenu = pkgs.writeShellScript "powermenu" ''
+                                entries="⇠ Logout\n⏾ Suspend\n⭮ Reboot\n⏻ Shutdown"
+
+                selected=$(echo -e $entries | ${pkgs.wofi}/bin/wofi --width 250 --height 240 -i --dmenu | awk '{print tolower($2)}')
+
+                case $selected in
+                  logout)
+                    pkill -u fevy;;
+                  suspend)
+                    exec systemctl suspend;;
+                  reboot)
+                    exec systemctl reboot;;
+                  shutdown)
+                    exec systemctl poweroff;;
+                    # it used to be poweroff -i
+                esac
+              '';
+            in
+            "exec ${powermenu}";
 
           XF86MonBrightnessUp = "exec ${pkgs.light}/bin/light -A 10";
           XF86MonBrightnessDown = "exec ${pkgs.light}/bin/light -U 10";
@@ -61,16 +83,6 @@
           }
         )
         // {
-          # Toggle touchpad
-          F9 =
-            let
-              showTouchpadState = pkgs.writeShellScript "show-touchpad-state" ''
-                status=$(swaymsg -t get_inputs | ${pkgs.jq}/bin/jq --raw-output '.[] | select(.type=="touchpad") | .libinput.send_events')
-                notify-send "Touchpad $status"
-              '';
-            in
-            "input type:touchpad events toggle enabled disabled; exec ${showTouchpadState}";
-
           # Bluetooth
           "${mod}+i" = "exec ${pkgs.blueman}/bin/blueman-manager";
           "${mod}+Shift+i" = "exec doas rfkill unblock bluetooth";
@@ -162,7 +174,6 @@
 
           "${mod}+a" = "workspace number 1";
         }
-        # TODO: im still not sure how this works but it does
         // (
           lib.listToAttrs (
             lib.flatten (

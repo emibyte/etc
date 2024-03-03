@@ -21,9 +21,9 @@
       };
 
       startup = [
-      { command = "systemctl --user import-environment"; }
-      { command = "autotiling"; }
-      { command = "ckb-next --background"; }
+      # { command = "systemctl --user import-environment"; }
+      # { command = "autotiling"; }
+      # { command = "ckb-next --background"; }
       {
         command = let
           setWallpaper = pkgs.writeShellScript "set-wallpaper" ''
