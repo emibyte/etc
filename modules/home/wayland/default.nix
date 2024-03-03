@@ -2,9 +2,9 @@
   imports = [
     ./sway
     ./waybar
+    ./rofi
     ./kanshi.nix
     ./swaylock.nix
-    ./rofi.nix
   ];
 
   home.packages = with pkgs; [

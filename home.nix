@@ -16,11 +16,14 @@ in
       ./modules/home/nvim
       ./modules/home/wezterm
       ./modules/home/wayland
+      ./modules/home/themes
       ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "fevy";
   home.homeDirectory = "/home/fevy";
+
+  fonts.fontconfig.enable = true;
 
   # Packages that should be installed to the user profile.
   home.packages = [
