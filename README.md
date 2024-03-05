@@ -2,15 +2,15 @@
 nixos config
 
 # TODOs
-- [ ] redo the lsp bindings to what im used to
+- [ ] nvim lsp bindings / code actions
 - [ ] same for telescope/fuzzy finder
-- [ ] implement context menu for keybinds similar to kickstart
+- [ ] which-key-nvim for context window
 - [ ] dap for debuggin
 - [x] autocompletion
 - [x] sway
 - [x] vim alias for nvim
 - [x] rofi theme (preferably catppuccin)
+- [x] waybar shutdown / logout menu button (maybe nwgbar or use rofi?!)
 - [ ] vesktop!?
 - [ ] consider p10k instead of starship (font awesome 5)
-- [x] waybar shutdown / logout menu button (maybe nwgbar or use rofi?!)
 - [ ] write a script to kill ckb-next process and restart it

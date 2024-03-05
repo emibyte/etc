@@ -131,7 +131,7 @@ in
 
   programs.git = {
     enable = true;
-    userName = "FevyFevy";
+    userName = "emibyte";
     userEmail = "fevymarine@gmail.com";
   };
 
