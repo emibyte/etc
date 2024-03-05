@@ -42,7 +42,7 @@
               home-manager.useUserPackages = true;
               home-manager.users.fevy = {
                 imports = [ 
-                    ./home.nix 
+                    ./home
                 ];
               };
             }

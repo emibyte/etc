@@ -13,10 +13,10 @@ let
 in
 {
   imports = [ 
-      ./modules/home/nvim
-      ./modules/home/wezterm
-      ./modules/home/wayland
-      ./modules/home/themes
+      ./nvim
+      ./wezterm
+      ./wayland
+      ./themes
       ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
