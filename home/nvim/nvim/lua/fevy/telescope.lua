@@ -19,7 +19,8 @@ local function init()
 
     -- Builtin
     map('n', '<leader>fg', '<CMD>lua require("telescope.builtin").git_files{}<CR>', options)
-    map('n', '<leader>sf', '<CMD>lua require("telescope.builtin").find_files{ hidden = true }<CR>', { desc = '[S]earch [F]iles' })
+    map('n', '<leader>sf', '<CMD>lua require("telescope.builtin").find_files{ hidden = true }<CR>',
+        { desc = '[S]earch [F]iles' })
     map('n', '<leader>sg', '<CMD>lua require("telescope.builtin").live_grep()<CR>', options)
     map('n', '<leader>sb', '<CMD>lua require("telescope.builtin").buffers()<CR>', options)
     map('n', '<leader>fh', '<CMD>lua require("telescope.builtin").help_tags()<CR>', options)

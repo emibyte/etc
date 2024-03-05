@@ -15,3 +15,5 @@ nixos config
 - [ ] consider p10k instead of starship (font awesome 5)
 - [ ] write a script to kill ckb-next process and restart it
 - [ ] modularize configuration.nix in system folder!
+- [ ] build a cute custom startpage for librewolf
+- [ ] gui for nm
