@@ -141,12 +141,14 @@ in
 
   programs.htop = {
     enable = true;
+    package = pkgs.htop-vim;
     settings = {
       tree_view = true;
       hide_userland_threads = true;
       show_program_path = false;
       highlight_base_name = true;
       color_scheme = 6;
+      vim_mode = true;
     };
   };
 
