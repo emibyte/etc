@@ -17,6 +17,7 @@ in
       ./wezterm
       ./wayland
       ./themes
+      ./firefox.nix
       ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -30,7 +31,6 @@ in
     rebuild-system
     ghc
 
-    pkgs.librewolf
     pkgs.font-awesome
     pkgs.emacs29
 
