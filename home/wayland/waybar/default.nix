@@ -2,8 +2,6 @@
   programs.waybar = {
     enable = true;
 
-    # systemd.enable = true;
-
     settings = [
       (
         {
@@ -15,7 +13,8 @@
           fixed-center = false;
 
           modules-left = ["sway/workspaces"];
-          modules-center = ["custom/spotify"];
+          # TODO: spotify
+          # modules-center = ["custom/spotify"];
           modules-right = [
             "tray"
             "memory"
@@ -25,7 +24,7 @@
             "network"
             "clock"
             "clock#date"
-
+            "custom/notifs"
           ];
         }
         // (import ./modules pkgs)

@@ -85,6 +85,8 @@ pkgs: {
     format = "  {:%d/%m/%Y}";
   };
 
+  "custom/notifs" = import ./notifs.nix pkgs;
+
   tray = {
     icon-size = 20;
     spacing = 10;

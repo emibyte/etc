@@ -28,10 +28,10 @@ in
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
-    gtk3.extraCss = ''
-      decoration { box-shadow: none; }
-      decoration: backdrop { box-shadow: none; }
-    '';
+     gtk3.extraCss = ''
+       decoration { box-shadow: none; }
+       decoration: backdrop { box-shadow: none; }
+     '';
 
     gtk4.extraConfig = {
       gtk-application-prefer-dark-theme = true;

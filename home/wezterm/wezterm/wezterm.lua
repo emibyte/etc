@@ -19,8 +19,9 @@ config.adjust_window_size_when_changing_font_size = false;
 -- config.hide_mouse_cursor_when_typing = false;
 
 -- Set background to same color as neovim
-config.colors = {}
-config.colors.background = '#111111'
+-- config.colors = {}
+-- config.colors.background = '#111111'
+config.color_scheme = "Catppuccin Mocha"
 
 config.enable_tab_bar = false
 
