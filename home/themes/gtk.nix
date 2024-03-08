@@ -1,4 +1,12 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+let
+  cursor = {
+    name = "Catppuccin-Macchiato-Pink-Cursors";
+    package = pkgs.catppuccin-cursors.macchiatoPink;
+  };
+in
+{
+  home.pointerCursor = cursor;
   gtk = {
     enable = true;
     # font = {
