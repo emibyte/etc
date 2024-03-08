@@ -18,3 +18,5 @@ nixos config
 - [ ] build a cute custom startpage for firefox
 - [ ] gui for nm
 - [ ] cabal2nix (flake setups for projects in general)
+- [ ] modularize home/default.nix into multiple files for the seperate programs cfgs
+- [ ] swyidle
