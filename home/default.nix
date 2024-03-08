@@ -38,7 +38,6 @@ in
     pkgs.aseprite
 
     pkgs.wezterm
-    pkgs.starship
 
     # corsair opensource driver
     # pkgs.ckb-next
@@ -104,6 +103,8 @@ in
 
   programs.starship = {
     enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
     settings = {
       character = {
         success_symbol = "[➜](bold green)";
@@ -111,7 +112,7 @@ in
       };
 
       nix_shell = {
-        format = "[$symbol$state]($style) ";
+        format = "[$symbol $state]($style) ";
         symbol = "❄️";
       };
     };
@@ -122,10 +123,11 @@ in
   programs.zsh = {
     enable = true;
     enableAutosuggestions = true;
+    syntaxHighlighting.enable = true;
     enableCompletion = true;
     oh-my-zsh = {
-      enable = false;
-      theme = "robbyrussell";
+      enable = true;
+      plugins = [ "git" ];
     };
   };
 

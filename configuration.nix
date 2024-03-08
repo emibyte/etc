@@ -122,6 +122,7 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  # TODO: zsh.nix file in system
   # enabling zsh shell
   programs.zsh.enable = true;
 
