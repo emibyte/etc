@@ -1,5 +1,4 @@
-{ pkgs, ... }: 
-let
+{pkgs, ...}: let
   dunstctl = "${pkgs.dunst}/bin/dunstctl";
 in {
   interval = 1;

@@ -1,5 +1,8 @@
-{ config, pkgs, ... }:
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   # for this command to work the hostname has to match the a profile in the flake.nix
   rebuild-system = pkgs.writeShellScriptBin "rebuild-system" ''
     nixos-rebuild switch --flake ${config.home.homeDirectory}/etc --verbose
@@ -10,16 +13,15 @@ let
     hspkgs.cabal-install
     hspkgs.safe
   ]);
-in
-{
-  imports = [ 
-      ./nvim
-      ./wezterm
-      ./wayland
-      ./themes
-      ./firefox.nix
-      ./dunst.nix
-      ];
+in {
+  imports = [
+    ./nvim
+    ./wezterm
+    ./wayland
+    ./themes
+    ./firefox.nix
+    ./dunst.nix
+  ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "fevy";
@@ -128,7 +130,7 @@ in
     enableCompletion = true;
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" ];
+      plugins = ["git"];
     };
   };
 

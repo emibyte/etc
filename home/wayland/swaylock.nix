@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.swaylock = {
     enable = true;
     # NOTE: this doesnt seem to do anything

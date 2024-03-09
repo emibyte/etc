@@ -15,7 +15,6 @@
         background = "#282828";
         foreground = "#ffffff";
         timeout = 2;
-
       };
 
       urgency_low = {};

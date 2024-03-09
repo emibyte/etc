@@ -1,81 +1,87 @@
-{ inputs, outputs, lib, config, pkgs, ... }:
-
 {
-    nixpkgs = {
-        overlays = [
-            (_: _:
-             {
-             awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-luajit-git;
-             })
-        ];
+  inputs,
+  outputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  nixpkgs = {
+    overlays = [
+      (_: _: {
+        awesome = inputs.nixpkgs-f2k.packages.${pkgs.system}.awesome-luajit-git;
+      })
+    ];
+  };
+
+  environment = {
+    systemPackages = lib.attrValues {
+      inherit
+        (pkgs)
+        brightnessctl
+        inotify-tools
+        libnotify
+        pavucontrol
+        skippy-xd
+        xlockmore
+        ;
+    };
+  };
+
+  programs = {
+    nm-applet = {
+      enable = true;
+      indicator = false;
     };
 
-    environment = {
-        systemPackages = lib.attrValues {
-            inherit (pkgs)
-                brightnessctl
-                inotify-tools
-                libnotify
-                pavucontrol
-                skippy-xd
-                xlockmore;
-        };
+    thunar = {
+      enable = true;
+
+      plugins = with pkgs.xfce; [
+        thunar-archive-plugin
+        thunar-media-tags-plugin
+        thunar-volman
+      ];
     };
 
-    programs = {
-        nm-applet = {
-            enable = true;
-            indicator = false;
-        };
-
-        thunar = {
-            enable = true;
-
-            plugins = with pkgs.xfce; [
-                thunar-archive-plugin
-                    thunar-media-tags-plugin
-                    thunar-volman
-            ];
-        };
-
-        xss-lock = {
-            enable = true;
-            lockerCommand = "${pkgs.xlockmore}/bin/xlock -mode dclock";
-        };
+    xss-lock = {
+      enable = true;
+      lockerCommand = "${pkgs.xlockmore}/bin/xlock -mode dclock";
     };
+  };
 
-    security.pam.services.lightdm.enableGnomeKeyring = true;
+  security.pam.services.lightdm.enableGnomeKeyring = true;
 
-    services = {
-        blueman.enable = true;
-        tumbler.enable = true;
+  services = {
+    blueman.enable = true;
+    tumbler.enable = true;
 
-        xserver = {
-            enable = true;
+    xserver = {
+      enable = true;
 
-            displayManager = {
-                autoLogin = {
-                    enable = false;
-                    user = "fevy";
-                };
-
-                defaultSession = "none+awesome";
-
-                lightdm = {
-                    enable = true;
-                    greeters.gtk.enable = true;
-                };
-            };
-
-            windowManager = {
-                awesome = {
-                    enable = true;
-
-                    luaModules = lib.attrValues {
-                        inherit (pkgs.luajitPackages) lgi ldbus luadbi-mysql luaposix;
-                    };
-                };
-            };
+      displayManager = {
+        autoLogin = {
+          enable = false;
+          user = "fevy";
         };
+
+        defaultSession = "none+awesome";
+
+        lightdm = {
+          enable = true;
+          greeters.gtk.enable = true;
+        };
+      };
+
+      windowManager = {
+        awesome = {
+          enable = true;
+
+          luaModules = lib.attrValues {
+            inherit (pkgs.luajitPackages) lgi ldbus luadbi-mysql luaposix;
+          };
+        };
+      };
     };
+  };
 }

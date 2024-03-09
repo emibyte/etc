@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.file."nvim" = {
     source = ./nvim;
     target = ".config/nvim";

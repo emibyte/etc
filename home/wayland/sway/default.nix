@@ -1,6 +1,5 @@
-{ pkgs, ... }:
-{
-  imports = [ ./bindings.nix ];
+{pkgs, ...}: {
+  imports = [./bindings.nix];
 
   wayland.windowManager.sway = {
     enable = true;
@@ -8,7 +7,7 @@
       modifier = "Mod4";
       terminal = "wezterm";
       menu = "rofi -show run";
-      bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
+      bars = [{command = "${pkgs.waybar}/bin/waybar";}];
       input = {
         "type:keyboard" = {
           xkb_layout = "de";
@@ -21,22 +20,22 @@
       };
 
       startup = [
-      { command = "systemctl --user import-environment"; }
-      { command = "autotiling"; }
-      { command = "ckb-next --background"; }
-      {
-        command = let
-          setWallpaper = pkgs.writeShellScript "set-wallpaper" ''
-            ${pkgs.killall}/bin/killall swaybg
-            ${pkgs.swaybg}/bin/swaybg -m fill -i ${/home/fevy/wps/LaptopWPs/wallhaven-85prg1_2560x1600.png}
-          '';
+        {command = "systemctl --user import-environment";}
+        {command = "autotiling";}
+        {command = "ckb-next --background";}
+        {
+          command = let
+            setWallpaper = pkgs.writeShellScript "set-wallpaper" ''
+              ${pkgs.killall}/bin/killall swaybg
+              ${pkgs.swaybg}/bin/swaybg -m fill -i ${/home/fevy/wps/LaptopWPs/wallhaven-85prg1_2560x1600.png}
+            '';
           in "${setWallpaper}";
           always = true;
-      }
-      { 
-          command = "${pkgs.kanshi}/bin/kanshi"; 
+        }
+        {
+          command = "${pkgs.kanshi}/bin/kanshi";
           always = true;
-      }
+        }
       ];
       window.border = 3;
       window.titlebar = false;

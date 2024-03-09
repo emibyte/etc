@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   imports = [
     ./sway
     ./waybar
@@ -31,5 +31,4 @@
 
     WLR_NO_HARDWARE_CURSORS = 1;
   };
-
 }

@@ -1,45 +1,45 @@
-{ pkgs, config, lib, ... }: {
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   # NOTE: this overwrites everything and removes all default sway bindings
   #       if i just wanted to add a few bindings i should use
   #       lib.mkOptionDefault {}
 
   wayland.windowManager.sway = {
-    config =
-      let
-        mod = "Mod4";
-      in
-      {
-        keybindings = {
+    config = let
+      mod = "Mod4";
+    in {
+      keybindings =
+        {
           # TODO: use swaylock-effects here with --clock
-          "${mod}+F12" =
-            let
-              lock = pkgs.writeShellScript "lock" ''
-                ${pkgs.swaylock}/bin/swaylock
-              '';
-            in
-            "exec ${lock}";
+          "${mod}+F12" = let
+            lock = pkgs.writeShellScript "lock" ''
+              ${pkgs.swaylock}/bin/swaylock
+            '';
+          in "exec ${lock}";
 
-          "${mod}+p" =
-            let
-              powermenu = pkgs.writeShellScript "powermenu" ''
-                                entries="⇠ Logout\n⏾ Suspend\n⭮ Reboot\n⏻ Shutdown"
+          "${mod}+p" = let
+            powermenu = pkgs.writeShellScript "powermenu" ''
+                              entries="⇠ Logout\n⏾ Suspend\n⭮ Reboot\n⏻ Shutdown"
 
-                selected=$(echo -e $entries | ${pkgs.wofi}/bin/wofi --width 250 --height 240 -i --dmenu | awk '{print tolower($2)}')
+              selected=$(echo -e $entries | ${pkgs.wofi}/bin/wofi --width 250 --height 240 -i --dmenu | awk '{print tolower($2)}')
 
-                case $selected in
-                  logout)
-                    pkill -u fevy;;
-                  suspend)
-                    exec systemctl suspend;;
-                  reboot)
-                    exec systemctl reboot;;
-                  shutdown)
-                    exec systemctl poweroff;;
-                    # it used to be poweroff -i
-                esac
-              '';
-            in
-            "exec ${powermenu}";
+              case $selected in
+                logout)
+                  pkill -u fevy;;
+                suspend)
+                  exec systemctl suspend;;
+                reboot)
+                  exec systemctl reboot;;
+                shutdown)
+                  exec systemctl poweroff;;
+                  # it used to be poweroff -i
+              esac
+            '';
+          in "exec ${powermenu}";
 
           XF86MonBrightnessUp = "exec ${pkgs.light}/bin/light -A 10";
           XF86MonBrightnessDown = "exec ${pkgs.light}/bin/light -U 10";
@@ -55,8 +55,7 @@
 
             volumeDown = "${commandPrefix} -5%";
             volumeUp = "${commandPrefix} +5%";
-          in
-          {
+          in {
             "${mod}+Up" = volumeUp;
             XF86AudioRaiseVolume = volumeUp;
 
@@ -72,8 +71,7 @@
 
             next = "${playerctl} next";
             previous = "${playerctl} previous";
-          in
-          {
+          in {
             XF86AudioPlay = "${playerctl} play-pause";
             XF86AudioPause = "${playerctl} pause";
             XF86AudioNext = next;
@@ -178,44 +176,44 @@
           lib.listToAttrs (
             lib.flatten (
               lib.mapAttrsToList
-                (
-                  wsNumber: key: [
-                    {
-                      name = "${mod}+${key}";
-                      value = "workspace number ${wsNumber}";
-                    }
-                    {
-                      name = "${mod}+Shift+${key}";
-                      value = "move container to workspace number ${wsNumber}";
-                    }
-                  ]
-                )
-                {
-                  "1" = "1";
-                  "2" = "2";
-                  "3" = "3";
-                  "4" = "4";
-                  "5" = "5";
-                  "6" = "6";
-                  "7" = "7";
-                  "8" = "8";
-                  "9" = "9";
-                  "10" = "0";
-                }
+              (
+                wsNumber: key: [
+                  {
+                    name = "${mod}+${key}";
+                    value = "workspace number ${wsNumber}";
+                  }
+                  {
+                    name = "${mod}+Shift+${key}";
+                    value = "move container to workspace number ${wsNumber}";
+                  }
+                ]
+              )
+              {
+                "1" = "1";
+                "2" = "2";
+                "3" = "3";
+                "4" = "4";
+                "5" = "5";
+                "6" = "6";
+                "7" = "7";
+                "8" = "8";
+                "9" = "9";
+                "10" = "0";
+              }
             )
           )
         );
 
-        modes = {
-          resize = {
-            h = "resize shrink width 20 px";
-            j = "resize grow height 20 px";
-            k = "resize shrink height 20 px";
-            l = "resize grow width 20 px";
-            Escape = "mode default";
-            Return = "mode default";
-          };
+      modes = {
+        resize = {
+          h = "resize shrink width 20 px";
+          j = "resize grow height 20 px";
+          k = "resize shrink height 20 px";
+          l = "resize grow width 20 px";
+          Escape = "mode default";
+          Return = "mode default";
         };
       };
+    };
   };
 }

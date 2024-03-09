@@ -46,19 +46,19 @@ pkgs: {
   };
 
   network = {
-      format-wifi = "";
-      format-disconnected = "睊";
-      tooltip = true;
-      tooltip-format = "{essid} @ {signalStrength}%";
+    format-wifi = "";
+    format-disconnected = "睊";
+    tooltip = true;
+    tooltip-format = "{essid} @ {signalStrength}%";
 
-      format = "{ifname}";
-      format-ethernet = "󰈀 {ipaddr}";
+    format = "{ifname}";
+    format-ethernet = "󰈀 {ipaddr}";
   };
 
   memory = {
-      interval = 5;
-      format = "󰍛 {}%";
-      max-length = 10;
+    interval = 5;
+    format = "󰍛 {}%";
+    max-length = 10;
   };
 
   battery = {

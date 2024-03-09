@@ -1,18 +1,17 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
-let
-  user = "fevy";
-in
 {
-  imports =
-    [
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: let
+  user = "fevy";
+in {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -82,7 +81,7 @@ in
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   security.polkit.enable = true;
-  security.pam.services.swaylock = { };
+  security.pam.services.swaylock = {};
   hardware.opengl.enable = true;
 
   xdg = {
@@ -130,7 +129,7 @@ in
   users.users.${user} = {
     isNormalUser = true;
     description = "fevy";
-    extraGroups = [ "networkmanager" "wheel" "input" "tty" "audio" "video" ];
+    extraGroups = ["networkmanager" "wheel" "input" "tty" "audio" "video"];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox
@@ -150,7 +149,7 @@ in
       VISUAL = "nvim";
     };
     # to enable zsh completion for system packages like systemd
-    pathsToLink = [ "/share/zsh" ];
+    pathsToLink = ["/share/zsh"];
     systemPackages = with pkgs; [
       #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
