@@ -1,4 +1,5 @@
 {pkgs, ...}: {
+
   programs.waybar = {
     enable = true;
 
@@ -27,6 +28,8 @@
             "custom/notifs"
           ];
         }
+        # NOTE: import cannot use variables that are in scope
+        #       which means pkgs needs to be passed as an arg
         // (import ./modules pkgs)
       )
     ];
