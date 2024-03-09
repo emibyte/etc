@@ -15,6 +15,7 @@
     wofi
     waybar
     swaybg
+    wtype
 
     wdisplays
     wlr-randr

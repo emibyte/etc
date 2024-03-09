@@ -9,11 +9,12 @@
     #
     #      font = "JetBrains Sans Mono 16";
     #      theme = "purple";
+    package = (pkgs.rofi-wayland.override {plugins = [ pkgs.rofi-emoji ];});
     font = "Fira Code 16";
     extraConfig = {
       case-sensitive = false;
       display-drun = "Apps:";
-      modi = ["drun" "run"];
+      modi = ["drun" "run" "emoji"];
       show-icons = true;
     };
     pass = {
@@ -24,6 +25,7 @@
     plugins = with pkgs; [
       rofi-bluetooth
       rofi-pulse-select
+      rofi-emoji
     ];
     theme = let
       mkLiteral = config.lib.formats.rasi.mkLiteral;
