@@ -35,7 +35,6 @@ in {
     ghc
 
     pkgs.font-awesome
-    pkgs.emacs29
 
     pkgs.keepassxc
     pkgs.aseprite

@@ -31,7 +31,7 @@
             powermenu = pkgs.writeShellScript "powermenu" ''
                               entries="⇠ Logout\n⏾ Suspend\n⭮ Reboot\n⏻ Shutdown"
 
-              selected=$(echo -e $entries | ${pkgs.wofi}/bin/wofi --width 250 --height 240 -i --dmenu | awk '{print tolower($2)}')
+              selected=$(echo -e $entries | ${config.programs.rofi.package}/bin/rofi --width 250 --height 240 -dmenu -i | awk '{print tolower($2)}')
 
               case $selected in
                 logout)
