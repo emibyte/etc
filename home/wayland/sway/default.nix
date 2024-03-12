@@ -21,7 +21,7 @@
 
       startup = [
         {command = "systemctl --user import-environment";}
-        {command = "autotiling";}
+        {command = "${pkgs.autotiling}/bin/autotiling";}
         {command = "ckb-next --background";}
         {
           command = let

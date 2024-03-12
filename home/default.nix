@@ -53,6 +53,8 @@ in {
     pkgs.gdb
     pkgs.ripgrep
     pkgs.tree
+    # probably dont need it but dunno
+    pkgs.autotiling
 
     # pkgs that are (pretty much) exclusively for nvim
     # could be under programs.neovim.extraPackages but not sure

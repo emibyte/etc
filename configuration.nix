@@ -169,7 +169,6 @@ in {
       sddm-chili-theme
       # dependency for catppuccin-sddm-corners
       libsForQt5.sddm
-      autotiling
     ];
   };
 
