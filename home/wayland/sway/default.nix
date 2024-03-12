@@ -23,7 +23,6 @@
         {command = "systemctl --user import-environment";}
         {command = "${pkgs.autotiling}/bin/autotiling";}
         {command = "ckb-next --background";}
-        {command = "${pkgs.networkmanagerapplet}/bin/nm-applet";}
         {
           command = let
             setWallpaper = pkgs.writeShellScript "set-wallpaper" ''

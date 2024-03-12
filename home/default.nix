@@ -104,6 +104,7 @@ in {
   ];
 
   services.sxhkd.enable = true;
+  services.network-manager-applet.enable = true;
 
   programs.starship = {
     enable = true;
