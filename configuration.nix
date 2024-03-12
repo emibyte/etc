@@ -153,16 +153,17 @@ in {
     systemPackages = with pkgs; [
       #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
       wget
+      curl
       neovim
       git
       killall
-      ckb-next
 
       # TODO: move this into a sound.nix file
       pulseaudio
       pavucontrol
       playerctl
 
+      # TODO: sddm stuff needs a seperate file
       where-is-my-sddm-theme
       catppuccin-sddm-corners
       sddm-chili-theme
