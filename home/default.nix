@@ -24,8 +24,8 @@ in {
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "fevy";
-  home.homeDirectory = "/home/fevy";
+  home.username = "emily";
+  home.homeDirectory = "/home/emily";
 
   fonts.fontconfig.enable = true;
 

@@ -35,7 +35,7 @@
 
               case $selected in
                 logout)
-                  pkill -u fevy;;
+                  pkill -u emily;;
                 suspend)
                   exec systemctl suspend;;
                 reboot)

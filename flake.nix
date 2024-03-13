@@ -45,7 +45,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.fevy = {
+            home-manager.users.emily = {
               imports = [
                 ./home
               ];

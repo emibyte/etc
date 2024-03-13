@@ -7,7 +7,7 @@
     settings = {
       daemonize = true;
 
-      image = builtins.toString /home/fevy/wps/LaptopWPs/wallhaven-wewl9r_2560x1600.png;
+      image = builtins.toString ./wallhaven-wewl9r_2560x1600.png;
       indicator-x-position = 100;
       indicator-y-position = 100;
     };

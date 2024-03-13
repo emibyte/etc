@@ -6,7 +6,7 @@
   pkgs,
   ...
 }: let
-  user = "fevy";
+  user = "emily";
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -128,7 +128,7 @@ in {
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.${user} = {
     isNormalUser = true;
-    description = "fevy";
+    description = "emily";
     extraGroups = ["networkmanager" "wheel" "input" "tty" "audio" "video"];
     shell = pkgs.zsh;
     packages = with pkgs; [
