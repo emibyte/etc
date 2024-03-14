@@ -27,7 +27,7 @@
           command = let
             setWallpaper = pkgs.writeShellScript "set-wallpaper" ''
               ${pkgs.killall}/bin/killall swaybg
-              ${pkgs.swaybg}/bin/swaybg -m fill -i ./wallhaven-85prg1_2560x1600.png
+              ${pkgs.swaybg}/bin/swaybg -m fill -i ${/home/emily/wps/wallhaven-85prg1_2560x1600.png}
             '';
           in "${setWallpaper}";
           always = true;

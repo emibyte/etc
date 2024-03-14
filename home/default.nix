@@ -37,7 +37,7 @@ in {
     pkgs.font-awesome
 
     pkgs.keepassxc
-    pkgs.aseprite
+    # pkgs.aseprite
 
     pkgs.wezterm
 
