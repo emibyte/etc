@@ -2,7 +2,7 @@
 nixos config
 
 > [!NOTE]
-> surely i will finish my todos at some point.
+> i am bad at programming and so this config is not very pretty or good
 
 # TODOs
 - [ ] nvim lsp bindings / code actions
