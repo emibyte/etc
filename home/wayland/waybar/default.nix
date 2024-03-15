@@ -14,7 +14,7 @@
 
           modules-left = ["sway/workspaces"];
           # TODO: spotify
-          # modules-center = ["custom/spotify"];
+          # modules-center = ["clock" "clock#date"];
           modules-right = [
             "tray"
             "memory"
@@ -34,6 +34,6 @@
     ];
     style = builtins.readFile ./style.css;
   };
-  xdg.configFile."waybar/mocha.css".text =
-    builtins.readFile ./mocha.css;
+  xdg.configFile."waybar/frappe.css".text =
+    builtins.readFile ./frappe.css;
 }
