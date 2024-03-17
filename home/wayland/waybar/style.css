@@ -50,6 +50,7 @@ window#waybar.hidden {
 #battery,
 #bluetooth,
 #clock,
+#clock-date
 #cpu,
 #disk,
 #idle_inhibitor,
@@ -65,19 +66,10 @@ window#waybar.hidden {
 #temperature,
 #tray,
 #window,
-#wireplumber,
-#workspaces,
-#custom-backlight,
-#custom-cycle_wall,
-#custom-keybinds,
-#custom-keyboard,
-#custom-light_dark,
-#custom-lock,
-#custom-menu,
-#custom-power_vertical,
-#custom-power,
-#custom-swaync,
-#custom-updater,
+#workspaces
+{
+    padding: 0 8px;
+}
 
 #idle_inhibitor {
   color: @blue;
@@ -154,19 +146,20 @@ window#waybar.hidden {
 }
 
 #workspaces button {
+    all: initial;
     box-shadow: none;
 	text-shadow: none;
     padding: 0px;
     border-radius: 9px;
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 #workspaces button:hover {
 	border-radius: 10px;
 	color: @overlay0;
 	background-color: @surface0;
-	padding-left: 2px;
+    padding-left: 2px;
     padding-right: 2px;
 }
 
