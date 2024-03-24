@@ -14,7 +14,7 @@
 
           modules-left = ["sway/workspaces"];
           # TODO: spotify
-          # modules-center = ["clock" "clock#date"];
+          modules-center = ["sway/window"];
           modules-right = [
             "tray"
             "memory"
