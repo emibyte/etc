@@ -10,7 +10,8 @@ nixos config
 - [ ] same for telescope/fuzzy finder
 - [ ] which-key-nvim for context window
 - [ ] dap for debuggin
-- [ ] better waybar
+- [x] better waybar
+- [x] rofi catppuccin theme
 - [x] autocompletion
 - [x] sway
 - [x] vim alias for nvim

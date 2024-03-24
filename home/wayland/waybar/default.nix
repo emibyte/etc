@@ -14,10 +14,11 @@
 
           modules-left = ["sway/workspaces"];
           # TODO: spotify
-          modules-center = ["sway/window"];
+          # modules-center = ["sway/window"];
           modules-right = [
             "tray"
             "memory"
+            "cpu"
             "pulseaudio"
             "backlight"
             "battery"

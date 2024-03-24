@@ -5,10 +5,7 @@
 }: {
   programs.rofi = {
     enable = true;
-    #      package = pkgs.rofi-wayland;
-    #
-    #      font = "JetBrains Sans Mono 16";
-    #      theme = "purple";
+
     package = pkgs.rofi-wayland.override {plugins = [pkgs.rofi-emoji];};
     font = "Fira Code 16";
     extraConfig = {
@@ -26,6 +23,9 @@
       rofi-bluetooth
       rofi-pulse-select
     ];
+    theme = ./catppuccin-frappe.rasi;
+
+    /*
     theme = let
       mkLiteral = config.lib.formats.rasi.mkLiteral;
     in {
@@ -101,5 +101,6 @@
         border-color = mkLiteral "@ac";
       };
     };
+    */
   };
 }

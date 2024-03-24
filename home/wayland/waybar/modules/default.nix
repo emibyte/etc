@@ -2,16 +2,16 @@ pkgs: {
   # LEFT
   "sway/workspaces" = {
     persistent-workspaces = {
-       "1" = [];
-       "2" = [];
-       "3" = [];
-       "4" = [];
-       "5" = [];
-       "6" = [];
-       "7" = [];
-       "8" = [];
-       "9" = [];
-       "10" = [];
+      "1" = [];
+      "2" = [];
+      "3" = [];
+      "4" = [];
+      "5" = [];
+      "6" = [];
+      "7" = [];
+      "8" = [];
+      "9" = [];
+      "10" = [];
     };
     enable-bar-scroll = true;
     disable-scroll-wraparound = true;
@@ -56,8 +56,13 @@ pkgs: {
 
   memory = {
     interval = 5;
-    format = "󰍛 {}%";
+    format = " {:02}%";
     max-length = 10;
+  };
+
+  cpu = {
+    format = "󰍛 {usage:02}%";
+    interval = 5;
   };
 
   battery = {
