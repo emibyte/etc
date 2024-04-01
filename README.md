@@ -6,6 +6,7 @@ nixos config
 
 # TODOs
 - [ ] be insane and write my own emacs cfg so i can stop using nvim
+- [ ] try brave
 - [ ] nvim lsp bindings / code actions
 - [ ] same for telescope/fuzzy finder
 - [ ] which-key-nvim for context window

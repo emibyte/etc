@@ -21,6 +21,7 @@ in {
     ./themes
     ./firefox.nix
     ./dunst.nix
+    ./emacs.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -33,6 +34,8 @@ in {
   home.packages = [
     rebuild-system
     ghc
+
+    pkgs.brave
 
     pkgs.font-awesome
 
