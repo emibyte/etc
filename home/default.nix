@@ -130,7 +130,7 @@ in {
   # to happen on system level (configuration.nix)
   programs.zsh = {
     enable = true;
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     enableCompletion = true;
     oh-my-zsh = {

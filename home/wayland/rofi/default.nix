@@ -11,7 +11,7 @@
     extraConfig = {
       case-sensitive = false;
       display-drun = "Apps:";
-      modi = ["drun" "run" "emoji"];
+      modi = ["drun" "run"];
       show-icons = true;
     };
     pass = {
