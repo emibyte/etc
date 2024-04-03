@@ -14,11 +14,12 @@
     in {
       keybindings =
         {
-          "${mod}+F11" = let
-            emojis = pkgs.writeShellScript "emojis" ''
-              ${config.programs.rofi.package}/bin/rofi -show emoji
-            '';
-          in "exec ${emojis}";
+          # NOTE: emojis plugin not updated yet
+          # "${mod}+F11" = let
+          #   emojis = pkgs.writeShellScript "emojis" ''
+          #     ${config.programs.rofi.package}/bin/rofi -show emoji
+          #   '';
+          # in "exec ${emojis}";
 
           # TODO: use swaylock-effects here with --clock
           "${mod}+F12" = let
