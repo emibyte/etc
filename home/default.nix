@@ -21,6 +21,7 @@ in {
     ./themes
     ./firefox.nix
     ./dunst.nix
+    ./zathura.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
