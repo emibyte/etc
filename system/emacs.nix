@@ -1,5 +1,8 @@
-{pkgs, inputs, ...}: {
-
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   # nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
   environment.systemPackages = with pkgs; [
@@ -7,7 +10,7 @@
     binutils # native-comp needs 'as', provided by this
     # 28.2 + native-comp
     ((emacsPackagesFor emacsNativeComp).emacsWithPackages
-      (epkgs: [epkgs.vterm]))
+      (epkgs: [epkgs.vterm epkgs.sicp]))
 
     ## Doom dependencies
     (ripgrep.override {withPCRE2 = true;})
