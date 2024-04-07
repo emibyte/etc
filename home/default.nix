@@ -21,7 +21,6 @@ in {
     ./themes
     ./firefox.nix
     ./dunst.nix
-    ./emacs.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -52,9 +51,7 @@ in {
     pkgs.acpi
     pkgs.unzip
     pkgs.zip
-    pkgs.sqlite
     pkgs.gdb
-    pkgs.ripgrep
     pkgs.tree
     # probably dont need it but dunno
     pkgs.autotiling
@@ -100,7 +97,6 @@ in {
 
     # tools
     pkgs.cargo
-    pkgs.fd
     pkgs.gcc
     pkgs.lazydocker
     pkgs.yarn

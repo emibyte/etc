@@ -28,7 +28,7 @@ in {
     };
     gtk3.extraCss = ''
       decoration { box-shadow: none; }
-      decoration: backdrop { box-shadow: none; }
+      decoration:backdrop { box-shadow: none; }
     '';
 
     gtk4.extraConfig = {

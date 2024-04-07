@@ -11,9 +11,8 @@
     };
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
 
-    tuxedo-nixos = {
-      url = "github:blitz/tuxedo-nixos";
-    };
+    tuxedo-nixos.url = "github:blitz/tuxedo-nixos";
+    # emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
   outputs = {
@@ -40,6 +39,7 @@
         inherit system;
         modules = [
           ./configuration.nix
+          ./system/emacs.nix
 
           home-manager.nixosModules.home-manager
           {
