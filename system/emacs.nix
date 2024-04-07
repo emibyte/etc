@@ -2,14 +2,18 @@
   pkgs,
   inputs,
   ...
-}: {
+}:
+let
+  cuteEmacs = pkgs.emacs29-pgtk;
+in
+{
   # nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
   environment.systemPackages = with pkgs; [
     ## Emacs itself
     binutils # native-comp needs 'as', provided by this
-    # 28.2 + native-comp
-    ((emacsPackagesFor emacsNativeComp).emacsWithPackages
+    # idk if this even works i found it in the nixos manual
+    ((emacsPackagesFor cuteEmacs).emacsWithPackages
       (epkgs: [epkgs.vterm epkgs.sicp]))
 
     ## Doom dependencies
