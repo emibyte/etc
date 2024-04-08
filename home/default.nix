@@ -22,6 +22,7 @@ in {
     ./firefox.nix
     ./dunst.nix
     ./zathura.nix
+    ./zsh.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -105,36 +106,6 @@ in {
 
   services.sxhkd.enable = true;
   services.network-manager-applet.enable = true;
-
-  programs.starship = {
-    enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
-    settings = {
-      character = {
-        success_symbol = "[➜](bold green)";
-        error_symbol = "[➜](bold red)";
-      };
-
-      nix_shell = {
-        format = "[$symbol $state]($style) ";
-        symbol = "❄️";
-      };
-    };
-  };
-
-  # configuration only, setting it as login shell has
-  # to happen on system level (configuration.nix)
-  programs.zsh = {
-    enable = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-    enableCompletion = true;
-    oh-my-zsh = {
-      enable = true;
-      plugins = ["git"];
-    };
-  };
 
   programs.git = {
     enable = true;

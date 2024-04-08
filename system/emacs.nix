@@ -2,11 +2,9 @@
   pkgs,
   inputs,
   ...
-}:
-let
+}: let
   cuteEmacs = pkgs.emacs29-pgtk;
-in
-{
+in {
   # nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
   environment.systemPackages = with pkgs; [
