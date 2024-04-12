@@ -5,6 +5,8 @@ nixos config
 > i am bad at programming and so this config is not very pretty or good
 
 # TODOs
+- [ ] gj and gk binds for org mode!
+- [ ] obs, mpv and a matrix client
 - [ ] waybar powerbutton
 - [ ] setup org mode
 - [ ] modularize configuration.nix in system folder!

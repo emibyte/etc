@@ -23,6 +23,7 @@ in {
     ./dunst.nix
     ./zathura.nix
     ./zsh.nix
+    ./mpv.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -35,6 +36,8 @@ in {
   home.packages = [
     rebuild-system
     ghc
+
+    pkgs.discord
 
     pkgs.brave
 
