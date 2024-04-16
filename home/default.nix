@@ -38,6 +38,7 @@ in {
     ghc
 
     pkgs.discord
+    pkgs.spotify
 
     pkgs.brave
 

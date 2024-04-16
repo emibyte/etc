@@ -14,3 +14,4 @@ nixos config
 - [ ] cabal2nix (flake setups for projects in general)
 - [ ] modularize home/default.nix into multiple files for the seperate programs cfgs
 - [ ] swayidle
+- [ ] write my own little emacs cfg
