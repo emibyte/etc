@@ -8,7 +8,7 @@
         drawFontSize = 23;
         drawThickness = 3;
 
-        savePath = "/home/emily/tmp";
+        savePath = "/home/emily/tmp/";
         savePathFixed = false;
 
         disabledTrayIcon = true;

@@ -119,9 +119,7 @@
           "${mod}+w" = "exec ${pkgs.firefox}/bin/firefox";
 
           # screenshot (flameshot)
-          # "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui";
-          # TODO switch back to normal mapping (above) when issue is fixed
-          "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui --raw | wl-copy";
+          "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui";
 
           # file manager
           "${mod}+F3" = "exec ${pkgs.xfce.thunar}/bin/thunar";
