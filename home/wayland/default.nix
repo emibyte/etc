@@ -19,6 +19,10 @@
 
     wdisplays
     wlr-randr
+
+    xwaylandvideobridge
+
+    grim
   ];
 
   home.sessionVariables = {

@@ -5,6 +5,7 @@ nixos config
 > i am bad at programming and so this config is not very pretty or good
 
 # TODOs
+- [ ] screenshots
 - [ ] gj and gk binds for org mode!
 - [ ] obs, mpv and a matrix client
 - [ ] waybar powerbutton
