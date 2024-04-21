@@ -20,8 +20,6 @@
     wdisplays
     wlr-randr
 
-    xwaylandvideobridge
-
     grim
   ];
 

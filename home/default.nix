@@ -25,6 +25,7 @@ in {
     ./zsh.nix
     ./mpv.nix
     ./flameshot.nix
+    ./imv.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
