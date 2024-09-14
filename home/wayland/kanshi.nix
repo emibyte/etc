@@ -2,39 +2,51 @@
   services.kanshi = {
     enable = true;
 
-    profiles = let
-      mkSingleExternalScreen = {
-        externalCriteria ? "DP-1",
-        mode,
-      }: {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            status = "disable";
-          }
-          {
-            criteria = externalCriteria;
-            inherit mode;
-            position = "0,0";
-          }
-        ];
+    settings = let
+      laptopScreenName = "eDP-1";
+      disabledLaptopScreen = {
+        criteria = laptopScreenName;
+        status = "disable";
       };
-    in {
-      laptop = {
-        outputs = [
-          {
-            criteria = "eDP-1";
-            mode = "2560x1600";
-            position = "0,0";
-            status = "enable";
-          }
-        ];
+      laptopScreen = {
+        criteria = laptopScreenName;
+        scale = 1.333333;
+        mode = "2560x1600";
+        position = "0,0";
+        status = "enable";
       };
 
-      home = mkSingleExternalScreen {
-        externalCriteria = "Ancor Communications Inc VG248 GALMQS113673";
-        mode = "1920x1080";
-      };
-    };
+      home = let
+        homeScreenName = "Ancor Communications Inc VG248 GALMQS113673";
+        homeScreen = {
+          criteria = homeScreenName;
+          mode = "1920x1080";
+          position = "0,0";
+        };
+      in [
+        # home
+        {
+          profile = {
+            name = "home";
+            outputs = [
+              disabledLaptopScreen
+              homeScreen
+            ];
+          };
+        }
+      ];
+    in
+      [
+        # laptop
+        {
+          profile = {
+            name = "laptop";
+            outputs = [laptopScreen];
+          };
+        }
+
+        # inria
+      ]
+      ++ home;
   };
 }

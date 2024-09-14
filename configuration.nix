@@ -13,6 +13,15 @@ in {
     ./hardware-configuration.nix
   ];
 
+  # tuxedo
+  # TODO: doesn't work right now tuxedo-keyboard needs to be bumped
+  #       there's a pr for that
+  # hardware.tuxedo-keyboard.enable = true;
+  # hardware.tuxedo-rs = {
+  #   enable = true;
+  #   tailor-gui.enable = true;
+  # };
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
@@ -67,7 +76,9 @@ in {
 
     xkb.layout = "de";
     xkb.variant = "";
+  };
 
+  services = {
     displayManager = {
       sddm.wayland.enable = true;
       sddm.enable = true;
@@ -107,7 +118,7 @@ in {
 
   # TODO: move to sound.nix file that i still need to create
   # Enable sound with pipewire.
-  sound.enable = false;
+  # sound.enable = false;
   hardware.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;

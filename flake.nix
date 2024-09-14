@@ -2,11 +2,11 @@
   description = "my system config";
 
   inputs = {
-    # nixpkgs.url = "github:nixos/nixpkgs/release-23.11";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/release-24.05";
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager";
-      # url = "github:nix-community/home-manager/release-23.11";
+      # url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixpkgs-f2k.url = "github:fortuneteller2k/nixpkgs-f2k";
@@ -50,12 +50,6 @@
                 ./home
               ];
             };
-          }
-
-          tuxedo-nixos.nixosModules.default
-          {
-            hardware.tuxedo-control-center.enable = true;
-            hardware.tuxedo-control-center.package = tuxedo-nixos.packages.x86_64-linux.default;
           }
         ];
       };

@@ -82,10 +82,10 @@ in {
     pkgs.jsonnet-language-server
     pkgs.lua-language-server
     pkgs.nil
+    pkgs.pyright
     pkgs.nodePackages."bash-language-server"
     pkgs.nodePackages."diagnostic-languageserver"
     pkgs.nodePackages."dockerfile-language-server-nodejs"
-    pkgs.nodePackages."pyright"
     pkgs.nodePackages."typescript"
     pkgs.nodePackages."typescript-language-server"
     pkgs.nodePackages."vscode-langservers-extracted"
