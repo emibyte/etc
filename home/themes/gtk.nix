@@ -1,7 +1,8 @@
 {pkgs, ...}: let
   cursor = {
-    name = "Catppuccin-Macchiato-Pink-Cursors";
+    name = "catppuccin-macchiato-pink-cursors";
     package = pkgs.catppuccin-cursors.macchiatoPink;
+    size = 48;
   };
 in {
   home.pointerCursor = cursor;
@@ -12,17 +13,20 @@ in {
     #   size = 12;
     # };
     theme = {
-      name = "Catppuccin-Frappe-Standard-Blue-Dark";
+      name = "catppuccin-frappe-standard-blue-dark";
       package = pkgs.catppuccin-gtk;
     };
+
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders;
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "frappe";
+        accent = "pink";
+      };
     };
-    cursorTheme = {
-      name = "Catppuccin-Macchiato-Pink-Cursors";
-      package = pkgs.catppuccin-cursors.macchiatoPink;
-    };
+
+    cursorTheme = cursor;
+
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
     };
