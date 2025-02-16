@@ -20,7 +20,6 @@ in {
     ./zathura.nix
     ./zsh.nix
     ./mpv.nix
-    ./flameshot.nix
     ./languages.nix
   ];
   # Home Manager needs a bit of information about you and the
@@ -86,16 +85,16 @@ in {
     };
   };
 
-  xdg.userDirs = {
-    enable = true;
-    desktop = "$HOME/";
-    documents = "HOME/";
-    download = "$HOME/";
-    music = "$HOME/";
-    pictures = "$HOME/";
-    templates = "$HOME/";
-    videos = "$HOME/";
-  };
+#  xdg.userDirs = {
+#    enable = true;
+#    desktop = "$HOME/";
+#    documents = "HOME/";
+#    download = "$HOME/";
+#    music = "$HOME/";
+#    pictures = "$HOME/";
+#    templates = "$HOME/";
+#    videos = "$HOME/";
+#  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage

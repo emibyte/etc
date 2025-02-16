@@ -248,7 +248,6 @@ in {
       options = "--delete-older-than 7d";
     };
 
-    package = pkgs.nixFlakes;
     # keep-outputs and derivations ensures the build time dependencies are only gc'd when the package is gc'd
     extraOptions = ''
       experimental-features = nix-command flakes
