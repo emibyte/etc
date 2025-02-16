@@ -16,11 +16,11 @@ in {
   # tuxedo
   # TODO: doesn't work right now tuxedo-keyboard needs to be bumped
   #       there's a pr for that
-  # hardware.tuxedo-keyboard.enable = true;
-  # hardware.tuxedo-rs = {
-  #   enable = true;
-  #   tailor-gui.enable = true;
-  # };
+  hardware.tuxedo-keyboard.enable = true;
+  hardware.tuxedo-rs = {
+    enable = true;
+    tailor-gui.enable = true;
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
