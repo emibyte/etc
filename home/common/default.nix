@@ -15,17 +15,13 @@
   ]);
 in {
   imports = [
-    ./nvim
     ./wezterm
-    ./wayland
-    ./themes
     ./firefox.nix
-    ./dunst.nix
     ./zathura.nix
     ./zsh.nix
     ./mpv.nix
     ./flameshot.nix
-    ./imv.nix
+    ./languages.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -37,7 +33,6 @@ in {
   # Packages that should be installed to the user profile.
   home.packages = [
     rebuild-system
-    ghc
 
     pkgs.discord
     pkgs.spotify
@@ -63,51 +58,6 @@ in {
     pkgs.tree
     # probably dont need it but dunno
     pkgs.autotiling
-
-    # pkgs that are (pretty much) exclusively for nvim
-    # could be under programs.neovim.extraPackages but not sure
-    # if i wanna put them there
-    # languages
-    pkgs.dotnet-sdk_8
-    pkgs.jsonnet
-    pkgs.nodejs
-    pkgs.python310Full
-    pkgs.rustc
-    pkgs.go
-    pkgs.lua
-
-    # language servers
-    pkgs.cuelsp
-    pkgs.haskell-language-server
-    pkgs.jsonnet-language-server
-    pkgs.lua-language-server
-    pkgs.nil
-    pkgs.pyright
-    pkgs.nodePackages."bash-language-server"
-    pkgs.nodePackages."diagnostic-languageserver"
-    pkgs.nodePackages."dockerfile-language-server-nodejs"
-    pkgs.nodePackages."typescript"
-    pkgs.nodePackages."typescript-language-server"
-    pkgs.nodePackages."vscode-langservers-extracted"
-    pkgs.nodePackages."yaml-language-server"
-    pkgs.omnisharp-roslyn
-    pkgs.gopls
-    pkgs.rust-analyzer
-    pkgs.terraform-ls
-
-    # formatters
-    pkgs.nixpkgs-fmt
-    pkgs.gofumpt
-    pkgs.golines
-    pkgs.python310Packages.black
-    pkgs.rustfmt
-    pkgs.terraform
-
-    # tools
-    pkgs.cargo
-    pkgs.gcc
-    pkgs.lazydocker
-    pkgs.yarn
   ];
 
   services.sxhkd.enable = true;
