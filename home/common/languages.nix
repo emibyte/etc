@@ -6,7 +6,7 @@
   ghc = pkgs.haskellPackages.ghcWithPackages (hspkgs: [
     hspkgs.cabal-install
     hspkgs.safe
-    ]);
+  ]);
 in {
   home.packages = [
     # compilers

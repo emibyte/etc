@@ -37,8 +37,9 @@
         specialArgs = {inherit inputs outputs;};
         inherit system;
         modules = [
+          # TODO: change configuration to just default.nix and modularize
           ./system/tuxedo/configuration.nix
-          ./system/emacs.nix
+          ./system/common
 
           home-manager.nixosModules.home-manager
           {
@@ -57,8 +58,9 @@
         specialArgs = {inherit inputs outputs;};
         inherit system;
         modules = [
+          # TODO: change configuration to just default.nix and modularize
           ./system/minerva/configuration.nix
-
+          ./system/common
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

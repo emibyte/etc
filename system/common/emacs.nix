@@ -38,12 +38,4 @@ in {
 
   environment.sessionVariables.PATH = ["$XDG_CONFIG_HOME/emacs/bin"];
   fonts.packages = [pkgs.emacs-all-the-icons-fonts];
-
-  system.userActivationScripts = {
-    installDoomEmacs = ''
-      if [ ! -d "$XDG_CONFIG_HOME/emacs" ]; then
-        ${pkgs.git}/bin/git clone --depth=1 --single-branch "https://github.com/doomemacs/doomemacs" "$XDG_CONFIG_HOME/emacs"
-      fi
-    '';
-  };
 }

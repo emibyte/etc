@@ -7,12 +7,6 @@
   rebuild-system = pkgs.writeShellScriptBin "rebuild-system" ''
     nixos-rebuild switch --flake ${config.home.homeDirectory}/etc --verbose
   '';
-
-  # maybe use ghcup instead?
-  ghc = pkgs.haskellPackages.ghcWithPackages (hspkgs: [
-    hspkgs.cabal-install
-    hspkgs.safe
-  ]);
 in {
   imports = [
     ./wezterm
@@ -85,16 +79,16 @@ in {
     };
   };
 
-#  xdg.userDirs = {
-#    enable = true;
-#    desktop = "$HOME/";
-#    documents = "HOME/";
-#    download = "$HOME/";
-#    music = "$HOME/";
-#    pictures = "$HOME/";
-#    templates = "$HOME/";
-#    videos = "$HOME/";
-#  };
+  #  xdg.userDirs = {
+  #    enable = true;
+  #    desktop = "$HOME/";
+  #    documents = "HOME/";
+  #    download = "$HOME/";
+  #    music = "$HOME/";
+  #    pictures = "$HOME/";
+  #    templates = "$HOME/";
+  #    videos = "$HOME/";
+  #  };
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
