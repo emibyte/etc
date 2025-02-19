@@ -79,16 +79,25 @@ in {
     };
   };
 
-  #  xdg.userDirs = {
-  #    enable = true;
-  #    desktop = "$HOME/";
-  #    documents = "HOME/";
-  #    download = "$HOME/";
-  #    music = "$HOME/";
-  #    pictures = "$HOME/";
-  #    templates = "$HOME/";
-  #    videos = "$HOME/";
-  #  };
+  home.pointerCursor = let
+    getFrom = url: hash: name: {
+      gtk.enable = true;
+      x11.enable = true;
+      name = name;
+      size = 24;
+      package = pkgs.runCommand "moveUp" {} ''
+        mkdir -p $out/share/icons
+        ln -s ${pkgs.fetchzip {
+          url = url;
+          hash = hash;
+        }} $out/share/icons/${name}
+      '';
+    };
+  in
+    getFrom
+    "https://github.com/supermariofps/hatsune-miku-windows-linux-cursors/releases/download/1.2.6/miku-cursor-linux.tar.xz"
+    "sha256-qxWhzTDzjMxK7NWzpMV9EMuF5rg9gnO8AZlc1J8CRjY="
+    "miku-cursor-linux";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
