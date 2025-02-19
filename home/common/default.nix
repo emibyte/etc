@@ -39,6 +39,8 @@ in {
 
     pkgs.wezterm
 
+    pkgs.obsidian
+
     # corsair opensource driver
     # pkgs.ckb-next
 
@@ -49,8 +51,6 @@ in {
     pkgs.zip
     pkgs.gdb
     pkgs.tree
-    # probably dont need it but dunno
-    pkgs.autotiling
   ];
 
   services.sxhkd.enable = true;
