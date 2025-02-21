@@ -9,6 +9,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./vm.nix
   ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
@@ -141,11 +142,11 @@
   users.users.emily = {
     isNormalUser = true;
     description = "emily";
-    extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      kdePackages.kate
-      keepassxc
-      openrgb-with-all-plugins
+    extraGroups = ["networkmanager" "wheel" "libvirtd"];
+    packages = [
+      pkgs.kdePackages.kate
+      pkgs.keepassxc
+      pkgs.openrgb-with-all-plugins
       #  thunderbird
     ];
   };
