@@ -98,13 +98,21 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  # Steam stuff, probably make a steam.nix
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+  
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "de";
+    layout = "eu";
     variant = "";
   };
 
@@ -112,7 +120,7 @@
   hardware.ckb-next.enable = true;
 
   # Configure console keymap
-  console.keyMap = "de";
+  console.keyMap = "us";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
