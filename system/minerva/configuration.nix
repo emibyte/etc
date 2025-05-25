@@ -27,6 +27,8 @@
     enable = true;
   };
 
+  hardware.keyboard.qmk.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -105,7 +107,7 @@
     dedicatedServer.openFirewall = true; # Open ports in firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
-  
+
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
@@ -181,10 +183,12 @@
 
   environment.variables.EDITOR = "vim";
 
-  fonts.packages = with pkgs; [
-    iosevka-comfy.comfy
-    noto-fonts
-  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  fonts.packages = with pkgs;
+    [
+      iosevka-comfy.comfy
+      noto-fonts
+    ]
+    ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

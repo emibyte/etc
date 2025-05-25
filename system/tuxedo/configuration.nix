@@ -211,11 +211,13 @@ in {
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.05"; # Did you read the comment?
 
-  fonts.packages = with pkgs; [
-    iosevka-comfy.comfy
-    noto-fonts
-    nerdfonts
-  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  fonts.packages = with pkgs;
+    [
+      iosevka-comfy.comfy
+      noto-fonts
+      nerdfonts
+    ]
+    ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   nix = {
     settings = {

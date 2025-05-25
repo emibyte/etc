@@ -6,9 +6,9 @@
       emi = {
         isDefault = true;
         search = {
-          default = "DuckDuckGo";
+          default = "ddg";
           force = true;
-          privateDefault = "DuckDuckGo";
+          privateDefault = "ddg";
         };
         settings = {
           "browser.aboutConfig.showWarning" = false;
