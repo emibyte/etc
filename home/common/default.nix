@@ -7,6 +7,7 @@
   rebuild-system = pkgs.writeShellScriptBin "rebuild-system" ''
     nixos-rebuild switch --flake ${config.home.homeDirectory}/etc --verbose
   '';
+  emacsCfgPath = "{config.home.homeDirectory}/etc/home/emacs";
 in {
   imports = [
     ./wezterm
@@ -20,6 +21,7 @@ in {
   # paths it should manage.
   home.username = "emily";
   home.homeDirectory = "/home/emily";
+  xdg.configFile."emacs".source = config.lib.file.mkOutOfStoreSymlink emacsCfgPath;
 
   fonts.fontconfig.enable = true;
 
