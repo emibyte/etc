@@ -215,18 +215,7 @@ in {
     iosevka-comfy.comfy
     noto-fonts
     nerdfonts
-
-    (nerdfonts.override {
-      fonts = [
-        "JetBrainsMono"
-        "FantasqueSansMono"
-        "Mononoki"
-        "IosevkaTerm"
-        "DejaVuSansMono"
-        "UbuntuMono"
-      ];
-    })
-  ];
+  ] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   nix = {
     settings = {

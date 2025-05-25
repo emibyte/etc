@@ -14,7 +14,7 @@ in {
 
     pkgs.jsonnet
     pkgs.nodejs
-    pkgs.python310Full
+    pkgs.python311Full
     pkgs.rustc
     pkgs.go
     pkgs.lua
@@ -41,7 +41,7 @@ in {
     pkgs.nixpkgs-fmt
     pkgs.gofumpt
     pkgs.golines
-    pkgs.python310Packages.black
+    pkgs.python311Packages.black
     pkgs.rustfmt
     pkgs.terraform
 

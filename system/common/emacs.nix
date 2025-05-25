@@ -3,7 +3,7 @@
   inputs,
   ...
 }: let
-  cuteEmacs = pkgs.emacs29-pgtk;
+  cuteEmacs = pkgs.emacs30-pgtk;
 in {
   # nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
