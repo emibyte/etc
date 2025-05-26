@@ -7,7 +7,7 @@
   rebuild-system = pkgs.writeShellScriptBin "rebuild-system" ''
     nixos-rebuild switch --flake ${config.home.homeDirectory}/etc --verbose
   '';
-  emacsCfgPath = "{config.home.homeDirectory}/etc/home/emacs";
+  emacsCfgPath = "${config.home.homeDirectory}/etc/home/emacs";
 in {
   imports = [
     ./wezterm
