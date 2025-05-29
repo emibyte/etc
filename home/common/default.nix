@@ -31,6 +31,7 @@ in {
 
     pkgs.discord
     pkgs.spotify
+    pkgs.vlc
 
     pkgs.brave
 
