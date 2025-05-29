@@ -3,34 +3,62 @@
   inputs,
   ...
 }: let
-  cuteEmacs = pkgs.emacs30-pgtk;
+  cuteEmacs = pkgs.emacs-unstable-pgtk;
 in {
-  # nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
+   nixpkgs.overlays = [ inputs.emacs-overlay.overlay ];
 
   environment.systemPackages = with pkgs; [
     ## Emacs itself
     binutils # native-comp needs 'as', provided by this
-    # idk if this even works i found it in the nixos manual
-    ((emacsPackagesFor cuteEmacs).emacsWithPackages
-      (epkgs: [epkgs.vterm epkgs.sicp]))
 
-    ## Doom dependencies
+    (pkgs.emacsWithPackagesFromUsePackage {
+      package = cuteEmacs;
+      config = ../../home/emacs/init.el;
+
+      # Optionally provide extra packages not in the configuration file.
+      extraEmacsPackages = epkgs: [
+        epkgs.use-package
+        epkgs.vterm
+        epkgs.sicp
+        epkgs.tree-sitter-langs
+        (epkgs.treesit-grammars.with-grammars
+          (grammars: [
+            grammars.tree-sitter-bash
+            grammars.tree-sitter-c
+            grammars.tree-sitter-lua
+            grammars.tree-sitter-elisp
+            grammars.tree-sitter-ocaml
+            grammars.tree-sitter-rust
+            grammars.tree-sitter-cpp
+            grammars.tree-sitter-scheme
+            grammars.tree-sitter-nix
+            grammars.tree-sitter-haskell
+          ]))
+    
+        epkgs.pretty-sha-path
+      ];
+
+      # Optionally override derivations.
+      # override = epkgs: epkgs // {
+      #  somePackage = epkgs.melpaPackages.somePackage.overrideAttrs(old: {
+           # Apply fixes here
+      #  });
+      # };
+    })
+
     (ripgrep.override {withPCRE2 = true;})
     gnutls # for TLS connectivity
 
-    ## Optional dependencies
     fd # faster projectile indexing
     imagemagick # for image-dired
     zstd # for undo-fu-session/undo-tree compression
 
-    ## Module dependencies
-    # :checkers spell
     (aspellWithDicts (ds: with ds; [de en en-computers en-science]))
-    # :tools editorconfig
+
     editorconfig-core-c # per-project style config
-    # :tools lookup & :lang org +roam
+
     sqlite
-    # :lang latex & :lang org (latex previews)
+
     texlive.combined.scheme-medium
   ];
 

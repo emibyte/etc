@@ -37,3 +37,7 @@
 
 (column-number-mode) ;; Display column number in modeline
 (recentf-mode) ;; Recording recently visited files
+
+(add-to-list 'load-path "~/.config/emacs/opal")
+(require 'opal-theme)
+

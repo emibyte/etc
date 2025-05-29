@@ -43,6 +43,7 @@ in {
     pkgs.wezterm
 
     pkgs.obsidian
+    pkgs.foliate
 
     # corsair opensource driver
     # pkgs.ckb-next
