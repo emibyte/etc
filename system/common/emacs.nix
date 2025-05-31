@@ -15,7 +15,10 @@ in {
     ((emacsPackagesFor cuteEmacs).emacsWithPackages
       (epkgs: [
         epkgs.use-package
+
         epkgs.vterm
+        epkgs.eat
+
         epkgs.sicp
         epkgs.tree-sitter-langs
         (epkgs.treesit-grammars.with-grammars
