@@ -11,6 +11,9 @@
   gc-cons-threshold 402653184
   gc-cons-percentage 0.6)
 
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
+;; (setq inhibit-startup-echo-area-message "emily")
 
 (setq-default
   indent-tabs-mode nil ;; default to indenting with spaces
@@ -19,13 +22,15 @@
 
 (setq
   custom-file "/dev/null" ;; Don't save customizations, just delete them
-  shell-file-name "run/current-system/sw/bin/bash" ;; bash location on nixos
+  shell-file-name "/run/current-system/sw/bin/bash" ;; bash location on nixos
+  initial-major-mode 'eshell-mode ;; Start the *scratch* buffer in eshell-mode
   make-backup-files nil
   visible-cursor nil
-  make-backup-files nil ;; Don't pllute folders with backups
+  make-backup-files nil ;; Don't pollute folders with backups
   auto-save-default nil ;; Don't auto-save
   confirm-kill-emacs 'y-or-n-p ;; Ask before exiting Emacs
   initial-scratch-message nil ;; Don't print a bunch of text in scratch buffer
+  inhibit-startup-message t ;; Don't show the default emacs splash screen
   )
 
 (menu-bar-mode -1) ;; Don't display menu bar
@@ -40,4 +45,6 @@
 
 (add-to-list 'load-path "~/.config/emacs/opal")
 (require 'opal-theme)
+(require 'opal-evil)
+(require 'opal-org)
 

@@ -13,7 +13,7 @@ in {
     ./wezterm
     ./firefox.nix
     ./zathura.nix
-    ./zsh.nix
+    ./shell.nix
     ./mpv.nix
     ./languages.nix
   ];
@@ -42,7 +42,7 @@ in {
 
     pkgs.wezterm
 
-    pkgs.obsidian
+    # pkgs.obsidian # causes an electron rebuild that i dont feel like waiting for
     pkgs.foliate
 
     # corsair opensource driver
@@ -88,7 +88,7 @@ in {
       gtk.enable = true;
       x11.enable = true;
       name = name;
-      size = 24;
+      size = 36;
       package = pkgs.runCommand "moveUp" {} ''
         mkdir -p $out/share/icons
         ln -s ${pkgs.fetchzip {

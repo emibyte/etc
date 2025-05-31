@@ -14,6 +14,11 @@
       };
     };
 
+    bash = {
+      enable = true;
+      enableCompletion = true;
+    };
+
     starship = {
       enable = true;
       enableZshIntegration = true;

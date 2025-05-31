@@ -15,6 +15,15 @@ in {
       package = cuteEmacs;
       config = ../../home/emacs/init.el;
 
+      # By default emacsWithPackagesFromUsePackage will only pull in
+      # packages with `:ensure`, `:ensure t` or `:ensure <package name>`.
+      # Setting `alwaysEnsure` to `true` emulates `use-package-always-ensure`
+      # and pulls in all use-package references not explicitly disabled via
+      # `:ensure nil` or `:disabled`.
+      # Note that this is NOT recommended unless you've actually set
+      # `use-package-always-ensure` to `t` in your config.
+     alwaysEnsure = true;
+
       # Optionally provide extra packages not in the configuration file.
       extraEmacsPackages = epkgs: [
         epkgs.use-package
