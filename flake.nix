@@ -9,7 +9,7 @@
     };
 
     tuxedo-nixos.url = "github:blitz/tuxedo-nixos";
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    # emacs-overlay.url = "github:nix-community/emacs-overlay";
   };
 
   outputs = {

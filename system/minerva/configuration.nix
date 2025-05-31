@@ -177,7 +177,7 @@
   users.users.emily.useDefaultShell = true;
 
   # Install firefox.
-  programs.firefox.enable = true;
+  # programs.firefox.enable = true;
   programs.dconf.enable = true;
 
   # Allow unfree packages

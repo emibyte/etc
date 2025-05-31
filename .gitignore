@@ -51,6 +51,9 @@ flycheck_*.el
 # Undo-tree save-files
 *.~undo-tree
 
+# eshell history
+eshell
+
 # nix
 result
 flake.lock
