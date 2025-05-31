@@ -23,7 +23,7 @@
 (setq
   custom-file "/dev/null" ;; Don't save customizations, just delete them
   shell-file-name "/run/current-system/sw/bin/bash" ;; bash location on nixos
-  initial-major-mode 'eat-mode ;; Start the *scratch* buffer in eat-mode (kinda like this better than vterm bcs of the flickern on the hl-line mode while typing in vterm (also eat is a cute name))
+  initial-major-mode 'eat ;; Start the *scratch* buffer in eat-mode (kinda like this better than vterm bcs of the flickern on the hl-line mode while typing in vterm (also eat is a cute name))
   make-backup-files nil
   visible-cursor nil
   make-backup-files nil ;; Don't pollute folders with backups
