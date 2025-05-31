@@ -12,7 +12,7 @@
   gc-cons-percentage 0.6)
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; literally doesn't do anything and idk why :c
 ;; (setq inhibit-startup-echo-area-message "emily")
 
 (setq-default
@@ -23,7 +23,7 @@
 (setq
   custom-file "/dev/null" ;; Don't save customizations, just delete them
   shell-file-name "/run/current-system/sw/bin/bash" ;; bash location on nixos
-  initial-major-mode 'eat ;; Start the *scratch* buffer in eat-mode (kinda like this better than vterm bcs of the flickern on the hl-line mode while typing in vterm (also eat is a cute name))
+  ;; initial-major-mode 'eat ;; Start the *scratch* buffer in eat-mode (kinda like this better than vterm bcs of the flickern on the hl-line mode while typing in vterm (also eat is a cute name))
   make-backup-files nil
   visible-cursor nil
   make-backup-files nil ;; Don't pollute folders with backups
@@ -38,6 +38,7 @@
 (scroll-bar-mode -1) ;; Don't display scroll bar
 (blink-cursor-mode -1) ;; No cursor blinking
 (tooltip-mode -1) ;; Display tooltips in echo area instead of a popup
+(show-paren-mode -1) ;; Don't highlight parentheses
 (global-hl-line-mode) ;; Highlight current line in all buffers
 
 (column-number-mode) ;; Display column number in modeline
@@ -45,6 +46,7 @@
 
 (add-to-list 'load-path "~/.config/emacs/opal")
 (require 'opal-theme)
-(require 'opal-evil)
 (require 'opal-org)
-
+(require 'opal-completion)
+(require 'opal-nix)
+(require 'opal-evil)

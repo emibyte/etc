@@ -11,3 +11,5 @@
 
 (use-package nix-mode
   :mode "\\.nix\\'")
+
+(provide 'opal-nix)

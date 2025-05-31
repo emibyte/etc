@@ -19,6 +19,11 @@ in {
         epkgs.vterm
         epkgs.eat
 
+        epkgs.ivy
+        epkgs.diminish
+        # epkgs.helm
+        epkgs.counsel
+
         epkgs.sicp
         epkgs.tree-sitter-langs
         (epkgs.treesit-grammars.with-grammars
@@ -38,7 +43,12 @@ in {
         epkgs.pretty-sha-path
         epkgs.undo-tree
         epkgs.evil
+        epkgs.evil-collection
+
         epkgs.ef-themes
+        epkgs.doom-modeline
+        epkgs.doom-themes
+
         epkgs.nix-mode
         epkgs.org
       ]))
