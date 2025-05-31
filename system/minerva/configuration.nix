@@ -166,6 +166,7 @@
     extraGroups = ["networkmanager" "wheel" "libvirtd"];
     packages = [
       pkgs.kdePackages.kate
+      pkgs.kdePackages.kcalc
       pkgs.keepassxc
       pkgs.openrgb-with-all-plugins
       #  thunderbird
