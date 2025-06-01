@@ -19,6 +19,7 @@
 (use-package ef-themes
   :config
   (load-theme 'ef-summer t nil))
+;; (load-theme 'doom-palenight t nil)
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1))

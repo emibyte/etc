@@ -38,15 +38,18 @@
 (scroll-bar-mode -1) ;; Don't display scroll bar
 (blink-cursor-mode -1) ;; No cursor blinking
 (tooltip-mode -1) ;; Display tooltips in echo area instead of a popup
-(show-paren-mode -1) ;; Don't highlight parentheses
+;; (show-paren-mode -1) ;; Don't highlight parentheses
 (global-hl-line-mode) ;; Highlight current line in all buffers
 
 (column-number-mode) ;; Display column number in modeline
 (recentf-mode) ;; Recording recently visited files
 
 (add-to-list 'load-path "~/.config/emacs/opal")
-(require 'opal-theme)
-(require 'opal-org)
-(require 'opal-completion)
-(require 'opal-nix)
+(require 'opal-hydra)
 (require 'opal-evil)
+(require 'opal-theme)
+(require 'opal-completion)
+
+(require 'opal-org)
+(require 'opal-nix)
+

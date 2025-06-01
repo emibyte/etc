@@ -23,6 +23,7 @@ in {
         epkgs.diminish
         # epkgs.helm
         epkgs.counsel
+        epkgs.hydra
 
         epkgs.sicp
         epkgs.tree-sitter-langs
