@@ -20,9 +20,11 @@ in {
         epkgs.eat
 
         epkgs.ivy
+        epkgs.ivy-rich
         epkgs.diminish
         # epkgs.helm
         epkgs.counsel
+        epkgs.helpful
         epkgs.hydra
 
         epkgs.sicp
@@ -45,8 +47,11 @@ in {
         epkgs.undo-tree
         epkgs.evil
         epkgs.evil-collection
+        epkgs.rainbow-delimiters
+        epkgs.which-key
 
         epkgs.ef-themes
+        epkgs.catppuccin-theme
         epkgs.doom-modeline
         epkgs.doom-themes
 

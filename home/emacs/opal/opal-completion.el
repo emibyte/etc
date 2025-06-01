@@ -32,4 +32,8 @@
   :config
   (setq ivy-initial-inputs-alist nil)) ;; don't start searches with ^
 
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+
 (provide 'opal-completion)
