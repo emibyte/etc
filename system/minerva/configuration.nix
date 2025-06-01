@@ -58,6 +58,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # Enable bluetooth (hopefully)
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
@@ -167,6 +171,7 @@
     packages = [
       pkgs.kdePackages.kate
       pkgs.kdePackages.kcalc
+      pkgs.kdePackages.bluedevil
       pkgs.keepassxc
       pkgs.openrgb-with-all-plugins
       #  thunderbird
