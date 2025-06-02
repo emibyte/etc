@@ -20,7 +20,8 @@
   :config
   (evil-set-leader 'normal (kbd "SPC"))
   (evil-define-key 'normal 'global (kbd "<leader>ff") #'counsel-find-file)
-  (evil-define-key 'normal 'global (kbd "<leader>bk") #'kill-buffer)
+  (evil-define-key 'normal 'global (kbd "<leader>bd") #'kill-buffer)
+  (evil-define-key 'normal 'global (kbd "<leader>bk") #'kill-current-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bi") #'ibuffer)
   (evil-define-key 'normal 'global (kbd "<leader>bf") #'switch-to-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bp") #'switch-to-prev-buffer)

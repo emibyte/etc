@@ -4,8 +4,4 @@
     ./chromium.nix
     ./mangohud.nix
   ];
-
-  home.packages = [
-    pkgs.goverlay
-  ];
 }
