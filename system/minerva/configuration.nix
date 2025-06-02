@@ -48,17 +48,17 @@
     "nvidia-drm.fbdev=1"
   ];
 
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.supportedFilesystems = ["ntfs"];
   fileSystems."/run/media/emily/Seagate Portable Drive" = {
     device = "/dev/disk/by-uuid/58C68B69C68B45EA";
     fsType = "ntfs";
-    options = [ "users" "nofail" "exec" ];
+    options = ["users" "nofail" "exec"];
   };
 
   fileSystems."/run/media/emily/External 1" = {
     device = "/dev/disk/by-uuid/4E1AEA7B1AEA6007";
     fsType = "ntfs";
-    options = [ "users" "nofail" "exec" ];
+    options = ["users" "nofail" "exec"];
   };
 
   networking.hostName = "minerva"; # Define your hostname.

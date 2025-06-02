@@ -67,7 +67,7 @@
             home-manager.users.emily = {
               imports = [
                 ./home/common
-                #./home/minerva theres nothing here yet
+                ./home/minerva
               ];
             };
           }
