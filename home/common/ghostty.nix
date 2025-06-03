@@ -4,34 +4,37 @@
     enableBashIntegration = true;
     enableZshIntegration = true;
     settings = {
-      font-family = "Iosevka Comfy";
-      # theme = "catppuccin-mocha";
+      # font-family = "Iosevka Comfy";
+      font-family = "Hack";
+      theme = "ef-dark";
+      cursor-style = "block";
+      shell-integration-features = "no-cursor";
     };
     themes = {
-      catppuccin-mocha = {
-        background = "1e1e2e";
-        cursor-color = "f5e0dc";
-        foreground = "cdd6f4";
+      ef-dark= {
+        background = "000000";
+        cursor-color = "ff76ff";
+        foreground = "d0d0d0";
         palette = [
-          "0=#45475a"
-          "1=#f38ba8"
-          "2=#a6e3a1"
-          "3=#f9e2af"
-          "4=#89b4fa"
-          "5=#f5c2e7"
-          "6=#94e2d5"
-          "7=#bac2de"
-          "8=#585b70"
-          "9=#f38ba8"
-          "10=#a6e3a1"
-          "11=#f9e2af"
-          "12=#89b4fa"
-          "13=#f5c2e7"
-          "14=#94e2d5"
-          "15=#a6adc8"
+          "0=#1a1a1a"
+          "1=#ef6560"
+          "2=#0faa26"
+          "3=#bf9032"
+          "4=#3f95f6"
+          "5=#d369af"
+          "6=#4fbaef"
+          "7=#d0d0d0"
+          "8=#4b4b4b"
+          "9=#ff5a7a"
+          "10=#00a692"
+          "11=#df8a5a"
+          "12=#029fff"
+          "13=#af85ff"
+          "14=#1dbfcf"
+          "15=#857f8f"
         ];
-        selection-background = "353749";
-        selection-foreground = "cdd6f4";
+        selection-background = "2a234a";
+        selection-foreground = "d0d0d0";
       };
     };
   };
