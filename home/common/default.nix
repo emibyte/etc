@@ -10,13 +10,13 @@
   emacsCfgPath = "${config.home.homeDirectory}/etc/home/emacs";
 in {
   imports = [
-    ./wezterm
     ./firefox.nix
     ./zathura.nix
     ./shell.nix
     ./mpv.nix
     ./languages.nix
     ./obs.nix
+    ./ghostty.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -33,6 +33,7 @@ in {
     pkgs.discord
     pkgs.spotify
     pkgs.vlc
+    pkgs.thunderbird
 
     pkgs.brave
 
@@ -82,6 +83,10 @@ in {
       color_scheme = 6;
       vim_mode = true;
     };
+  };
+
+  programs.btop = {
+    enable = true;
   };
 
   home.pointerCursor = let
