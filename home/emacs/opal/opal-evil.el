@@ -24,17 +24,24 @@
   (evil-define-key 'normal 'global (kbd "<leader>bd") #'kill-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bk") #'kill-current-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bi") #'ibuffer)
-  (evil-define-key 'normal 'global (kbd "<leader>bf") #'switch-to-buffer)
+  (evil-define-key 'normal 'global (kbd "<leader>bb") #'switch-to-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bp") #'switch-to-prev-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bn") #'switch-to-next-buffer)
   ;; theme switching
   (evil-define-key 'normal 'global (kbd "<leader>ht") #'counsel-load-theme)
+  ;; compile command
+  (evil-define-key 'normal 'global (kbd "<leader>cc") #'compile)
   (evil-mode))
 
 (use-package evil-collection
   :after evil
   :config
   (setq evil-collection-setup-minibuffer t)
+  (setq evil-collection-key-blacklist '("SPC")) ;; little (not-really)fix to make my leader key be available in stuff like dired as well
   (evil-collection-init))
+
+(use-package evil-nerd-commenter
+  :config
+  (evil-define-key 'normal 'global (kbd "gc") #'evilnc-comment-or-uncomment-lines))
 
 (provide 'opal-evil)

@@ -6,6 +6,7 @@
     settings = {
       # font-family = "Iosevka Comfy";
       font-family = "Hack";
+      font-size = 10;
       theme = "ef-dark";
       cursor-style = "block";
       shell-integration-features = "no-cursor";

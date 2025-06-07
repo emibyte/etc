@@ -9,6 +9,12 @@ tramp
 recentf
 .\#*
 
+# Projectile
+projectile-bookmarks.eld
+
+# LSP-Mode Session File
+.lsp-session*
+
 # Org-mode
 .org-id-locations
 *_archive

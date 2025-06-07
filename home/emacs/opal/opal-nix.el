@@ -10,6 +10,8 @@
   (nix-prettify-global-mode))
 
 (use-package nix-mode
-  :mode "\\.nix\\'")
+  :mode "\\.nix\\'"
+  ;;:hook (nix-mode . lsp-deferred)
+  )
 
 (provide 'opal-nix)

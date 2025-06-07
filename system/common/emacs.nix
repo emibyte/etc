@@ -19,6 +19,12 @@ in {
         epkgs.vterm
         epkgs.eat
 
+        epkgs.yasnippet
+        epkgs.lsp-mode
+        epkgs.lsp-ui
+        epkgs.projectile
+        epkgs.counsel-projectile
+
         epkgs.ivy
         epkgs.ivy-rich
         epkgs.diminish
@@ -26,6 +32,9 @@ in {
         epkgs.counsel
         epkgs.helpful
         epkgs.hydra
+        epkgs.company
+        epkgs.company-box
+        epkgs.projectile
 
         epkgs.sicp
         epkgs.tree-sitter-langs
@@ -47,11 +56,13 @@ in {
         epkgs.undo-tree
         epkgs.evil
         epkgs.evil-collection
+        epkgs.evil-nerd-commenter
         epkgs.rainbow-delimiters
         epkgs.which-key
 
         epkgs.ef-themes
         epkgs.catppuccin-theme
+        epkgs.spacemacs-theme
         epkgs.doom-modeline
         epkgs.doom-themes
 

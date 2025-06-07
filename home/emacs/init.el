@@ -50,7 +50,9 @@
 (require 'opal-theme)
 (require 'opal-completion)
 (require 'opal-help)
+(require 'opal-projectile)
 
+(require 'opal-lsp)
 (require 'opal-org)
 (require 'opal-nix)
 
