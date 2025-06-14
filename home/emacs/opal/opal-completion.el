@@ -4,36 +4,42 @@
 
 (require 'opal-package)
 
-(use-package ivy
-  :diminish
-  :bind (("C-s" . swiper)
-         :map ivy-minibuffer-map
-         ("TAB" . ivy-alt-done)
-         ("C-l" . ivy-alt-done)
-         ("C-j" . ivy-next-line)
-         ("C-k" . ivy-previous-line)
-         :map ivy-switch-buffer-map
-         ("C-k" . ivy-previous-line)
-         ("C-l" . ivy-done)
-         ("C-d" . ivy-switch-buffer-kill)
-         :map ivy-reverse-i-search-map
-         ("C-k" . ivy-previous-line)
-         ("C-d" . ivy-reverse-i-search-kill))
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq ivy-wrap t)
-  (setq enable-recursive-minibuffers t))
+(defun opal/minibuffer-backward-kill (arg)
+  "When minibuffer is completing a file name delete up to parent
+folder, otherwise delete a character backward."
+  (interactive "p")
+  (if minibuffer-completing-file-name
+      ;; Borrowed from https://github.com/raxod502/selectrum/issues/498#issuecomment-803283608
+      (if (string-match-p "/." (minibuffer-contents))
+          (zap-up-to-char (- arg) ?/)
+        (delete-minibuffer-contents))
+    (delete-backward-char arg)))
 
-(use-package counsel
-  :bind (("M-x" . counsel-M-x)
-         ("C-x b" . counsel-ibuffer)
-         ("C-x C-f" . counsel-find-file))
+;;; Vertico setup
+(use-package vertico
+  :bind (:map minibuffer-local-map
+              ("<backspace>" . opal/minibuffer-backward-kill)
+              ("C-j" . vertico-next)
+              ("C-k" . vertico-previous))
   :config
-  (setq ivy-initial-inputs-alist nil)) ;; don't start searches with ^
-
-(use-package ivy-rich
+  (setq vertico-cycle t)
+  (setq vertico-resize nil)
   :init
-  (ivy-rich-mode 1))
+  (vertico-mode 1))
+
+(use-package marginalia
+  :config
+  (marginalia-mode 1))
+
+(use-package orderless
+  :config
+  (setq completion-styles '(orderless basic)))
+
+(use-package consult
+  :bind (("C-s" . consult-line)))
+
+(use-package embark)
+
+(use-package embark-consult)
 
 (provide 'opal-completion)

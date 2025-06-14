@@ -220,7 +220,7 @@
   environment.variables.EDITOR = "vim";
   environment.variables.XCURSOR_SIZE = 64;
   environment.variables.GDK_SCALE = "2.2";
-  environment.variables.GDK_DPI_SCALE = "0.4";
+  # environment.variables.GDK_DPI_SCALE = "0.4";
 
   fonts.packages = with pkgs;
     [

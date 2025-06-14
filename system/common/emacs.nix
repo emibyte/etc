@@ -23,29 +23,22 @@ in {
         epkgs.lsp-mode
         epkgs.lsp-ui
         epkgs.projectile
-        epkgs.counsel-projectile
         epkgs.persp-mode
 
-        # one completion thingy
-        epkgs.ivy
-        epkgs.ivy-rich
-        epkgs.diminish
-        # epkgs.helm
-        epkgs.counsel
+        epkgs.vertico
+        epkgs.consult
+        epkgs.consult-projectile
+        epkgs.marginalia
+        epkgs.orderless
+        epkgs.embark
+        epkgs.embark-consult
 
-        # other completion setup i wanna switch to
-        # epkgs.vertico
-        # epkgs.consult
-        # epkgs.marginalia
-        # epkgs.orderless
-        # epkgs.embark
-
-        epkgs.helpful
         epkgs.hydra
         epkgs.company
         epkgs.company-box
         epkgs.projectile
         epkgs.direnv
+        epkgs.ripgrep
 
         epkgs.sicp
         epkgs.tree-sitter-langs
@@ -83,7 +76,7 @@ in {
         epkgs.racket-mode
       ]))
 
-    (ripgrep.override {withPCRE2 = true;})
+    ripgrep
     gnutls # for TLS connectivity
 
     fd # faster projectile indexing

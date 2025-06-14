@@ -20,17 +20,26 @@
   :config
   (evil-set-leader 'normal (kbd "SPC"))
   ;; buffer keybinds
-  (evil-define-key 'normal 'global (kbd "<leader>ff") #'counsel-find-file)
+  (evil-define-key 'normal 'global (kbd "<leader>ff") #'find-file)
   (evil-define-key 'normal 'global (kbd "<leader>bd") #'kill-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bk") #'kill-current-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bi") #'ibuffer)
-  (evil-define-key 'normal 'global (kbd "<leader>bb") #'switch-to-buffer)
+  ;;(evil-define-key 'normal 'global (kbd "<leader>bb") #'switch-to-buffer)
+  (evil-define-key 'normal 'global (kbd "<leader>bb") #'consult-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bp") #'switch-to-prev-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bn") #'switch-to-next-buffer)
   ;; theme switching
-  (evil-define-key 'normal 'global (kbd "<leader>ht") #'counsel-load-theme)
+  (evil-define-key 'normal 'global (kbd "<leader>ht") #'consult-theme)
   ;; compile command
   (evil-define-key 'normal 'global (kbd "<leader>cc") #'compile)
+  ;; searching
+  (evil-define-key 'normal 'global (kbd "<leader>sg") #'consult-grep)
+  (evil-define-key 'normal 'global (kbd "<leader>sf") #'consult-find)
+  (evil-define-key 'normal 'global (kbd "<leader>so") #'consult-outline)
+  (evil-define-key 'normal 'global (kbd "<leader>sl") #'consult-line)
+
+  (evil-define-key 'normal 'global (kbd "<leader>hv") #'describe-variable)
+  (evil-define-key 'normal 'global (kbd "<leader>hf") #'describe-function)
   (evil-mode))
 
 (use-package evil-collection
