@@ -12,7 +12,7 @@
       shell-integration-features = "no-cursor";
     };
     themes = {
-      ef-dark= {
+      ef-dark = {
         background = "000000";
         cursor-color = "ff76ff";
         foreground = "d0d0d0";

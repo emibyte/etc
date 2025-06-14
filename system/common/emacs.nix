@@ -24,17 +24,28 @@ in {
         epkgs.lsp-ui
         epkgs.projectile
         epkgs.counsel-projectile
+        epkgs.persp-mode
 
+        # one completion thingy
         epkgs.ivy
         epkgs.ivy-rich
         epkgs.diminish
         # epkgs.helm
         epkgs.counsel
+
+        # other completion setup i wanna switch to
+        # epkgs.vertico
+        # epkgs.consult
+        # epkgs.marginalia
+        # epkgs.orderless
+        # epkgs.embark
+
         epkgs.helpful
         epkgs.hydra
         epkgs.company
         epkgs.company-box
         epkgs.projectile
+        epkgs.direnv
 
         epkgs.sicp
         epkgs.tree-sitter-langs
@@ -65,9 +76,11 @@ in {
         epkgs.spacemacs-theme
         epkgs.doom-modeline
         epkgs.doom-themes
+        epkgs.gruber-darker-theme
 
         epkgs.nix-mode
         epkgs.org
+        epkgs.racket-mode
       ]))
 
     (ripgrep.override {withPCRE2 = true;})

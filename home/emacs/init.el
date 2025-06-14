@@ -54,5 +54,6 @@
 
 (require 'opal-lsp)
 (require 'opal-org)
+(require 'opal-elisp)
 (require 'opal-nix)
 

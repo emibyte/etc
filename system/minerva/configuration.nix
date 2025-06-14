@@ -97,6 +97,8 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = true;
   services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.dpi = 220;
+  services.xserver.upscaleDefaultCursor = true;
 
   services.gvfs.enable = true;
 
@@ -137,6 +139,7 @@
     dedicatedServer.openFirewall = true; # Open ports in firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
+  hardware.xone.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm.enable = true;
@@ -182,11 +185,12 @@
   users.users.emily = {
     isNormalUser = true;
     description = "emily";
-    extraGroups = ["networkmanager" "wheel" "libvirtd"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "openrazer"];
     packages = [
       pkgs.kdePackages.kate
       pkgs.kdePackages.kcalc
       pkgs.kdePackages.bluedevil
+      pkgs.kdePackages.krohnkite
       pkgs.keepassxc
       pkgs.openrgb-with-all-plugins
       #  thunderbird
@@ -214,6 +218,9 @@
   environment.pathsToLink = ["/share/zsh"];
 
   environment.variables.EDITOR = "vim";
+  environment.variables.XCURSOR_SIZE = 64;
+  environment.variables.GDK_SCALE = "2.2";
+  environment.variables.GDK_DPI_SCALE = "0.4";
 
   fonts.packages = with pkgs;
     [

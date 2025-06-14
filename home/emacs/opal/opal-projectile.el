@@ -8,9 +8,10 @@
   :diminish projectile-mode
   :config (projectile-mode)
   :custom ((projectile-completion-system 'ivy))
-;;  :init
-;;  (when (file-directory-p "~/Projects/Code")
-;;    (setq projectile-project-search-path '("~/Projects/Code")))
+  :init
+  (when (and (file-directory-p "~/src/")
+             (file-directory-p "~/etc/"))
+    (setq projectile-project-search-path '("~/src/" "~/etc/")))
 ;;  (setq projectile-switch-project-action #'projectile-dired)
   )
 
@@ -18,5 +19,9 @@
 
 (use-package counsel-projectile
   :config (counsel-projectile-mode))
+
+(use-package direnv
+  :config
+  (direnv-mode))
 
 (provide 'opal-projectile)

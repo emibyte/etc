@@ -141,7 +141,7 @@ in {
   users.users.${user} = {
     isNormalUser = true;
     description = "emily";
-    extraGroups = ["networkmanager" "wheel" "input" "tty" "audio" "video"];
+    extraGroups = ["networkmanager" "wheel" "input" "tty" "audio" "video" "openrazer"];
     shell = pkgs.zsh;
     packages = with pkgs; [
       firefox

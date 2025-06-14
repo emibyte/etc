@@ -9,8 +9,12 @@ tramp
 recentf
 .\#*
 
+# persp-mode
+persp-confs
+
 # Projectile
 projectile-bookmarks.eld
+projects
 
 # LSP-Mode Session File
 .lsp-session*

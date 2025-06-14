@@ -8,6 +8,23 @@
     nixos-rebuild switch --flake ${config.home.homeDirectory}/etc --verbose
   '';
   emacsCfgPath = "${config.home.homeDirectory}/etc/home/emacs";
+  # TODO: move this into a cursor.nix
+  getFrom = url: hash: name: {
+    name = name;
+    size = 32;
+    package = pkgs.runCommand "moveUp" {} ''
+      mkdir -p $out/share/icons
+      ln -s ${pkgs.fetchzip {
+        url = url;
+        hash = hash;
+      }} $out/share/icons/${name}
+    '';
+  };
+  cursor =
+    getFrom
+    "https://github.com/supermariofps/hatsune-miku-windows-linux-cursors/releases/download/1.2.6/miku-cursor-linux.tar.xz"
+    "sha256-qxWhzTDzjMxK7NWzpMV9EMuF5rg9gnO8AZlc1J8CRjY="
+    "miku-cursor-linux";
 in {
   imports = [
     ./firefox.nix
@@ -87,25 +104,34 @@ in {
     enable = true;
   };
 
-  home.pointerCursor = let
-    getFrom = url: hash: name: {
+  # TODO: move this into a cursor.nix
+  home.pointerCursor =
+    {
+      enable = true;
       gtk.enable = true;
+      dotIcons.enable = true;
       x11.enable = true;
-      name = name;
-      size = 36;
-      package = pkgs.runCommand "moveUp" {} ''
-        mkdir -p $out/share/icons
-        ln -s ${pkgs.fetchzip {
-          url = url;
-          hash = hash;
-        }} $out/share/icons/${name}
-      '';
+    }
+    // cursor;
+  gtk = {
+    enable = true;
+    cursorTheme = cursor;
+    gtk3 = {
+      extraConfig = {
+        gtk-cursor-theme-size = cursor.size;
+      };
     };
-  in
-    getFrom
-    "https://github.com/supermariofps/hatsune-miku-windows-linux-cursors/releases/download/1.2.6/miku-cursor-linux.tar.xz"
-    "sha256-qxWhzTDzjMxK7NWzpMV9EMuF5rg9gnO8AZlc1J8CRjY="
-    "miku-cursor-linux";
+    gtk4 = {
+      extraConfig = {
+        gtk-cursor-theme-sizte = cursor.size;
+      };
+    };
+  };
+
+  home.sessionVariables = {
+    NIXOS_OZONE_WL = 1;
+    WLR_NO_HARDWARE_CURSORS = 1;
+  };
 
   # for vm stuff
   dconf.settings = {

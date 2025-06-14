@@ -23,7 +23,7 @@ in {
     pkgs.haskell-language-server
     pkgs.jsonnet-language-server
     pkgs.lua-language-server
-    pkgs.nil
+    pkgs.nixd
     pkgs.pyright
     pkgs.nodePackages."bash-language-server"
     pkgs.nodePackages."diagnostic-languageserver"
