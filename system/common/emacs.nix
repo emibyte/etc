@@ -28,10 +28,12 @@ in {
         epkgs.vertico
         epkgs.consult
         epkgs.consult-projectile
+        epkgs.consult-lsp
         epkgs.marginalia
         epkgs.orderless
         epkgs.embark
         epkgs.embark-consult
+        epkgs.helpful
 
         epkgs.hydra
         epkgs.company

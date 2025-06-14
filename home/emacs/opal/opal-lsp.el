@@ -57,6 +57,11 @@
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
 
+(use-package consult-lsp
+  :after lsp-mode
+  ;; TODO: bindings for lsp-diag, lsp-symbols, lsp-file-symbols
+  )
+
 ;;(use-package company-box
  ;;:hook (company-mode . company-box-mode))
 
