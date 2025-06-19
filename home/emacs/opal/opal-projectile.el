@@ -7,7 +7,6 @@
 (use-package projectile
   :diminish projectile-mode
   :config (projectile-mode)
-  :custom ((projectile-completion-system 'vertico))
   :init
   (when (and (file-directory-p "~/src/")
              (file-directory-p "~/etc/"))
@@ -17,8 +16,11 @@
 
 (evil-define-key 'normal 'global (kbd "<leader>p") 'projectile-command-map)
 (evil-define-key 'normal 'global (kbd "<leader>pf") #'consult-projectile-find-file)
+(evil-define-key 'normal 'global (kbd "<leader>pwf") #'consult-projectile-find-file-other-window)
 (evil-define-key 'normal 'global (kbd "<leader>pp") #'consult-projectile-switch-project)
 (evil-define-key 'normal 'global (kbd "<leader>pb") #'consult-project-buffer)
+(evil-define-key 'normal 'global (kbd "<leader>pd") #'consult-projectile-find-dir)
+(evil-define-key 'normal 'global (kbd "<leader>pr") #'consult-projectile-recentf)
 
 (use-package consult-projectile)
 

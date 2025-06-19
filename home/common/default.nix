@@ -20,7 +20,7 @@
       }} $out/share/icons/${name}
     '';
   };
-  cursor =
+  cursorMiku =
     getFrom
     "https://github.com/supermariofps/hatsune-miku-windows-linux-cursors/releases/download/1.2.6/miku-cursor-linux.tar.xz"
     "sha256-qxWhzTDzjMxK7NWzpMV9EMuF5rg9gnO8AZlc1J8CRjY="
@@ -50,7 +50,7 @@ in {
     pkgs.discord
     pkgs.spotify
     pkgs.vlc
-    pkgs.thunderbird
+    pkgs.thunderbird-bin
 
     pkgs.brave
 
@@ -61,6 +61,7 @@ in {
 
     # pkgs.obsidian # causes an electron rebuild that i dont feel like waiting for
     pkgs.foliate
+    pkgs.chatterino2
 
     # corsair opensource driver
     # pkgs.ckb-next
@@ -112,18 +113,18 @@ in {
       dotIcons.enable = true;
       x11.enable = true;
     }
-    // cursor;
+    // cursorMiku;
   gtk = {
     enable = true;
-    cursorTheme = cursor;
+    cursorTheme = cursorMiku;
     gtk3 = {
       extraConfig = {
-        gtk-cursor-theme-size = cursor.size;
+        gtk-cursor-theme-size = cursorMiku.size;
       };
     };
     gtk4 = {
       extraConfig = {
-        gtk-cursor-theme-sizte = cursor.size;
+        gtk-cursor-theme-size = cursorMiku.size;
       };
     };
   };

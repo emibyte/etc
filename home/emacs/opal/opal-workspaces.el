@@ -2,11 +2,15 @@
 ;;; Commentary:
 ;;; Code:
 
-;; NOTE: doomemacs file sessions.el contains some good utility functions to reference for saving and reloading sessions
 (require 'opal-package)
 
-(use-package persp-mode)
-
+(use-package perspective
+  :custom
+  (persp-mode-prefix-key (kbd "C-c C-p"))
+  :config
+  (evil-define-key 'normal 'global (kbd "<leader>xb") #'persp-list-buffers)
+  :init
+  (persp-mode))
 
 (provide 'opal-workspaces)
 ;;; opal-workspaces.el ends here

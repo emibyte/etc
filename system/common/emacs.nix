@@ -23,7 +23,7 @@ in {
         epkgs.lsp-mode
         epkgs.lsp-ui
         epkgs.projectile
-        epkgs.persp-mode
+        epkgs.perspective
 
         epkgs.vertico
         epkgs.consult

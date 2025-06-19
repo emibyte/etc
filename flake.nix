@@ -10,6 +10,7 @@
 
     tuxedo-nixos.url = "github:blitz/tuxedo-nixos";
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
+    # spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs = {

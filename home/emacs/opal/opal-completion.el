@@ -4,12 +4,12 @@
 
 (require 'opal-package)
 
+;; Borrowed from system-crafters vid on vertico
 (defun opal/minibuffer-backward-kill (arg)
   "When minibuffer is completing a file name delete up to parent
 folder, otherwise delete a character backward."
   (interactive "p")
   (if minibuffer-completing-file-name
-      ;; Borrowed from https://github.com/raxod502/selectrum/issues/498#issuecomment-803283608
       (if (string-match-p "/." (minibuffer-contents))
           (zap-up-to-char (- arg) ?/)
         (delete-minibuffer-contents))
