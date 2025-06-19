@@ -25,6 +25,7 @@
     lib = nixpkgs.lib;
   in {
     formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.alejandra;
+    overlays = import ./overlays {};
 
     nixosConfigurations = {
       tuxedo = lib.nixosSystem {
@@ -52,6 +53,9 @@
         specialArgs = {inherit inputs outputs;};
         inherit system;
         modules = [
+          {
+            nixpkgs.overlays = [self.overlays.additions];
+          }
           # TODO: change configuration to just default.nix and modularize
           ./system/minerva/configuration.nix
           ./system/common

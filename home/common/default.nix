@@ -34,6 +34,7 @@ in {
     ./languages.nix
     ./obs.nix
     ./ghostty.nix
+    ./xdg.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -46,6 +47,7 @@ in {
   # Packages that should be installed to the user profile.
   home.packages = [
     rebuild-system
+    pkgs.nvibrant-git
 
     pkgs.discord
     pkgs.spotify
