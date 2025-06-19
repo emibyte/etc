@@ -3,5 +3,6 @@
     ./librewolf.nix
     ./chromium.nix
     ./mangohud.nix
+    ./fhs.nix
   ];
 }

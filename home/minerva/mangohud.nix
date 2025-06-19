@@ -15,6 +15,9 @@
       mpv = {
         no_display = true;
       };
+      veadotube-mini = {
+        no_display = true;
+      };
     };
   };
 }

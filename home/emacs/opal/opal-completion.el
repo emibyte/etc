@@ -38,7 +38,8 @@ folder, otherwise delete a character backward."
 (use-package consult
   :bind (("C-s" . consult-line)))
 
-(use-package embark)
+(use-package embark
+  :bind (("<leader>dj" . embark-dired-jump)))
 
 (use-package embark-consult)
 

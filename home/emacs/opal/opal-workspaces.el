@@ -6,7 +6,7 @@
 
 (use-package perspective
   :custom
-  (persp-mode-prefix-key (kbd "C-c C-p"))
+  (persp-mode-prefix-key (kbd "<leader><tab>"))
   :config
   (evil-define-key 'normal 'global (kbd "<leader>xb") #'persp-list-buffers)
   :init
