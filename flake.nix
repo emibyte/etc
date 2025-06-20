@@ -8,16 +8,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    tuxedo-nixos.url = "github:blitz/tuxedo-nixos";
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
-    # spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
-    tuxedo-nixos,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -68,8 +66,10 @@
               imports = [
                 ./home/common
                 ./home/minerva
+                inputs.spicetify-nix.homeManagerModules.default
               ];
             };
+            home-manager.extraSpecialArgs = {inherit inputs;};
           }
         ];
       };
