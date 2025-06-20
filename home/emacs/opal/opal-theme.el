@@ -18,9 +18,9 @@
 
 (use-package ef-themes
   :config
-  ;; (load-theme 'ef-dream t nil))
-  ;; (load-theme 'ef-elea-dark t nil)
-  (load-theme 'doom-shades-of-purple t nil))
+  (load-theme 'ef-dream t nil))
+  ;; (load-theme 'ef-elea-dark t nil))
+
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1))

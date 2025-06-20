@@ -75,6 +75,8 @@ in {
 
         epkgs.nix-mode
         epkgs.org
+        epkgs.org-bullets
+        epkgs.visual-fill-column
         epkgs.racket-mode
       ]))
 
@@ -97,5 +99,5 @@ in {
   services.emacs.enable = true;
 
   environment.sessionVariables.PATH = ["$XDG_CONFIG_HOME/emacs/bin"];
-  fonts.packages = [pkgs.emacs-all-the-icons-fonts];
+  fonts.packages = with pkgs; [emacs-all-the-icons-fonts cantarell-fonts];
 }

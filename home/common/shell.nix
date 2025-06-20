@@ -27,6 +27,7 @@
         format = lib.concatStrings [
           "$all"
         ];
+        # TODO: write a nix function that does this for any given username
         username = {
           show_always = true;
           # style_user = "bold green";

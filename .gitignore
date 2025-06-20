@@ -64,6 +64,9 @@ flycheck_*.el
 # eshell history
 eshell
 
+# racket mode
+racket-mode
+
 # nix
 result
 flake.lock
