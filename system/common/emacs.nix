@@ -72,6 +72,11 @@ in {
         epkgs.doom-modeline
         epkgs.doom-themes
         epkgs.gruber-darker-theme
+        epkgs.moe-theme
+        epkgs.kaolin-themes
+        epkgs.inkpot-theme
+
+        epkgs.magit
 
         epkgs.nix-mode
         epkgs.org

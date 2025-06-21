@@ -28,6 +28,7 @@ folder, otherwise delete a character backward."
   (vertico-mode 1))
 
 (use-package marginalia
+  :after vertico
   :config
   (marginalia-mode 1))
 
@@ -39,6 +40,7 @@ folder, otherwise delete a character backward."
   :bind (("C-s" . consult-line)))
 
 (use-package embark
+  :after vertico
   :bind (("<leader>dj" . embark-dired-jump)))
 
 (use-package embark-consult)

@@ -47,6 +47,7 @@
 (add-to-list 'load-path "~/.config/emacs/opal")
 (require 'opal-hydra)
 (require 'opal-evil)
+(require 'opal-vc)
 (require 'opal-theme)
 (require 'opal-completion)
 (require 'opal-projectile)

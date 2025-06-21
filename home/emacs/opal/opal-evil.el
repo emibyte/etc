@@ -34,6 +34,7 @@
   (evil-define-key 'normal 'global (kbd "<leader>cc") #'compile)
   ;; searching
   (evil-define-key 'normal 'global (kbd "<leader>sg") #'consult-grep)
+  (evil-define-key 'normal 'global (kbd "<leader>sr") #'consult-ripgrep)
   (evil-define-key 'normal 'global (kbd "<leader>sf") #'consult-find)
   (evil-define-key 'normal 'global (kbd "<leader>so") #'consult-outline)
   (evil-define-key 'normal 'global (kbd "<leader>sl") #'consult-line)
