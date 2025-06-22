@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ./nvim
     ./themes
     ./wayland
     ./dunst.nix
