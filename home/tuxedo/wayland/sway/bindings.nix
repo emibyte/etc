@@ -110,7 +110,7 @@
         ################
         // {
           # Terminal
-          "${mod}+Return" = "exec ${pkgs.wezterm}/bin/wezterm";
+          "${mod}+Return" = "exec ${pkgs.ghostty}/bin/ghostty";
 
           # Rofi
           "${mod}+d" = "exec ${config.programs.rofi.package}/bin/rofi -show run";

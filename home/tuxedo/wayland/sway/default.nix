@@ -5,7 +5,7 @@
     enable = true;
     config = {
       modifier = "Mod4";
-      terminal = "wezterm";
+      terminal = "ghostty";
       menu = "rofi -show run";
       bars = [{command = "${pkgs.waybar}/bin/waybar";}];
       input = {
