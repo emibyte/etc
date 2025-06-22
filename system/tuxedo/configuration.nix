@@ -80,11 +80,14 @@ in {
   services = {
     displayManager = {
       sddm.wayland.enable = true;
+      sddm.package = pkgs.kdePackages.sddm;
       sddm.enable = true;
-      # sddm.theme = "where_is_my_sddm_theme";
-      # sddm.theme = "chili";
-      sddm.theme = "catppuccin-sddm-corners";
+      sddm.theme = "sddm-astronaut";
+      sddm.enableHidpi = true;
       defaultSession = "sway";
+      sddm.extraPackages = with pkgs; [
+        sddm-astronaut
+      ];
     };
   };
 
@@ -155,9 +158,9 @@ in {
   # $ nix search wget
   environment = {
     variables = {
-      TERMINAL = "wezterm";
-      # EDITOR = "nvim";
-      # VISUAL = "nvim";
+      TERMINAL = "ghostty";
+      EDITOR = "emacs";
+      VISUAL = "emacs";
     };
     # to enable zsh completion for system packages like systemd
     pathsToLink = ["/share/zsh"];
@@ -174,12 +177,6 @@ in {
       pavucontrol
       playerctl
 
-      # TODO: sddm stuff needs a seperate file
-      where-is-my-sddm-theme
-      catppuccin-sddm-corners
-      sddm-chili-theme
-      # dependency for catppuccin-sddm-corners
-      libsForQt5.sddm
     ];
   };
 
