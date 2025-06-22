@@ -178,7 +178,8 @@ in {
       libsForQt5.qt5.qtquickcontrols2
       (pkgs.catppuccin-sddm.override {
         flavor = "mocha";
-        loginBackground = true;})
+        loginBackground = true;
+      })
     ];
   };
 
