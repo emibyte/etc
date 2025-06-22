@@ -70,5 +70,4 @@ racket-mode
 
 # nix
 result
-flake.lock
 
