@@ -5,7 +5,7 @@
     size = 48;
   };
 in {
-  home.pointerCursor = cursor;
+  # home.pointerCursor = cursor;
   gtk = {
     enable = true;
     # font = {
@@ -25,7 +25,7 @@ in {
       };
     };
 
-    cursorTheme = cursor;
+    # cursorTheme = cursor;
 
     gtk3.extraConfig = {
       gtk-application-prefer-dark-theme = true;
