@@ -34,6 +34,7 @@ in {
         epkgs.embark
         epkgs.embark-consult
         epkgs.helpful
+        epkgs.hl-todo
 
         epkgs.hydra
         epkgs.company
