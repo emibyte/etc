@@ -22,7 +22,7 @@
 
 (setq
   custom-file "/dev/null" ;; Don't save customizations, just delete them
-  shell-file-name "/run/current-system/sw/bin/bash" ;; bash location on nixos
+  shell-file-name "/run/current-system/sw/bin/zsh" ;; zsh location on nixos
   ;; initial-major-mode 'eshell-mode 
   make-backup-files nil
   visible-cursor nil
@@ -31,6 +31,7 @@
   confirm-kill-emacs 'y-or-n-p ;; Ask before exiting Emacs
   initial-scratch-message nil ;; Don't print a bunch of text in scratch buffer
   inhibit-startup-message t ;; Don't show the default emacs splash screen
+  sentence-end-double-space nil
   )
 
 (menu-bar-mode -1) ;; Don't display menu bar
@@ -59,3 +60,5 @@
 (require 'opal-elisp)
 (require 'opal-nix)
 
+(provide 'init)
+;;; init.el ends here
