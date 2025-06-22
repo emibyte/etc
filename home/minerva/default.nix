@@ -5,4 +5,9 @@
     ./mangohud.nix
     ./fhs.nix
   ];
+
+  home.packages = with pkgs; [
+    xivlauncher
+    nvtopPackages.full
+  ];
 }

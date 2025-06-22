@@ -61,6 +61,7 @@ in {
 
     pkgs.keepassxc
     pkgs.aseprite
+    pkgs.desmume
 
     # pkgs.obsidian # causes an electron rebuild that i dont feel like waiting for
     pkgs.foliate
