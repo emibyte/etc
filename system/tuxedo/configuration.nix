@@ -16,7 +16,7 @@ in {
   # tuxedo
   # TODO: doesn't work right now tuxedo-keyboard needs to be bumped
   #       there's a pr for that
-  hardware.tuxedo-keyboard.enable = true;
+  hardware.tuxedo-drivers.enable = true;
   hardware.tuxedo-rs = {
     enable = true;
     tailor-gui.enable = true;
@@ -26,7 +26,6 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   hardware.enableRedistributableFirmware = true;
 
@@ -94,7 +93,7 @@ in {
 
   security.polkit.enable = true;
   security.pam.services.swaylock = {};
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   xdg = {
     portal = {
@@ -119,7 +118,7 @@ in {
   # TODO: move to sound.nix file that i still need to create
   # Enable sound with pipewire.
   # sound.enable = false;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -157,8 +156,8 @@ in {
   environment = {
     variables = {
       TERMINAL = "wezterm";
-      EDITOR = "nvim";
-      VISUAL = "nvim";
+      # EDITOR = "nvim";
+      # VISUAL = "nvim";
     };
     # to enable zsh completion for system packages like systemd
     pathsToLink = ["/share/zsh"];
@@ -215,7 +214,6 @@ in {
     [
       iosevka-comfy.comfy
       noto-fonts
-      nerdfonts
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 

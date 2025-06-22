@@ -30,6 +30,9 @@
         specialArgs = {inherit inputs outputs;};
         inherit system;
         modules = [
+          {
+            nixpkgs.overlays = [self.overlays.additions];
+          }
           # TODO: change configuration to just default.nix and modularize
           ./system/tuxedo/configuration.nix
           ./system/common
@@ -38,12 +41,15 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hm-backup";
             home-manager.users.emily = {
               imports = [
                 ./home/common
                 ./home/tuxedo
+                inputs.spicetify-nix.homeManagerModules.default
               ];
             };
+            home-manager.extraSpecialArgs = {inherit inputs;};
           }
         ];
       };
