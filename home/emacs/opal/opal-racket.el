@@ -6,8 +6,9 @@
 
 ;; TODO: racket-xp-mode, bindings like spc m as prefix for all the racket mode specific bindings pls :3
 ;; TODO: paredit for all lisps
-;; TODO: theres still some issues where theres no syntax highlighting if the first buffer i open in emacs is a racket buffer
 (use-package racket-mode
+  ;; NOTE: this fixed there being no syntax highlighting when opening a racket buffer as the first buffer
+  :after lsp-mode 
   :hook (racket-mode . lsp-deferred)
   :hook (racket-mode . racket-xp-mode))
 
