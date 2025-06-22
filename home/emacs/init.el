@@ -59,6 +59,12 @@
 (require 'opal-org)
 (require 'opal-elisp)
 (require 'opal-nix)
+(require 'opal-racket)
+
+;; Re-enable garbage collection after startup
+(setq
+ gc-cons-threshold 16777216
+ gc-cons-percentage 0.1)
 
 (provide 'init)
 ;;; init.el ends here
