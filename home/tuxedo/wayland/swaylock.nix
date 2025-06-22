@@ -7,6 +7,7 @@
     settings = {
       daemonize = true;
 
+      # TODO: absolute path requires --impure to nix build replace with {config.homeDirectory} like in rebuild-system command
       image = builtins.toString /home/emily/wps/wallhaven-wewl9r_2560x1600.png;
       indicator-x-position = 100;
       indicator-y-position = 100;
