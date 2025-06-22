@@ -82,12 +82,9 @@ in {
       sddm.wayland.enable = true;
       sddm.package = pkgs.kdePackages.sddm;
       sddm.enable = true;
-      sddm.theme = "sddm-astronaut";
+      sddm.theme = "catppuccin-mocha";
       sddm.enableHidpi = true;
       defaultSession = "sway";
-      sddm.extraPackages = with pkgs; [
-        sddm-astronaut
-      ];
     };
   };
 
@@ -177,6 +174,11 @@ in {
       pavucontrol
       playerctl
 
+      catppuccin-sddm
+      libsForQt5.qt5.qtquickcontrols2
+      (pkgs.catppuccin-sddm.override {
+        flavor = "mocha";
+        loginBackground = true;})
     ];
   };
 
