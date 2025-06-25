@@ -4,13 +4,13 @@
 
 (require 'opal-package)
 
-;; TODO: racket-xp-mode, bindings like spc m as prefix for all the racket mode specific bindings pls :3
-;; TODO: paredit for all lisps
 (use-package racket-mode
-  ;; NOTE: this fixed there being no syntax highlighting when opening a racket buffer as the first buffer
-  :after lsp-mode 
-  :hook (racket-mode . lsp-deferred)
-  :hook (racket-mode . racket-xp-mode))
+  :hook ((racket-mode . lsp-deferred)
+         (racket-mode . racket-xp-mode)
+         ;; NOTE: sometimes direnv loads to late resulting in the racket executable not being found which is a problem for the two hooks that follow
+         (racket-mode . direnv-update-environment)))
 
+;;; TODO: racket-xp-mode, bindings like spc m as prefix for all the racket mode specific bindings pls :3 (use hydra for that also, once i understood how hydra works)
+;;; TODO: paredit for all lisps
 (provide 'opal-racket)
 ;;; opal-racket.el ends here
