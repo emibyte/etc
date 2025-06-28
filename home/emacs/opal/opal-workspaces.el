@@ -5,8 +5,11 @@
 (require 'opal-package)
 
 (use-package perspective
+  :hook
+  ('kill-emacs . #'persp-state-save)
   :custom
   (persp-mode-prefix-key (kbd "<leader><tab>"))
+  (persp-state-default-file "~/.config/emacs/transient/persp-state")
   :config
   (evil-define-key 'normal 'global (kbd "<leader>xb") #'persp-list-buffers)
   :init
