@@ -22,9 +22,11 @@ in {
         epkgs.yasnippet
         epkgs.lsp-mode
         epkgs.lsp-ui
+        epkgs.flycheck
+        epkgs.quick-peek
+
         epkgs.projectile
         epkgs.perspective
-
         epkgs.vertico
         epkgs.consult
         epkgs.consult-projectile
@@ -76,6 +78,7 @@ in {
         epkgs.moe-theme
         epkgs.kaolin-themes
         epkgs.inkpot-theme
+        epkgs.stimmung-themes
 
         epkgs.magit
 

@@ -49,6 +49,7 @@
 (require 'opal-hydra)
 (require 'opal-evil)
 (require 'opal-vc)
+(require 'opal-syntax)
 (require 'opal-theme)
 (require 'opal-completion)
 (require 'opal-projectile)
