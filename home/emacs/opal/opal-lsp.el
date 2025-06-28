@@ -32,7 +32,7 @@
 
 (use-package lsp-ui
   :custom
-  (lsp-ui-doc-enable t)
+  (lsp-ui-doc-enable nil) ;; if i enable this i get the extra childframe together with the minibuffer stuff
   (lsp-ui-sideline-enable nil)
   (lsp-ui-sideline-show-hover nil)
   (lsp-ui-doc-delay 0)
@@ -41,7 +41,7 @@
   (lsp-ui-doc-position 'bottom)
   (lsp-ui-doc-show-with-cursor t)
   (lsp-ui-doc-show-with-mouse t)
-  (lsp-ui-doc-enable nil) ;; if i enable this i get the extra childframe together with the minibuffer stuff
+  (lsp-flycheck-live-reporting nil)
   :hook (lsp-mode . lsp-ui-mode))
 
 ;; lsp-mode specfic completions

@@ -18,8 +18,8 @@
 
 (use-package ef-themes
   :config
-  ;; (load-theme 'ef-bio t nil))
-  (load-theme 'kaolin-valley-light t nil))
+  (load-theme 'ef-summer t nil))
+  ;; (load-theme 'kaolin-valley-light t nil))
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
