@@ -2,13 +2,15 @@
 ;;; Commentary:
 ;;; Code:
 
+(require 'opal-package)
+
 (defun opal/org-mode-setup ()
   (org-indent-mode)
   (auto-fill-mode 0)
   (visual-line-mode 1))
 
 (defun opal/org-mode-font-setup ()
-  ;; Set faces for heading levels
+  "Set faces for heading levels."
   (dolist (face '((org-level-1 . 1.3)
                   (org-level-2 . 1.25)
                   (org-level-3 . 1.2)
@@ -61,7 +63,6 @@
   )
 
 (use-package visual-fill-column
-  :defer t
   :hook (org-mode . opal/org-mode-visual-fill-col))
 
 (provide 'opal-org)
