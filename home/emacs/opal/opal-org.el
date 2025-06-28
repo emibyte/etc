@@ -65,3 +65,4 @@
   :hook (org-mode . opal/org-mode-visual-fill-col))
 
 (provide 'opal-org)
+;;; opal-org.el ends here

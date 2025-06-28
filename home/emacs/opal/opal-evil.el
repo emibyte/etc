@@ -55,3 +55,4 @@
   (evil-define-key 'normal 'global (kbd "gc") #'evilnc-comment-or-uncomment-lines))
 
 (provide 'opal-evil)
+;;; opal-evil.el ends here

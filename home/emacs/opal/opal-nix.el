@@ -15,3 +15,4 @@
   )
 
 (provide 'opal-nix)
+;;; opal-nix.el ends here

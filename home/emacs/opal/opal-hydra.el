@@ -7,3 +7,4 @@
 (use-package hydra)
 
 (provide 'opal-hydra)
+;;; opal-hydra.el ends here

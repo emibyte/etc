@@ -29,3 +29,4 @@
   (direnv-mode))
 
 (provide 'opal-projectile)
+;;; opal-projectile.el ends here

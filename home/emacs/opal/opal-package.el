@@ -5,3 +5,4 @@
 (require 'use-package)
 
 (provide 'opal-package)
+;;; opal-package.el ends here
