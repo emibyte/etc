@@ -66,3 +66,4 @@
  ;;:hook (company-mode . company-box-mode))
 
 (provide 'opal-lsp)
+;;; opal-lsp.el ends here

@@ -46,3 +46,4 @@ folder, otherwise delete a character backward."
 (use-package embark-consult)
 
 (provide 'opal-completion)
+;;; opal-completion.el ends here

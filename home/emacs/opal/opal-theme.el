@@ -51,4 +51,5 @@
   
 
 (provide 'opal-theme)
+;;; opal-theme.el ends here
 
