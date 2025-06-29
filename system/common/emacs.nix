@@ -28,6 +28,10 @@ in {
         epkgs.projectile
         epkgs.perspective
         epkgs.vertico
+        epkgs.corfu
+        epkgs.corfu-terminal
+        epkgs.cape
+        epkgs.kind-icon
         epkgs.consult
         epkgs.consult-projectile
         epkgs.consult-lsp
@@ -35,12 +39,11 @@ in {
         epkgs.orderless
         epkgs.embark
         epkgs.embark-consult
+
         epkgs.helpful
         epkgs.hl-todo
 
         epkgs.hydra
-        epkgs.company
-        epkgs.company-box
         epkgs.projectile
         epkgs.direnv
         epkgs.ripgrep
