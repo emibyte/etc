@@ -18,7 +18,8 @@
 
 (use-package ef-themes
   :config
-  (load-theme 'ef-summer t nil))
+  (load-theme 'doom-shades-of-purple t nil))
+  ;; (load-theme 'ef-summer t nil))
   ;; (load-theme 'kaolin-valley-light t nil))
 
 (use-package doom-modeline
