@@ -10,7 +10,6 @@
   :hook ((lsp-mode . yas-minor-mode)))
 
 (setq read-process-output-max (* 1024 1024))
-(setq lsp-log-io nil) ; if set to true can cause a performance hit
 
 (defun opal/lsp-mode-setup ()
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
@@ -22,6 +21,7 @@
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet t)
   (lsp-eldoc-render-all t) ;; minibuffer showing doc
+  (lsp-log-io nil)
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . opal/lsp-mode-setup)
   :init
@@ -44,26 +44,10 @@
   (lsp-flycheck-live-reporting nil)
   :hook (lsp-mode . lsp-ui-mode))
 
-;; lsp-mode specfic completions
-(use-package company
-  :after lsp-mode
-  :hook (lsp-mode . company-mode)
-  :bind
-  (:map company-active-map
-        ("<tab>" . company-complete-selection))
-  (:map lsp-mode-map
-        ("<tab>" . company-indent-or-complete-common))
-  :custom
-  (company-minimum-prefix-length 1)
-  (company-idle-delay 0.0))
-
 (use-package consult-lsp
   :after lsp-mode
   ;; TODO: bindings for lsp-diag, lsp-symbols, lsp-file-symbols
   )
-
-;;(use-package company-box
- ;;:hook (company-mode . company-box-mode))
 
 (provide 'opal-lsp)
 ;;; opal-lsp.el ends here
