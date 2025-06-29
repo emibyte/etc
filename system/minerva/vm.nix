@@ -1,4 +1,4 @@
-{...}: {
+{pkgs, ...}: {
   # virt-manager
   environment.systemPackages = with pkgs; [virtio-win];
   programs.virt-manager.enable = true;
