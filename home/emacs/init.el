@@ -23,7 +23,7 @@
 (setq
   custom-file "/dev/null" ;; Don't save customizations, just delete them
   shell-file-name "/run/current-system/sw/bin/zsh" ;; zsh location on nixos
-  ;; initial-major-mode 'eshell-mode 
+  ;; initial-major-mode 'eshell-mode
   make-backup-files nil
   visible-cursor nil
   make-backup-files nil ;; Don't pollute folders with backups
