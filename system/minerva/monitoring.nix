@@ -1,5 +1,4 @@
-{...}:
-{
+{...}: {
   programs.tuxclocker = {
     enable = true;
     useUnfree = true;
