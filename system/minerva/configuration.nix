@@ -136,6 +136,7 @@
   # Steam stuff, probably make a steam.nix
   programs.steam = {
     enable = true;
+    gamescopeSession.enable = true;
     remotePlay.openFirewall = true; # Open ports in firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
@@ -143,6 +144,12 @@
       proton-ge-bin
     ];
   };
+
+  programs.gamemode = {
+    enable = true;
+    settings.general.inhibit_screensaver = 0;
+  };
+
   hardware.xone.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
@@ -189,7 +196,7 @@
   users.users.emily = {
     isNormalUser = true;
     description = "emily";
-    extraGroups = ["networkmanager" "wheel" "libvirtd" "openrazer"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "openrazer" "gamemode"];
     packages = [
       pkgs.kdePackages.kate
       pkgs.kdePackages.kcalc
