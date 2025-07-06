@@ -7,6 +7,8 @@
 (use-package perspective
   :hook
   ('kill-emacs . #'persp-state-save)
+  :bind
+  (("<leader>ql" . #'persp-state-load))
   :custom
   (persp-mode-prefix-key (kbd "<leader><tab>"))
   (persp-state-default-file "~/.config/emacs/transient/persp-state")
