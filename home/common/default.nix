@@ -121,6 +121,19 @@ in {
   gtk = {
     enable = true;
     cursorTheme = cursorMiku;
+    theme = {
+      name = "catppuccin-macchiato-standard-pink-dark";
+      package = pkgs.catppuccin-gtk;
+    };
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "macchiato";
+        accent = "pink";
+      };
+    };
+
     gtk3 = {
       extraConfig = {
         gtk-cursor-theme-size = cursorMiku.size;

@@ -28,15 +28,22 @@
   nix.settings.substituters = [
     "https://cache.nixos.org/"
     "https://nix-community.cachix.org"
+    "https://hyprland.cachix.org"
+  ];
+
+  nix.settings.trusted-substituters = [
+    "https://hyprland.cachix.org"
   ];
 
   nix.settings.trusted-public-keys = [
     "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
     "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
   ];
 
   hardware.graphics = {
     enable = true;
+    enable32Bit = true;
   };
 
   hardware.keyboard.qmk.enable = true;
@@ -165,6 +172,16 @@
   # Enable corsair driver
   hardware.ckb-next.enable = true;
 
+  # Enable flatpak for all users
+  services.flatpak.enable = true;
+  systemd.services.flatpak-repo = {
+    wantedBy = ["multi-user.target"];
+    path = [pkgs.flatpak];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
   # Configure console keymap
   console.keyMap = "us";
 
@@ -229,6 +246,7 @@
   environment.pathsToLink = ["/share/zsh"];
 
   environment.variables.EDITOR = "vim";
+  environment.variables.TERMINAL = "ghostty";
   environment.variables.XCURSOR_SIZE = 64;
   environment.variables.GDK_SCALE = "2.2";
   # environment.variables.GDK_DPI_SCALE = "0.4";
