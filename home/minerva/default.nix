@@ -4,6 +4,7 @@
     ./chromium.nix
     ./mangohud.nix
     ./fhs.nix
+    ./hyprland
   ];
 
   home.packages = with pkgs; [

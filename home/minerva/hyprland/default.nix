@@ -1,4 +1,58 @@
 {config, ...}: let
+  colors = {
+    rosewater = "rgb(f4dbd6)";
+    rosewaterAlpha = "f4dbd6";
+    flamingo = "rgb(f0c6c6)";
+    flamingoAlpha = "f0c6c6";
+    pink = "rgb(f5bde6)";
+    pinkAlpha = "f5bde6";
+    mauve = "rgb(c6a0f6)";
+    mauveAlpha = "c6a0f6";
+    red = "rgb(ed8796)";
+    redAlpha = "ed8796";
+    maroon = "rgb(ee99a0)";
+    maroonAlpha = "ee99a0";
+    peach = "rgb(f5a97f)";
+    peachAlpha = "f5a97f";
+    yellow = "rgb(eed49f)";
+    yellowAlpha = "eed49f";
+    green = "rgb(a6da95)";
+    greenAlpha = "a6da95";
+    teal = "rgb(8bd5ca)";
+    tealAlpha = "8bd5ca";
+    sky = "rgb(91d7e3)";
+    skyAlpha = "91d7e3";
+    sapphire = "rgb(7dc4e4)";
+    sapphireAlpha = "7dc4e4";
+    blue = "rgb(8aadf4)";
+    blueAlpha = "8aadf4";
+    lavender = "rgb(b7bdf8)";
+    lavenderAlpha = "b7bdf8";
+    text = "rgb(cad3f5)";
+    textAlpha = "cad3f5";
+    subtext1 = "rgb(b8c0e0)";
+    subtext1Alpha = "b8c0e0";
+    subtext0 = "rgb(a5adcb)";
+    subtext0Alpha = "a5adcb";
+    overlay2 = "rgb(939ab7)";
+    overlay2Alpha = "939ab7";
+    overlay1 = "rgb(8087a2)";
+    overlay1Alpha = "8087a2";
+    overlay0 = "rgb(6e738d)";
+    overlay0Alpha = "6e738d";
+    surface2 = "rgb(5b6078)";
+    surface2Alpha = "5b6078";
+    surface1 = "rgb(494d64)";
+    surface1Alpha = "494d64";
+    surface0 = "rgb(363a4f)";
+    surface0Alpha = "363a4f";
+    base = "rgb(24273a)";
+    baseAlpha = "24273a";
+    mantle = "rgb(1e2030)";
+    mantleAlpha = "1e2030";
+    crust = "rgb(181926)";
+    crustAlpha = "181926";
+  };
 in {
   imports = [
     ./rofi
@@ -6,16 +60,29 @@ in {
     ./dunst.nix
   ];
 
+  programs.wlogout = {
+    enable = true;
+    layout = [
+      {
+        label = "logout";
+        action = "hyprctl dispatch exit 0";
+        text = "Log Out";
+        keybind = "l";
+      }
+    ];
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.variables = ["--all"];
     settings = {
       monitor = [
-        "DP-2, 2560x1400, 0x0, 1" # oled 1440p
-        "DP-3, 3840x2160, -3840x0, 1.5" # ips 4k
+        "DP-2, highres@highrr, 0x0, 1" # oled 1440p 2560x1400@144
+        "DP-3, highres@highrr, -2560x0, 1.5" # ips 4k 3840x2160@60 (3840 / 1.5 = 2560)
       ];
 
       xwayland = {
+        enabled = true;
         force_zero_scaling = true;
       };
 
@@ -29,30 +96,22 @@ in {
 
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+
+        # so that volume control opens as floating window
+        "float,class:pwvucontrol,title:pwvucontrol"
       ];
 
       workspace = [
         "workspace=1,monitor:DP-2"
-        "workspace=2,monitor:DP-2"
+        "workspace=2,monitor:DP-3"
         "workspace=3,monitor:DP-2"
-        "workspace=4,monitor:DP-2"
+        "workspace=4,monitor:DP-3"
         "workspace=5,monitor:DP-2"
-        "workspace=6,monitor:DP-2"
+        "workspace=6,monitor:DP-3"
         "workspace=7,monitor:DP-2"
-        "workspace=8,monitor:DP-2"
+        "workspace=8,monitor:DP-3"
         "workspace=9,monitor:DP-2"
-        "workspace=10,monitor:DP-2"
-
-        "workspace=11,monitor:DP-3"
-        "workspace=12,monitor:DP-3"
-        "workspace=13,monitor:DP-3"
-        "workspace=14,monitor:DP-3"
-        "workspace=15,monitor:DP-3"
-        "workspace=16,monitor:DP-3"
-        "workspace=17,monitor:DP-3"
-        "workspace=18,monitor:DP-3"
-        "workspace=19,monitor:DP-3"
-        "workspace=20,monitor:DP-3"
+        "workspace=10,monitor:DP-3"
       ];
 
       "$terminal" = "ghostty";
@@ -60,19 +119,21 @@ in {
       exec-once = [
         "xwaylandvideobridge"
         "waybar"
+        "dunst"
+        "nvibrant 0 0 0 400 0 400 0"
       ];
 
-      source = "./macchiato.conf";
+      # source = "./macchiato.conf";
 
       general = {
-        gaps_in = "5";
-        gaps_out = "10";
+        gaps_in = "0";
+        gaps_out = "0";
 
         border_size = "2";
 
         # https://wiki.hypr.land/Configuring/Variables/#variable-types for info about colors
-        col.active_border = "$teal";
-        col.inactive_border = "$surface1";
+        "col.active_border" = colors.pink;
+        "col.inactive_border" = colors.surface1;
 
         # Set to true enable resizing windows by clicking and dragging on borders and gaps
         resize_on_border = false;
@@ -84,8 +145,8 @@ in {
       };
 
       decoration = {
-        rounding = "10";
-        rounding_power = "2";
+        rounding = "0";
+        rounding_power = "0";
 
         # https://wiki.hypr.land/Configuring/Variables/#blur
         blur = {
@@ -94,15 +155,15 @@ in {
         };
 
         # Change transparency of focused and unfocused windows
-        active_opacity = "1.0";
-        inactive_opacity = "1.0";
+        active_opacity = "0.8";
+        inactive_opacity = "0.6";
 
         shadow = {
           enabled = true;
           range = "4";
           render_power = "3";
-          color = "$teal";
-          color_inactive = "Oxff$baseAlpha";
+          color = colors.pink;
+          color_inactive = "0xff${colors.baseAlpha}";
         };
       };
 
@@ -143,7 +204,7 @@ in {
       dwindle = {
         pseudotile = true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
         preserve_split = true; # You probably want this
-        smart_split = true;
+        smart_split = false;
       };
 
       # See https://wiki.hypr.land/Configuring/Master-Layout/ for more
@@ -170,6 +231,9 @@ in {
         touchpad = {
           natural_scroll = false;
         };
+
+        repeat_delay = "300";
+        repeat_rate = "40";
       };
 
       # https://wiki.hypr.land/Configuring/Variables/#gestures
@@ -194,17 +258,17 @@ in {
         "$mainMod, RETURN, exec, $terminal"
         "$mainMod, C, killactive,"
         "$mainMod, D, exec, rofi -show drun"
-        "$mainMod, M, exit,"
-        "$mainMod, E, exec, dolphin"
+        # "$mainMod, M, exit,"
+        "$mainMod, E, exec, thunar"
         "$mainMod, V, togglefloating,"
-        "$mainMod, P, pseudo, # dwindle"
-        "$mainMod, J, togglesplit," # dwindle
+        "$mainMod, P, pseudo," # dwindle
+        "$mainMod SHIFT, j, togglesplit," # dwindle
         "$mainMod, ESCAPE, exec, wlogout"
 
-        "$mainMod, left, movefocus, l"
-        "$mainMod, right, movefocus, r"
-        "$mainMod, up, movefocus, u"
-        "$mainMod, down, movefocus, d"
+        "$mainMod, h, movefocus, l"
+        "$mainMod, l, movefocus, r"
+        "$mainMod, k, movefocus, u"
+        "$mainMod, j, movefocus, d"
 
         "$mainMod, 1, workspace, 1"
         "$mainMod, 2, workspace, 2"
@@ -217,17 +281,6 @@ in {
         "$mainMod, 9, workspace, 9"
         "$mainMod, 0, workspace, 10"
 
-        "$mainMod ALT, 1, workspace, 11"
-        "$mainMod ALT, 2, workspace, 12"
-        "$mainMod ALT, 3, workspace, 13"
-        "$mainMod ALT, 4, workspace, 14"
-        "$mainMod ALT, 5, workspace, 15"
-        "$mainMod ALT, 6, workspace, 16"
-        "$mainMod ALT, 7, workspace, 17"
-        "$mainMod ALT, 8, workspace, 18"
-        "$mainMod ALT, 9, workspace, 19"
-        "$mainMod ALT, 0, workspace, 20"
-
         "$mainMod SHIFT, 1, movetoworkspace, 1"
         "$mainMod SHIFT, 2, movetoworkspace, 2"
         "$mainMod SHIFT, 3, movetoworkspace, 3"
@@ -238,17 +291,6 @@ in {
         "$mainMod SHIFT, 8, movetoworkspace, 8"
         "$mainMod SHIFT, 9, movetoworkspace, 9"
         "$mainMod SHIFT, 0, movetoworkspace, 10"
-
-        "$mainMod ALT SHIFT, 1, movetoworkspace, 11"
-        "$mainMod ALT SHIFT, 2, movetoworkspace, 12"
-        "$mainMod ALT SHIFT, 3, movetoworkspace, 13"
-        "$mainMod ALT SHIFT, 4, movetoworkspace, 14"
-        "$mainMod ALT SHIFT, 5, movetoworkspace, 15"
-        "$mainMod ALT SHIFT, 6, movetoworkspace, 16"
-        "$mainMod ALT SHIFT, 7, movetoworkspace, 17"
-        "$mainMod ALT SHIFT, 8, movetoworkspace, 18"
-        "$mainMod ALT SHIFT, 9, movetoworkspace, 19"
-        "$mainMod ALT SHIFT, 0, movetoworkspace, 20"
 
         "$mainMod, S, togglespecialworkspace, magic"
         "$mainMod SHIFT, S, movetoworkspace, special:magic"

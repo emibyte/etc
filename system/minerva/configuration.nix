@@ -10,6 +10,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./monitoring.nix
+    ./hyprland.nix
     # ./vm.nix
   ];
 
@@ -46,7 +47,10 @@
     enable32Bit = true;
   };
 
+  hardware.i2c.enable = true;
+
   hardware.keyboard.qmk.enable = true;
+  services.udev.packages = [pkgs.via];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -55,6 +59,7 @@
   boot.kernelParams = [
     "nvidia-drm.fbdev=1"
   ];
+  boot.kernelModules = ["coretemp"];
 
   boot.supportedFilesystems = ["ntfs"];
   fileSystems."/run/media/emily/Seagate Portable Drive" = {
@@ -242,13 +247,14 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
     wget
+    via
   ];
   environment.pathsToLink = ["/share/zsh"];
 
   environment.variables.EDITOR = "vim";
   environment.variables.TERMINAL = "ghostty";
   environment.variables.XCURSOR_SIZE = 64;
-  environment.variables.GDK_SCALE = "2.2";
+  # environment.variables.GDK_SCALE = "2.2";
   # environment.variables.GDK_DPI_SCALE = "0.4";
 
   fonts.packages = with pkgs;

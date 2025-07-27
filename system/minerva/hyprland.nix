@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   programs.hyprland.enable = true;
+  programs.thunar.enable = true;
   environment.systemPackages = with pkgs; [
     kdePackages.xwaylandvideobridge
     playerctl

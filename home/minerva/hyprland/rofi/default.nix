@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.rofi = {
     enable = true;
-    theme = ./catppuccin-macchiato.rasi;
+    # theme = ./catppuccin-macchiato.rasi;
     package = pkgs.rofi-wayland;
     modes = ["drun"];
     location = "center";
