@@ -10,7 +10,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./monitoring.nix
-    ./hyprland.nix
+    # ./hyprland.nix
     # ./vm.nix
   ];
 
