@@ -10,11 +10,13 @@
 
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs = {
     self,
     nixpkgs,
+    catppuccin,
     home-manager,
     ...
   } @ inputs: let
@@ -33,6 +35,8 @@
           {
             nixpkgs.overlays = [self.overlays.additions];
           }
+          catppuccin.nixosModules.catppuccin
+
           # TODO: change configuration to just default.nix and modularize
           ./system/tuxedo/configuration.nix
           ./system/common
@@ -47,6 +51,7 @@
                 ./home/common
                 ./home/tuxedo
                 inputs.spicetify-nix.homeManagerModules.default
+                catppuccin.homeModules.catppuccin
               ];
             };
             home-manager.extraSpecialArgs = {inherit inputs;};
@@ -60,6 +65,8 @@
           {
             nixpkgs.overlays = [self.overlays.additions];
           }
+          catppuccin.nixosModules.catppuccin
+
           # TODO: change configuration to just default.nix and modularize
           ./system/minerva/configuration.nix
           ./system/common
@@ -73,6 +80,7 @@
                 ./home/common
                 ./home/minerva
                 inputs.spicetify-nix.homeManagerModules.default
+                catppuccin.homeModules.catppuccin
               ];
             };
             home-manager.extraSpecialArgs = {inherit inputs;};

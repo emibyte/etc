@@ -36,6 +36,7 @@ in {
     ./ghostty.nix
     ./xdg.nix
     ./spicetify.nix
+    ./theme.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -121,10 +122,10 @@ in {
   gtk = {
     enable = true;
     cursorTheme = cursorMiku;
-    theme = {
-      name = "catppuccin-macchiato-standard-pink-dark";
-      package = pkgs.catppuccin-gtk;
-    };
+    # theme = {
+    #   name = "catppuccin-macchiato-standard-pink";
+    #   package = pkgs.catppuccin-gtk;
+    # };
 
     iconTheme = {
       name = "Papirus-Dark";
@@ -137,11 +138,13 @@ in {
     gtk3 = {
       extraConfig = {
         gtk-cursor-theme-size = cursorMiku.size;
+        gtk-application-prefer-dark-theme = true;
       };
     };
     gtk4 = {
       extraConfig = {
         gtk-cursor-theme-size = cursorMiku.size;
+        gtk-application-prefer-dark-theme = true;
       };
     };
   };
@@ -149,6 +152,7 @@ in {
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
     WLR_NO_HARDWARE_CURSORS = 1;
+    MOZ_ENABLE_WAYLAND = 1;
   };
 
   # for vm stuff
