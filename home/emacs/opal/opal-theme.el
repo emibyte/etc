@@ -19,8 +19,7 @@
 (use-package ef-themes
   :config
   ;; (load-theme 'ef-maris-dark t nil))
-  (load-theme 'ef-dream t nil))
-  ;; (load-theme 'ef-summer t nil))
+  (load-theme 'ef-summer t nil))
   ;; (load-theme 'kaolin-valley-light t nil))
 
 (use-package doom-modeline
