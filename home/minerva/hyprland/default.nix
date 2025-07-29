@@ -99,6 +99,11 @@ in {
 
         # so that volume control opens as floating window
         "float,class:pwvucontrol,title:pwvucontrol"
+        # (hopefully) no opacity on browsers
+        "opacity 0.0 override, class:^(firefox)$"
+        "opacity 0.0 override, class:^(brave)$"
+        "opacity 0.0 override, class:^(chromium)$"
+        "opacity 0.0 override, class:^(librewolf)$"
       ];
 
       workspace = [
@@ -258,7 +263,7 @@ in {
         "$mainMod, RETURN, exec, $terminal"
         "$mainMod, C, killactive,"
         "$mainMod, D, exec, rofi -show drun"
-        # "$mainMod, M, exit,"
+        "$mainMod, O, exit,"
         "$mainMod, E, exec, thunar"
         "$mainMod, V, togglefloating,"
         "$mainMod, P, pseudo," # dwindle
