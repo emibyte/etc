@@ -11,13 +11,13 @@
     })
   ];
   catppuccin = {
-    enable = true;
+    enable = false;
     flavor = "latte";
   };
 
-  qt = {
-    enable = true;
-    platformTheme.name = "kvantum";
-    style.name = "kvantum";
-  };
+  # qt = {
+  #   enable = true;
+  #   platformTheme.name = "kvantum";
+  #   style.name = "kvantum";
+  # };
 }
