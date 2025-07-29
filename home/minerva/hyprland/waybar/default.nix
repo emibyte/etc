@@ -96,7 +96,6 @@ in {
           on-click-right = "pavucontrol";
         };
 
-
         # TODO: idk
         "pulseaudio#microphone" = {
           format = "{format_source}";
