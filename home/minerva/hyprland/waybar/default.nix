@@ -34,7 +34,6 @@
         echo "No match"
     fi
   '';
-  dunstctl = "${pkgs.dunst}/bin/dunstctl";
 in {
   # TODO: make a notification widget, that i can enable/disable notifications
   #       but also can be opened to show a list of past notifications
@@ -65,14 +64,71 @@ in {
           "mpris"
         ];
         modules-center = [
-          "hyprland/window"
+          "custom/swaync"
         ];
-        modules-right = ["pulseaudio" "network" "clock" "tray" "custom/power"];
+        modules-right = [
+          "hyprland/window"
+          "pulseaudio"
+          "network"
+          "custom/power"
+        ];
 
         "custom/power" = {
           tooltip = false;
           on-click = "exec ${powermenu}";
           format = "";
+        };
+
+        pulseaudio = {
+          format = "{icon} {volume}%";
+          format-bluetooth = "{volume}% {icon}";
+          format-muted = "󰖁 muted";
+          format-icons = {
+            headphone = "";
+            hands-free = "󰋎";
+            headset = "󰋎";
+            default = "󰕾";
+          };
+
+          # Interaction
+          scroll-step = 5;
+          on-click = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+          on-click-right = "pavucontrol";
+        };
+
+
+        # TODO: idk
+        "pulseaudio#microphone" = {
+          format = "{format_source}";
+          format-source = " {volume}%";
+          format-source-muted = "";
+          on-click = "";
+          on-click-right = "pavucontrol -t 4";
+          on-scroll-up = "";
+          on-scroll-down = "";
+          tooltip-format = "{source_desc} | {source_volume}%";
+          scroll-step = 5;
+        };
+
+        network = {
+          format = "{ifname}";
+          format-wifi = "{icon}";
+          format-ethernet = "󰌘";
+          format-disconnected = "󰌙";
+          tooltip-format = "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}";
+          format-linked = "󰈁 {ifname} (No IP)";
+          tooltip-format-wifi = "{essid} {icon} {signalStrength}%";
+          tooltip-format-ethernet = "{ifname} 󰌘";
+          tooltip-format-disconnected = "󰌙 Disconnected";
+          max-length = 30;
+          format-icons = [
+            "󰤯"
+            "󰤟"
+            "󰤢"
+            "󰤥"
+            "󰤨"
+          ];
+          # on-click-right= "$HOME/.config/hypr/scripts/WaybarScripts.sh --nmtui";
         };
 
         idle_inhibitor = {
@@ -253,8 +309,8 @@ in {
 
         style = builtins.readFile ./style.css;
       };
-      xdg.configFile."waybar/macchiato.css".text =
-        builtins.readFile ./macchiato.css;
+      xdg.configFile."waybar/mocha.css".text =
+        builtins.readFile ./mocha.css;
     };
   };
 }
