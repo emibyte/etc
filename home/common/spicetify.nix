@@ -9,6 +9,7 @@
   in {
     enable = true;
     theme = spicePkgs.themes.catppuccin;
-    colorScheme = "latte";
+    # colorScheme = "latte";
+    colorScheme = "mocha";
   };
 }
