@@ -41,6 +41,8 @@
 
   (evil-define-key 'normal 'global (kbd "<leader>hv") #'describe-variable)
   (evil-define-key 'normal 'global (kbd "<leader>hf") #'describe-function)
+
+  (evil-define-key 'normal 'global (kbd "<leader>ot") #'eat)
   (evil-mode))
 
 (use-package evil-collection

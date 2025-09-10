@@ -18,9 +18,14 @@
 
 (use-package ef-themes
   :config
-  ;; (load-theme 'ef-maris-dark t nil))
-  (load-theme 'ef-summer t nil))
+  ;; (load-theme 'catppuccin t nil))
+  (load-theme 'doom-moonlight t nil))
+  ;; (load-theme 'stimmung-themes-dark t nil))
+  ;; (load-theme 'ef-rosa t nil))
+  ;; (load-theme 'kaolin-shiva t nil))
   ;; (load-theme 'kaolin-valley-light t nil))
+  ;; (load-theme 'doom-pine t nil))
+  ;; (load-theme 'stimmung-themes-dark t nil))
 
 (use-package doom-modeline
   :init (doom-modeline-mode 1))
