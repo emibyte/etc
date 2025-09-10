@@ -11,12 +11,18 @@
     # emacs-overlay.url = "github:nix-community/emacs-overlay";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
     catppuccin.url = "github:catppuccin/nix";
+
+    stylix = {
+      url = "github:nix-community/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     catppuccin,
+    stylix,
     home-manager,
     ...
   } @ inputs: let
@@ -65,6 +71,7 @@
           {
             nixpkgs.overlays = [self.overlays.additions];
           }
+          stylix.nixosModules.stylix
           catppuccin.nixosModules.catppuccin
 
           # TODO: change configuration to just default.nix and modularize
