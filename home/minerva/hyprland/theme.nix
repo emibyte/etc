@@ -1,23 +1,23 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
     (catppuccin-kde.override {
-      flavour = ["latte"];
+      flavour = ["mocha"];
       accents = ["pink"];
       winDecStyles = ["classic"];
     })
     (catppuccin-kvantum.override {
-      variant = "latte";
+      variant = "mocha";
       accent = "pink";
     })
   ];
   catppuccin = {
-    enable = false;
-    flavor = "latte";
+    enable = true;
+    flavor = "mocha";
   };
 
-  # qt = {
-  #   enable = true;
-  #   platformTheme.name = "kvantum";
-  #   style.name = "kvantum";
-  # };
+  qt = {
+    enable = true;
+    platformTheme.name = "kvantum";
+    style.name = "kvantum";
+  };
 }

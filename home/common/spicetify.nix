@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  lib,
   ...
 }: {
   # NOTE: automatically also installs spotify
@@ -8,8 +9,7 @@
     spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.system};
   in {
     enable = true;
-    theme = spicePkgs.themes.catppuccin;
-    # colorScheme = "latte";
-    colorScheme = "mocha";
+    theme = lib.mkForce spicePkgs.themes.catppuccin;
+    colorScheme = lib.mkForce "mocha";
   };
 }
