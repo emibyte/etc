@@ -10,7 +10,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./monitoring.nix
-    # ./hyprland.nix
+    ./hyprland.nix
     # ./vm.nix
   ];
 
@@ -87,6 +87,7 @@
     #   base0F = "ab47bc";
     # };
   };
+
   hardware.i2c.enable = true;
 
   hardware.keyboard.qmk.enable = true;
@@ -205,8 +206,19 @@
   hardware.xone.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services = {
+    displayManager = {
+      sddm.wayland.enable = true;
+      sddm.enable = true;
+      sddm.package = pkgs.kdePackages.sddm;
+      sddm.theme = "where_is_my_sddm";
+      # sddm.theme = "catppuccin-mocha";
+      # sddm.theme = "sddm-astronaut";
+      sddm.enableHidpi = true;
+      defaultSession = "hyprland";
+    };
+  };
+  # services.desktopManager.plasma6.enable = false;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -260,10 +272,11 @@
     description = "emily";
     extraGroups = ["networkmanager" "wheel" "libvirtd" "openrazer" "gamemode"];
     packages = [
-      pkgs.kdePackages.kate
-      pkgs.kdePackages.kcalc
-      pkgs.kdePackages.bluedevil
-      pkgs.kdePackages.krohnkite
+      # pkgs.kdePackages.kate
+      # pkgs.kdePackages.kcalc
+      # pkgs.kdePackages.bluedevil
+      # pkgs.kdePackages.dolphin
+      pkgs.file-roller
       pkgs.keepassxc
       pkgs.openrgb-with-all-plugins
       #  thunderbird
@@ -288,6 +301,17 @@
     git
     wget
     via
+
+    where-is-my-sddm-theme
+    sddm-astronaut
+    (pkgs.catppuccin-sddm.override {
+      flavor = "mocha";
+      # font  = "Noto Sans";
+      # fontSize = "9";
+      # background = "${./wallpaper.png}";
+      loginBackground = true;
+      # userIcon = true;
+    })
   ];
   environment.pathsToLink = ["/share/zsh"];
 
@@ -301,6 +325,7 @@
     [
       iosevka-comfy.comfy
       noto-fonts
+      inter
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 

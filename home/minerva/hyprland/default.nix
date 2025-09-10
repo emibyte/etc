@@ -1,64 +1,28 @@
-{config, ...}: let
+{pkgs, config, ...}: let
   colors = {
-    rosewater = "rgb(f4dbd6)";
-    rosewaterAlpha = "f4dbd6";
-    flamingo = "rgb(f0c6c6)";
-    flamingoAlpha = "f0c6c6";
     pink = "rgb(f5bde6)";
     pinkAlpha = "f5bde6";
-    mauve = "rgb(c6a0f6)";
-    mauveAlpha = "c6a0f6";
-    red = "rgb(ed8796)";
-    redAlpha = "ed8796";
-    maroon = "rgb(ee99a0)";
-    maroonAlpha = "ee99a0";
-    peach = "rgb(f5a97f)";
-    peachAlpha = "f5a97f";
-    yellow = "rgb(eed49f)";
-    yellowAlpha = "eed49f";
-    green = "rgb(a6da95)";
-    greenAlpha = "a6da95";
-    teal = "rgb(8bd5ca)";
-    tealAlpha = "8bd5ca";
-    sky = "rgb(91d7e3)";
-    skyAlpha = "91d7e3";
-    sapphire = "rgb(7dc4e4)";
-    sapphireAlpha = "7dc4e4";
-    blue = "rgb(8aadf4)";
-    blueAlpha = "8aadf4";
-    lavender = "rgb(b7bdf8)";
-    lavenderAlpha = "b7bdf8";
-    text = "rgb(cad3f5)";
-    textAlpha = "cad3f5";
-    subtext1 = "rgb(b8c0e0)";
-    subtext1Alpha = "b8c0e0";
-    subtext0 = "rgb(a5adcb)";
-    subtext0Alpha = "a5adcb";
-    overlay2 = "rgb(939ab7)";
-    overlay2Alpha = "939ab7";
-    overlay1 = "rgb(8087a2)";
-    overlay1Alpha = "8087a2";
-    overlay0 = "rgb(6e738d)";
-    overlay0Alpha = "6e738d";
-    surface2 = "rgb(5b6078)";
-    surface2Alpha = "5b6078";
     surface1 = "rgb(494d64)";
     surface1Alpha = "494d64";
-    surface0 = "rgb(363a4f)";
-    surface0Alpha = "363a4f";
-    base = "rgb(24273a)";
-    baseAlpha = "24273a";
-    mantle = "rgb(1e2030)";
-    mantleAlpha = "1e2030";
-    crust = "rgb(181926)";
-    crustAlpha = "181926";
+    baseAlpha = "1e1e2e";
+    sapphire = "rgb(7dc4e4)";
+    sapphireAlpha = "7dc4e4";
+    rosewater = "rgb(f4dbd6)";
+    rosewaterAlpha = "f4dbd6";
+    # TODO: try out these colors
+    # col.active_border=0xffb072d1
+    # col.inactive_border=0xff292a37
   };
 in {
   imports = [
     ./rofi
     ./waybar
     ./dunst.nix
+    ./stylix.nix
+    # ./theme.nix
   ];
+
+  home.packages = with pkgs; [ hyprshot ];
 
   programs.wlogout = {
     enable = true;
@@ -77,7 +41,7 @@ in {
     systemd.variables = ["--all"];
     settings = {
       monitor = [
-        "DP-2, highres@highrr, 0x0, 1" # oled 1440p 2560x1400@144
+        "DP-2, highres@240, 0x0, 1" # oled 1440p 2560x1400@144
         "DP-3, highres@highrr, -2560x0, 1.5" # ips 4k 3840x2160@60 (3840 / 1.5 = 2560)
       ];
 
@@ -99,20 +63,30 @@ in {
 
         # so that volume control opens as floating window
         "float,class:pwvucontrol,title:pwvucontrol"
+        "float,title:Volume Control"
+        "size 1400 700,title:Volume Control"
         # (hopefully) no opacity on browsers
-        "opacity 0.0 override, class:^(firefox)$"
-        "opacity 0.0 override, class:^(brave)$"
-        "opacity 0.0 override, class:^(chromium)$"
-        "opacity 0.0 override, class:^(librewolf)$"
+        "opacity 1.0 override, class:^(firefox)$"
+        "opacity 1.0 override, class:^(floorp)$"
+        "opacity 1.0 override, class:^(brave-browser)$"
+        "opacity 1.0 override, class:^(Chromium)$"
+        "opacity 1.0 override, class:^(librewolf)$"
+      ];
+
+      windowrulev2 = [
+        "float, class:^(jetbrains-.*),title:^(win.*)"
+        "noinitialfocus, opacity 0.9 0.9, class:^(jetbrains-.*)"
+        # "noinitialfocus,xwayland:1"
+        # "bordercolor ${colors.sapphire},class:*,group:1"
       ];
 
       workspace = [
         "workspace=1,monitor:DP-2"
         "workspace=2,monitor:DP-3"
         "workspace=3,monitor:DP-2"
-        "workspace=4,monitor:DP-3"
+        "workspace=4,monitor:DP-2"
         "workspace=5,monitor:DP-2"
-        "workspace=6,monitor:DP-3"
+        "workspace=6,monitor:DP-2"
         "workspace=7,monitor:DP-2"
         "workspace=8,monitor:DP-3"
         "workspace=9,monitor:DP-2"
@@ -131,8 +105,8 @@ in {
       # source = "./macchiato.conf";
 
       general = {
-        gaps_in = "0";
-        gaps_out = "0";
+        gaps_in = "5";
+        gaps_out = "10";
 
         border_size = "2";
 
@@ -150,8 +124,8 @@ in {
       };
 
       decoration = {
-        rounding = "0";
-        rounding_power = "0";
+        rounding = "10";
+        rounding_power = "5";
 
         # https://wiki.hypr.land/Configuring/Variables/#blur
         blur = {
@@ -169,6 +143,16 @@ in {
           render_power = "3";
           color = colors.pink;
           color_inactive = "0xff${colors.baseAlpha}";
+        };
+      };
+
+      group = {
+        "col.border_active" = colors.pink;
+        "col.border_inactive" = "0xff${colors.baseAlpha}";
+
+        groupbar = {
+          "col.active" = colors.sapphire;
+          "col.inactive" = "0xff${colors.baseAlpha}";
         };
       };
 
@@ -260,15 +244,31 @@ in {
       "$mainMod" = "SUPER";
 
       bind = [
-        "$mainMod, RETURN, exec, $terminal"
+        "$mainMod, RETURN, exec, ghostty"
         "$mainMod, C, killactive,"
         "$mainMod, D, exec, rofi -show drun"
-        "$mainMod, O, exit,"
-        "$mainMod, E, exec, thunar"
+        # "$mainMod, O, exit,"
+        "$mainMod, E, exec, dolphin"
         "$mainMod, V, togglefloating,"
         "$mainMod, P, pseudo," # dwindle
         "$mainMod SHIFT, j, togglesplit," # dwindle
-        "$mainMod, ESCAPE, exec, wlogout"
+        "$mainMod, ESCAPE, exec, wlogout,"
+        "$mainMod, F, fullscreen"
+
+        # Screenshot a window
+        # "SUPER_SHIFT, S, hyprshot -m window"
+        # Screenshot a monitor
+        # "SUPER_SHIFT, , exec, hyprshot -m output"
+        # Screenshot a region
+        "SUPER_SHIFT, S, exec, hyprshot -m region"
+
+        # NOTE: group bindings (like the cute little tabs in sway)
+        "$mainMod, T, togglegroup,"
+        "$mainMod SHIFT, T, changegroupactive, f,"
+        "SUPER_SHIFT, left, movewindoworgroup, l"
+        "SUPER_SHIFT, right, movewindoworgroup, r"
+        "SUPER_SHIFT, up, movewindoworgroup, u"
+        "SUPER_SHIFT, down, movewindoworgroup, d"
 
         "$mainMod, h, movefocus, l"
         "$mainMod, l, movefocus, r"
@@ -302,6 +302,8 @@ in {
 
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"
+
+        # TODO: resize window binds (width mainly) resizeactive x y
       ];
 
       bindm = [
@@ -321,16 +323,70 @@ in {
 
   # FIXME: no idea if this works
   #        https://wiki.hypr.land/Hypr-Ecosystem/xdg-desktop-portal-hyprland/
-  xdg.portal.config = {
-    hyprland = {
-      default = ["hyprland" "gtk"];
-      "org.freedesktop.impl.portal.FileChooser" = ["kde"];
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    config = {
+      hyprland = {
+        default = ["hyprland" "gtk"];
+        # "org.freedesktop.impl.portal.FileChooser" = ["kde"];
+        # "org.freedesktop.impl.portal.FileChooser" = "kde";
+        "org.freedesktop.portal.Settings" = "gtk";
+      };
     };
   };
 
   services.hyprpolkitagent.enable = true;
 
-  services.hypridle.enable = true;
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      general = {
+        hide_cursor = true;
+        ignore_empty_input = true;
+      };
+
+      animations = {
+        enabled = true;
+        fade_in = {
+          duration = 300;
+          bezier = "easeOutQuint";
+        };
+        fade_out = {
+          duration = 300;
+          bezier = "easeOutQuint";
+        };
+      };
+
+      background = [
+        {
+          path = "screenshot";
+          blur_passes = 3;
+          blur_size = 8;
+        }
+      ];
+
+      input-field = [
+        {
+          size = "200, 50";
+          position = "0, -80";
+          monitor = "";
+          dots_center = true;
+          fade_on_empty = false;
+          font_color = "rgb(202, 211, 245)";
+          inner_color = "rgb(91, 96, 120)";
+          outer_color = "rgb(24, 25, 38)";
+          outline_thickness = 5;
+          # placeholder_text = "";
+          shadow_passes = 2;
+        }
+      ];
+    };
+  };
+
+  services.hypridle = {
+    enable = true;
+  };
 
   services.hyprpaper = {
     enable = true;

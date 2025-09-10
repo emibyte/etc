@@ -7,9 +7,11 @@
       # font-family = "Iosevka Comfy";
       font-family = "Hack";
       font-size = 14;
-      theme = "ef-dark";
+      # theme = "ef-dark";
+      # theme = "catppuccin-mocha";
       cursor-style = "block";
       shell-integration-features = "no-cursor";
+      gtk-single-instance = true;
     };
     themes = {
       ef-dark = {

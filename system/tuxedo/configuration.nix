@@ -57,7 +57,15 @@ in {
     LC_TIME = "de_DE.UTF-8";
   };
 
-  programs.thunar.enable = true;
+  programs.thunar = {
+    enable = true;
+    plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-media-tags-plugin
+      thunar-volman
+    ];
+  };
+
   services = {
     # Mount, trash, and other functionalities
     gvfs.enable = true;

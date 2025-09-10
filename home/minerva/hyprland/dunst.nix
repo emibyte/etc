@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   # home.packages = with pkgs; [dunst];
   services.dunst = {
-    enable = false;
+    enable = true;
     settings = {
       global = {
         frame_color = "#cad3f5";

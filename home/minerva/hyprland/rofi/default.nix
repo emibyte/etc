@@ -1,9 +1,10 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
+  # home.packages = with pkgs; [kdePackages.breeze-icons];
   programs.rofi = {
     enable = true;
-    # theme = ./catppuccin-macchiato.rasi;
+    theme = lib.mkForce ./catppuccin-macchiato.rasi;
     package = pkgs.rofi-wayland;
-    modes = ["drun"];
+    modes = ["drun" "run"];
     location = "center";
     font = "Iosevka Comfy 16";
     extraConfig = {
@@ -13,6 +14,7 @@
       drun-display-format = "{icon} {name}";
       sidebar-mode = true;
       border-radius = 10;
+      # icon-theme = "Breeze-Dark";
     };
   };
 }

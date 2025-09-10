@@ -36,7 +36,7 @@ in {
     ./ghostty.nix
     ./xdg.nix
     ./spicetify.nix
-    ./theme.nix
+    ./floorp.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -50,6 +50,7 @@ in {
   home.packages = [
     rebuild-system
     pkgs.nvibrant-git
+    pkgs.lm_sensors
 
     pkgs.discord
     # pkgs.spotify
@@ -87,6 +88,13 @@ in {
     enable = true;
     userName = "emibyte";
     userEmail = "fevymarine@gmail.com";
+    extraConfig = {
+      pull.rebase = true; # to prevent merge commits on pull
+    };
+  };
+
+  programs.gh = {
+    enable = true;
   };
 
   programs.ssh = {
@@ -123,14 +131,14 @@ in {
     enable = true;
     cursorTheme = cursorMiku;
     # theme = {
-    #   name = "catppuccin-macchiato-standard-pink";
+    #   name = "catppuccin-mocha-standard-pink";
     #   package = pkgs.catppuccin-gtk;
     # };
 
     iconTheme = {
       name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "macchiato";
+        flavor = "mocha";
         accent = "pink";
       };
     };
@@ -148,6 +156,11 @@ in {
       };
     };
   };
+
+  # qt = {
+  #   enable = true;
+  #   platformTheme.name = "gtk";
+  # };
 
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
