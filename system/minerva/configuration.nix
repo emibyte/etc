@@ -47,6 +47,11 @@
     enable32Bit = true;
   };
 
+  # python uv stuff
+  # https://nixos.wiki/wiki/Python#uv
+  environment.variables.UV_PYTHON_DOWNLOADS = "never";
+  environment.localBinInPath = true;
+
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
