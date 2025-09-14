@@ -264,7 +264,8 @@ in {
 
         # NOTE: group bindings (like the cute little tabs in sway)
         "$mainMod, T, togglegroup,"
-        "$mainMod SHIFT, T, changegroupactive, f,"
+        # "$mainMod SHIFT, T, changegroupactive, f,"
+        "ALT, TAB, changegroupactive, f,"
         "SUPER_SHIFT, left, movewindoworgroup, l"
         "SUPER_SHIFT, right, movewindoworgroup, r"
         "SUPER_SHIFT, up, movewindoworgroup, u"
