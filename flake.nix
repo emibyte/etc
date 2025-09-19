@@ -57,7 +57,7 @@
                 ./home/common
                 ./home/tuxedo
                 inputs.spicetify-nix.homeManagerModules.default
-                catppuccin.homeModules.catppuccin
+                # catppuccin.homeModules.catppuccin
               ];
             };
             home-manager.extraSpecialArgs = {inherit inputs;};
@@ -87,7 +87,7 @@
                 ./home/common
                 ./home/minerva
                 inputs.spicetify-nix.homeManagerModules.default
-                catppuccin.homeModules.catppuccin
+                # catppuccin.homeModules.catppuccin
               ];
             };
             home-manager.extraSpecialArgs = {inherit inputs;};
