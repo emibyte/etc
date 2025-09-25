@@ -86,6 +86,7 @@ in {
 
         epkgs.magit
 
+        epkgs.lsp-python-ms
         epkgs.nix-mode
         epkgs.org
         epkgs.org-bullets
