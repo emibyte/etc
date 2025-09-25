@@ -39,6 +39,7 @@ in {
         epkgs.orderless
         epkgs.embark
         epkgs.embark-consult
+        epkgs.company # for company-yasnippe
 
         epkgs.helpful
         epkgs.hl-todo

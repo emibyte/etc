@@ -54,7 +54,7 @@
   (corfu-auto t)
   (corfu-cycle t)
   (corfu-auto-prefix 1)
-  (lsp-completion-provider :none)
+  ;; (lsp-completion-provider :none)
   (corfu-auto-delay 0.25)
   (corfu-min-width 100)
   (corfu-max-width corfu-min-width)
@@ -69,19 +69,60 @@
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
           '(orderless))))
 
+;; https://github.com/minad/corfu/discussions/457
+(setopt text-mode-ispell-word-completion nil)
+(customize-set-variable 'text-mode-ispell-word-completion nil)
+
 (use-package cape
+  :hook ((org-mode . opal/cape-capf-setup-org-mode)
+         (emacs-lisp-mode . opal/cape-capf-setup-elisp-mode)
+         (lsp-completion-mode . opal/cape-capf-setup-lsp-mode)
+         )
   :bind
   ("C-c p" . cape-prefix-map)
   :init
-  (add-hook 'completion-at-point-functions #'cape-dabbrev)
-  (add-hook 'completion-at-point-functions #'cape-file)
-  (add-hook 'completion-at-point-functions #'cape-elisp-block)
-  (add-hook 'completion-at-point-functions #'cape-elisp-symbol)
-  (add-hook 'completion-at-point-functions #'cape-keyword))
+  ;; (add-hook 'completion-at-point-functions #'cape-dabbrev)
+  ;; (add-hook 'completion-at-point-functions #'cape-file)
+  ;; (add-hook 'completion-at-point-functions #'cape-elisp-block)
+  ;; (add-hook 'completion-at-point-functions #'cape-elisp-symbol)
+  ;; (add-hook 'completion-at-point-functions #'cape-keyword)
+  ;;; org-mode
+  (defun opal/cape-capf-setup-org-mode ()
+    (dolist (element (list
+                      (cape-capf-super #'cape-dict #'cape-dabbrev)
+                      (cape-company-to-capf #'company-yasnippet)))
+      (add-to-list 'completion-at-point-functions element)))
+  ;;; lsp-mode
+  (defun opal/cape-capf-setup-lsp-mode ()
+    "Replace the default `lsp-completion-at-point' with its
+`cape-capf-buster' version. Also add `cape-file' and
+`company-yasnippet' backends. Additionally keep `dabbrev' as fallback"
+    (setf (elt (cl-member 'lsp-completion-at-point completion-at-point-functions) 0)
+          (cape-capf-buster #'lsp-completion-at-point))
+    (add-to-list 'completion-at-point-functions (cape-company-to-capf #'company-yasnippet))
+    (add-to-list 'completion-at-point-functions #'cape-dabbrev t))
+  ;;; elisp-mode
+  (defun opal/cape-capf-setup-elisp-mode ()
+    "Replace the default `elisp-completion-at-point'
+completion-at-point-function. Doing it this way will prevent
+disrupting the addition of other capfs (e.g. merely setting the
+variable entirely, or adding to list).
+
+Additionally, add `cape-file' as early as possible to the list."
+    (setf (elt (cl-member 'elisp-completion-at-point completion-at-point-functions) 0)
+          #'elisp-completion-at-point)
+    (add-to-list 'completion-at-point-functions #'cape-keyword)
+    (add-to-list 'completion-at-point-functions #'cape-elisp-symbol)
+    ;; I prefer this being early/first in the list
+    (add-to-list 'completion-at-point-functions #'cape-file)
+    (add-to-list 'completion-at-point-functions (cape-company-to-capf #'company-yasnippet)))
+  )
 
 (use-package kind-icon
   :after corfu
   :custom
+  (kind-icon-default-style '(:padding 0 :stroke 0 :margin 0 :radius 0 :height 0.9 :scale 1.0
+          :background nil))
   (kind-icon-use-icons t)
   (kind-icon-default-face 'corfu-default) ; Have background color be the same as `corfu' face background
   (kind-icon-blend-background nil)  ; Use midpoint color between foreground and background colors ("blended")?
