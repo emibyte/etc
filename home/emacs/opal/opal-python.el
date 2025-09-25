@@ -4,6 +4,8 @@
 
 (require 'opal-package)
 
+;; TODO: uv-mode
+
 (use-package lsp-python-ms
   :hook ((python-mode . opal/setup-python)
          (python-mode . direnv-update-environment))
