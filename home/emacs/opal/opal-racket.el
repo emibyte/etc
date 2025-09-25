@@ -7,7 +7,7 @@
 (use-package racket-mode
   :hook ((racket-mode . lsp-deferred)
          (racket-mode . racket-xp-mode)
-         ;; NOTE: sometimes direnv loads to late resulting in the racket executable not being found which is a problem for the two hooks that follow
+         ;; NOTE: sometimes direnv loads too late resulting in the racket executable not being found which is a problem for the two hooks that follow
          (racket-mode . direnv-update-environment)))
 
 ;;; TODO: racket-xp-mode, bindings like spc m as prefix for all the racket mode specific bindings pls :3 (use hydra for that also, once i understood how hydra works)
