@@ -216,11 +216,10 @@
       sddm.wayland.enable = true;
       sddm.enable = true;
       sddm.package = pkgs.kdePackages.sddm;
-      sddm.theme = "where_is_my_sddm";
-      # sddm.theme = "catppuccin-mocha";
-      # sddm.theme = "sddm-astronaut";
+      sddm.theme = "sddm-astronaut-theme";
       sddm.enableHidpi = true;
       defaultSession = "hyprland";
+      sddm.extraPackages = with pkgs; [sddm-astronaut];
     };
   };
   # services.desktopManager.plasma6.enable = false;
@@ -307,16 +306,7 @@
     wget
     via
 
-    where-is-my-sddm-theme
     sddm-astronaut
-    (pkgs.catppuccin-sddm.override {
-      flavor = "mocha";
-      # font  = "Noto Sans";
-      # fontSize = "9";
-      # background = "${./wallpaper.png}";
-      loginBackground = true;
-      # userIcon = true;
-    })
   ];
   environment.pathsToLink = ["/share/zsh"];
 
