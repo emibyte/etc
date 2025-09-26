@@ -32,4 +32,7 @@
       };
     };
   };
+
+  stylix.targets.floorp.profileNames = ["emi"];
+  stylix.targets.floorp.colorTheme.enable = true;
 }

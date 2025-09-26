@@ -28,4 +28,7 @@
       };
     };
   };
+
+  stylix.targets.firefox.profileNames = ["emi"];
+  stylix.targets.firefox.colorTheme.enable = true;
 }

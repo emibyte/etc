@@ -28,4 +28,7 @@
       };
     };
   };
+
+  stylix.targets.librewolf.profileNames = ["emi"];
+  stylix.targets.librewolf.colorTheme.enable = true;
 }
