@@ -41,6 +41,7 @@
           {
             nixpkgs.overlays = [self.overlays.additions];
           }
+          stylix.nixosModules.stylix
           catppuccin.nixosModules.catppuccin
 
           # TODO: change configuration to just default.nix and modularize
