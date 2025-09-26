@@ -1,4 +1,8 @@
-{pkgs, lib, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   # home.packages = with pkgs; [kdePackages.breeze-icons];
   programs.rofi = {
     enable = true;

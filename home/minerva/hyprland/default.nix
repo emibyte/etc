@@ -1,4 +1,8 @@
-{pkgs, config, ...}: let
+{
+  pkgs,
+  config,
+  ...
+}: let
   colors = {
     pink = "rgb(f5bde6)";
     pinkAlpha = "f5bde6";
@@ -22,7 +26,7 @@ in {
     # ./theme.nix
   ];
 
-  home.packages = with pkgs; [ hyprshot ];
+  home.packages = with pkgs; [hyprshot];
 
   programs.wlogout = {
     enable = true;
@@ -326,7 +330,7 @@ in {
   #        https://wiki.hypr.land/Hypr-Ecosystem/xdg-desktop-portal-hyprland/
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [xdg-desktop-portal-gtk];
     config = {
       hyprland = {
         default = ["hyprland" "gtk"];
