@@ -26,6 +26,7 @@
   (evil-define-key 'normal 'global (kbd "<leader>bi") #'ibuffer)
   ;;(evil-define-key 'normal 'global (kbd "<leader>bb") #'switch-to-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bb") #'consult-buffer)
+  (evil-define-key 'normal 'global (kbd "<leader>SPC") #'consult-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bp") #'switch-to-prev-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bn") #'switch-to-next-buffer)
   ;; theme switching
