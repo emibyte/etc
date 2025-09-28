@@ -89,17 +89,15 @@
   ;;; org-mode
   (defun opal/cape-capf-setup-org-mode ()
     (dolist (element (list
-                      (cape-capf-super #'cape-dict #'cape-dabbrev)
-                      (cape-company-to-capf #'company-yasnippet)))
+                      (cape-capf-super #'cape-dict #'cape-dabbrev)))
       (add-to-list 'completion-at-point-functions element)))
   ;;; lsp-mode
   (defun opal/cape-capf-setup-lsp-mode ()
     "Replace the default `lsp-completion-at-point' with its
-`cape-capf-buster' version. Also add `cape-file' and
-`company-yasnippet' backends. Additionally keep `dabbrev' as fallback"
+`cape-capf-buster' version. Also add `cape-file'
+backend. Additionally keep `dabbrev' as fallback"
     (setf (elt (cl-member 'lsp-completion-at-point completion-at-point-functions) 0)
           (cape-capf-buster #'lsp-completion-at-point))
-    (add-to-list 'completion-at-point-functions (cape-company-to-capf #'company-yasnippet))
     (add-to-list 'completion-at-point-functions #'cape-dabbrev t))
   ;;; elisp-mode
   (defun opal/cape-capf-setup-elisp-mode ()
@@ -107,15 +105,13 @@
 completion-at-point-function. Doing it this way will prevent
 disrupting the addition of other capfs (e.g. merely setting the
 variable entirely, or adding to list).
-
 Additionally, add `cape-file' as early as possible to the list."
     (setf (elt (cl-member 'elisp-completion-at-point completion-at-point-functions) 0)
           #'elisp-completion-at-point)
     (add-to-list 'completion-at-point-functions #'cape-keyword)
     (add-to-list 'completion-at-point-functions #'cape-elisp-symbol)
     ;; I prefer this being early/first in the list
-    (add-to-list 'completion-at-point-functions #'cape-file)
-    (add-to-list 'completion-at-point-functions (cape-company-to-capf #'company-yasnippet)))
+    (add-to-list 'completion-at-point-functions #'cape-file))
   )
 
 (use-package kind-icon
