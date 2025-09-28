@@ -5,14 +5,15 @@
 (require 'opal-package)
 
 ;; TODO: uv-mode
+(defun opal/setup-python ()
+  (require 'lsp-pyright)
+  (direnv-update-environment)
+  (lsp))
 
-(use-package lsp-python-ms
-  :hook ((python-mode . opal/setup-python)
-         (python-mode . direnv-update-environment))
-  :init
-  (setq lsp-python-ms-executable (executable-find "python-language-server"))
-  (defun opal/setup-python ()
-    (lsp-deferred))
+(use-package lsp-pyright
+  :hook ((python-mode . opal/setup-python))
+  :custom
+  (lsp-pyright-langserver-command "pyright") ;; or basedpyright
   )
 
 (provide 'opal-python)
