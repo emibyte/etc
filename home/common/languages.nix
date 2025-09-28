@@ -14,7 +14,7 @@ in {
 
     pkgs.jsonnet
     pkgs.nodejs
-    pkgs.python311Full
+    # pkgs.python311Full
     pkgs.rustc
     pkgs.go
     pkgs.lua
@@ -24,7 +24,7 @@ in {
     pkgs.jsonnet-language-server
     pkgs.lua-language-server
     pkgs.nixd
-    pkgs.pyright
+    # pkgs.pyright
     pkgs.nodePackages."bash-language-server"
     pkgs.nodePackages."diagnostic-languageserver"
     pkgs.nodePackages."dockerfile-language-server-nodejs"
@@ -41,7 +41,7 @@ in {
     pkgs.nixpkgs-fmt
     pkgs.gofumpt
     pkgs.golines
-    pkgs.python311Packages.black
+    # pkgs.python311Packages.black
     pkgs.rustfmt
     pkgs.terraform
 
