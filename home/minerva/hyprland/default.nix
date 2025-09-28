@@ -73,7 +73,7 @@ in {
         "opacity 1.0 override, class:^(firefox)$"
         "opacity 1.0 override, class:^(floorp)$"
         "opacity 1.0 override, class:^(brave-browser)$"
-        "opacity 1.0 override, class:^(Chromium)$"
+        "opacity 1.0 override, class:^(chromium-browser)$"
         "opacity 1.0 override, class:^(librewolf)$"
       ];
 
