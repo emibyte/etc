@@ -54,7 +54,7 @@
   (corfu-auto t)
   (corfu-cycle t)
   (corfu-auto-prefix 1)
-  ;; (lsp-completion-provider :none)
+  (lsp-completion-provider :none)
   (corfu-auto-delay 0.25)
   (corfu-min-width 100)
   (corfu-max-width corfu-min-width)
@@ -81,9 +81,9 @@
   :bind
   ("C-c p" . cape-prefix-map)
   :init
-  ;; (add-hook 'completion-at-point-functions #'cape-dabbrev)
-  ;; (add-hook 'completion-at-point-functions #'cape-file)
-  ;; (add-hook 'completion-at-point-functions #'cape-elisp-block)
+  (add-hook 'completion-at-point-functions #'cape-dabbrev)
+  (add-hook 'completion-at-point-functions #'cape-file)
+  (add-hook 'completion-at-point-functions #'cape-elisp-block)
   ;; (add-hook 'completion-at-point-functions #'cape-elisp-symbol)
   ;; (add-hook 'completion-at-point-functions #'cape-keyword)
   ;;; org-mode
@@ -96,8 +96,9 @@
     "Replace the default `lsp-completion-at-point' with its
 `cape-capf-buster' version. Also add `cape-file'
 backend. Additionally keep `dabbrev' as fallback"
-    (setf (elt (cl-member 'lsp-completion-at-point completion-at-point-functions) 0)
-          (cape-capf-buster #'lsp-completion-at-point))
+    (let ((cell (cl-member 'lsp-completion-at-point completion-at-point-functions)))
+      (when cell
+        (setf (car cell) (cape-capf-buster #'lsp-completion-at-point))))
     (add-to-list 'completion-at-point-functions #'cape-dabbrev t))
   ;;; elisp-mode
   (defun opal/cape-capf-setup-elisp-mode ()

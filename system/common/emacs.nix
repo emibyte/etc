@@ -3,6 +3,14 @@
   inputs,
   ...
 }: let
+  addPlistSupport = pkg:
+    pkg.overrideAttrs (old: {
+      buildPhase =
+        ''
+          export LSP_USE_PLISTS=true
+        ''
+        + (old.buildPhase or "");
+    });
   cuteEmacs = pkgs.emacs-pgtk;
 in {
   # nixpkgs.overlays = [inputs.emacs-overlay.overlay];
@@ -16,13 +24,18 @@ in {
       (epkgs: [
         epkgs.use-package
 
+        # lsp nonsense
+        # TODO: probably just make a list of the relevant packages and map over that
+        (addPlistSupport epkgs.lsp-mode)
+        (addPlistSupport epkgs.lsp-ui)
+        (addPlistSupport epkgs.lsp-pyright)
+        epkgs.flycheck
+        epkgs.consult-lsp
+
         epkgs.vterm
         epkgs.eat
 
         epkgs.yasnippet
-        epkgs.lsp-mode
-        epkgs.lsp-ui
-        epkgs.flycheck
         epkgs.quick-peek
 
         epkgs.projectile
@@ -34,12 +47,10 @@ in {
         epkgs.kind-icon
         epkgs.consult
         epkgs.consult-projectile
-        epkgs.consult-lsp
         epkgs.marginalia
         epkgs.orderless
         epkgs.embark
         epkgs.embark-consult
-        epkgs.company # for company-yasnippe
 
         epkgs.helpful
         epkgs.hl-todo
@@ -86,7 +97,6 @@ in {
 
         epkgs.magit
 
-        epkgs.lsp-python-ms
         epkgs.nix-mode
         epkgs.org
         epkgs.org-bullets
@@ -94,6 +104,7 @@ in {
         epkgs.racket-mode
       ]))
 
+    emacs-lsp-booster
     ripgrep
     gnutls # for TLS connectivity
 

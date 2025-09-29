@@ -17,6 +17,7 @@
 
 (use-package lsp-mode
   :custom
+  (lsp-completion-provider :none)
   (lsp-lens-enable nil)
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet t)

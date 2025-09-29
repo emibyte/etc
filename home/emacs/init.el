@@ -2,6 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
+;;; initialization stuff
 (defvar eln-cache-path
   (format "/home/%s/.cache/eln-cache" user-login-name))
 
@@ -46,17 +47,18 @@
 (recentf-mode) ;; Recording recently visited files
 
 (add-to-list 'load-path "~/.config/emacs/opal")
+(require 'opal-lsp-boost)
 (require 'opal-hydra)
 (require 'opal-evil)
 (require 'opal-vc)
 (require 'opal-syntax)
 (require 'opal-theme)
+(require 'opal-lsp)
 (require 'opal-completion)
 (require 'opal-projectile)
 (require 'opal-help)
 (require 'opal-workspaces)
 
-(require 'opal-lsp)
 (require 'opal-org)
 (require 'opal-elisp)
 (require 'opal-nix)
