@@ -74,6 +74,7 @@ in {
             grammars.tree-sitter-scheme
             grammars.tree-sitter-nix
             grammars.tree-sitter-haskell
+            grammars.tree-sitter-html
           ]))
 
         epkgs.pretty-sha-path
@@ -88,6 +89,7 @@ in {
         epkgs.catppuccin-theme
         epkgs.spacemacs-theme
         epkgs.doom-modeline
+        epkgs.nerd-icons
         epkgs.doom-themes
         epkgs.gruber-darker-theme
         epkgs.moe-theme
