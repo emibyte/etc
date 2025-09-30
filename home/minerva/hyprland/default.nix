@@ -303,7 +303,7 @@ in {
         "$mainMod SHIFT, 0, movetoworkspace, 10"
 
         "$mainMod, S, togglespecialworkspace, magic"
-        "$mainMod SHIFT, S, movetoworkspace, special:magic"
+        # "$mainMod SHIFT, S, movetoworkspace, special:magic"
 
         "$mainMod, mouse_down, workspace, e+1"
         "$mainMod, mouse_up, workspace, e-1"

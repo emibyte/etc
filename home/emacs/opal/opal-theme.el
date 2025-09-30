@@ -18,8 +18,8 @@
 
 (use-package ef-themes
   :config
-  ;; (load-theme 'catppuccin t nil))
-  (load-theme 'doom-moonlight t nil))
+  (load-theme 'ef-maris-dark t nil))
+  ;; (load-theme 'doom-moonlight t nil))
   ;; (load-theme 'stimmung-themes-dark t nil))
   ;; (load-theme 'ef-rosa t nil))
   ;; (load-theme 'kaolin-shiva t nil))
@@ -28,7 +28,9 @@
   ;; (load-theme 'stimmung-themes-dark t nil))
 
 (use-package doom-modeline
-  :init (doom-modeline-mode 1))
+  :init
+  (doom-modeline-mode 1)
+  (setq nerd-icons-scale-factor 1.1))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
