@@ -24,7 +24,7 @@ in {
     pkgs.jsonnet-language-server
     pkgs.lua-language-server
     pkgs.nixd
-    # pkgs.pyright
+    pkgs.basedpyright
     pkgs.nodePackages."bash-language-server"
     pkgs.nodePackages."diagnostic-languageserver"
     pkgs.nodePackages."dockerfile-language-server-nodejs"
