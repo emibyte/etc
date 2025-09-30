@@ -5,16 +5,14 @@
 (require 'opal-package)
 
 ;; TODO: uv-mode
-(defun opal/setup-python ()
-  (require 'lsp-pyright)
-  (direnv-update-environment)
-  (lsp))
 
 (use-package lsp-pyright
-  :hook ((python-mode . opal/setup-python))
   :custom
-  (lsp-pyright-langserver-command "pyright") ;; or basedpyright
-  )
+  (lsp-pyright-langserver-command "basedpyright") ;; or basedpyright
+  :hook ((python-mode . (lambda ()
+                          (require 'lsp-pyright)
+                          ;; (direnv-update-environment)
+                          (lsp)))))
 
 (provide 'opal-python)
 ;;; opal-python.el ends here
