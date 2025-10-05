@@ -61,6 +61,7 @@
 
 (require 'opal-org)
 (require 'opal-elisp)
+(require 'opal-c)
 (require 'opal-nix)
 (require 'opal-racket)
 (require 'opal-python)
