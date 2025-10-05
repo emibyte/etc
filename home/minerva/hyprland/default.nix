@@ -65,6 +65,9 @@ in {
         "suppressevent maximize, class:.*"
         "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
 
+        # window rule for steam friends window to be a floating window
+        "float,class:^(steam)$,title:Friends List"
+
         # so that volume control opens as floating window
         "float,class:pwvucontrol,title:pwvucontrol"
         "float,title:Volume Control"
