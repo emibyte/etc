@@ -56,6 +56,9 @@
   :diminish which-key-mode
   :config
   (setq which-key-idle-delay 0.3))
+
+;; https://emacsredux.com/blog/2020/11/21/disable-global-hl-line-mode-for-specific-modes/
+(add-hook 'vterm-mode-hook (lambda () (setq-local global-hl-line-mode nil)))
   
 
 (provide 'opal-theme)
