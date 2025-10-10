@@ -80,6 +80,7 @@ in {
     pkgs.zip
     pkgs.gdb
     pkgs.tree
+    pkgs.gparted
   ];
 
   services.sxhkd.enable = true;
