@@ -96,6 +96,7 @@ in {
         epkgs.kaolin-themes
         epkgs.inkpot-theme
         epkgs.stimmung-themes
+        epkgs.naysayer-theme
 
         epkgs.magit
 
