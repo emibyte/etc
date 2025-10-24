@@ -268,7 +268,8 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  services.hardware.openrgb.enable = true;
+  # NOTE: uses mbedtls which is unsecure
+  # services.hardware.openrgb.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.emily = {
@@ -282,8 +283,8 @@
       # pkgs.kdePackages.dolphin
       pkgs.file-roller
       pkgs.keepassxc
-      pkgs.openrgb-with-all-plugins
-      #  thunderbird
+      # NOTE: uses mbedtls which is unsecure
+      # pkgs.openrgb-with-all-plugins
     ];
   };
 
