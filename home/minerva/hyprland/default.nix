@@ -78,6 +78,7 @@ in {
         "opacity 1.0 override, class:^(brave-browser)$"
         "opacity 1.0 override, class:^(chromium-browser)$"
         "opacity 1.0 override, class:^(librewolf)$"
+        "opacity 1.0 override, class:^(discord)$"
       ];
 
       windowrulev2 = [
@@ -112,10 +113,10 @@ in {
       # source = "./macchiato.conf";
 
       general = {
-        gaps_in = "5";
-        gaps_out = "10";
+        gaps_in = "0";
+        gaps_out = "0";
 
-        border_size = "2";
+        border_size = "1";
 
         # https://wiki.hypr.land/Configuring/Variables/#variable-types for info about colors
         "col.active_border" = colors.pink;
@@ -131,8 +132,10 @@ in {
       };
 
       decoration = {
-        rounding = "10";
-        rounding_power = "5";
+        # rounding = "10";
+        # rounding_power = "5";
+        rounding = "0";
+        rounding_power = "0";
 
         # https://wiki.hypr.land/Configuring/Variables/#blur
         blur = {
