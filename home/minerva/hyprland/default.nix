@@ -163,6 +163,7 @@ in {
         groupbar = {
           "col.active" = colors.sapphire;
           "col.inactive" = "0xff${colors.baseAlpha}";
+          render_titles = false;
         };
       };
 
