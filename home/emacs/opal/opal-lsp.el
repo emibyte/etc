@@ -17,6 +17,7 @@
 
 (use-package lsp-mode
   :custom
+  (lsp-idle-delay 0.500)
   (lsp-completion-provider :none)
   (lsp-lens-enable nil)
   (lsp-prefer-flymake nil)
