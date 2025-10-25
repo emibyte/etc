@@ -4,6 +4,12 @@
 
 (require 'opal-package)
 
+(require 'lsp-clangd)
+(setq lsp-clients-clangd-args
+      '("--header-insertion=never"
+        "--header-insertion-decorators=0"
+        "--background-index" "--clang-tidy"))
+
 (defun opal/c-setup ()
   "Setting up editing in a C Buffer."
  (c-set-style "linux")
