@@ -16,13 +16,16 @@
   :width 'normal
   :slant 'normal))
 
-(defun opal/pick-random-ef-theme ()
-  "Pick a theme randomly out of the `ef-themes-collection' on startup."
-  (nth (random (length ef-themes-collection)) ef-themes-collection))
+(defun opal/pick-random-ef-dark-theme ()
+  "Pick a theme randomly out of the `ef-themes-dark-themes' on startup."
+  (require 'ef-themes)
+  (let* ((dark-themes ef-themes-dark-themes)
+         (length-dark-themes (length dark-themes)))
+    (nth (random length-dark-themes) ef-themes-dark-themes)))
 
 (use-package ef-themes
   :config
-  (load-theme (opal/pick-random-ef-theme) t nil))
+  (load-theme (opal/pick-random-ef-dark-theme) t nil))
   ;; (load-theme 'naysayer t nil ))
   ;; (load-theme 'ef-maris-dark t nil))
   ;; (load-theme 'doom-moonlight t nil))
