@@ -20,6 +20,7 @@ in {
     pkgs.lua
 
     # language servers
+    # NOTE: installing language servers globally instead of in a devshell is just simpler and doesnt lead to weird editor problems
     pkgs.haskell-language-server
     pkgs.jsonnet-language-server
     pkgs.lua-language-server
