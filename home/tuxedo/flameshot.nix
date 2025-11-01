@@ -1,4 +1,4 @@
-{...}: {
+{config, ...}: {
   services.flameshot = {
     enable = true;
 
@@ -9,7 +9,7 @@
         drawThickness = 3;
 
         # TODO: absolute path requires --impure to nix build replace with {config.homeDirectory} like in rebuild-system command
-        savePath = "/home/emily/tmp/";
+        savePath = "${config.home.homeDirectory}/tmp/";
         savePathFixed = false;
 
         disabledTrayIcon = true;
