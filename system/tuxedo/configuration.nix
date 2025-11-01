@@ -22,6 +22,9 @@ in {
     tailor-gui.enable = true;
   };
 
+  hardware.keyboard.qmk.enable = true;
+  services.udev.packages = [pkgs.via];
+
   stylix = {
     enable = true;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
@@ -120,7 +123,6 @@ in {
 
   security.polkit.enable = true;
   security.pam.services.swaylock = {};
-  hardware.graphics.enable = true;
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
@@ -170,6 +172,7 @@ in {
   # Enable sound with pipewire.
   # sound.enable = false;
   services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     pulse.enable = true;
