@@ -1,4 +1,8 @@
-{pkgs, config, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   imports = [./bindings.nix];
 
   wayland.windowManager.sway = {
@@ -38,14 +42,14 @@
           always = true;
         }
       ];
-      window.border = 3;
+      window.border = 2;
       window.titlebar = false;
-      gaps.inner = 10;
+      gaps.inner = null;
+      gaps.outer = null;
     };
     extraConfig = ''
-      for_window [class=".*"] opacity 0.9
-      for_window [app_id=".*"] opacity 0.9
-      client.focused #FFADAD #FFADAD #FFADAD #FFADAD
+      client.focused #f5bde6 #f5bde6 #f5bde6 #f5bde6
+      for_window [app_id="com.mitchellh.ghostty"] opacity 0.9
     '';
   };
 }
