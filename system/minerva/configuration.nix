@@ -14,6 +14,9 @@
     # ./vm.nix
   ];
 
+  # NOTE: this entire thing should probably be refactored into multiple files
+  #       especially since it shares a lot of parts with my laptop config
+
   nix.settings.experimental-features = ["nix-command" "flakes"];
   nix.settings.auto-optimise-store = true;
   nix.gc = {
@@ -160,6 +163,7 @@
   services.xserver.upscaleDefaultCursor = true;
 
   services.gvfs.enable = true;
+  services.tumbler.enable = true;
 
   hardware.nvidia = {
     # Modesetting is required.
