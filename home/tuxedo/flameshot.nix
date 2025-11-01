@@ -8,7 +8,6 @@
         drawFontSize = 23;
         drawThickness = 3;
 
-        # TODO: absolute path requires --impure to nix build replace with {config.homeDirectory} like in rebuild-system command
         savePath = "${config.home.homeDirectory}/tmp/";
         savePathFixed = false;
 

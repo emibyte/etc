@@ -25,7 +25,6 @@
         {command = "${pkgs.autotiling}/bin/autotiling";}
         {command = "ckb-next --background";}
         {
-          # TODO: absolute path requires --impure to nix build replace with {config.homeDirectory} like in rebuild-system command
           command = let
             setWallpaper = pkgs.writeShellScript "set-wallpaper" ''
               ${pkgs.killall}/bin/killall swaybg
