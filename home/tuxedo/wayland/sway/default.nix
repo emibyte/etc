@@ -12,6 +12,7 @@
         "type:keyboard" = {
           xkb_layout = "de";
           # xkb_options = "caps:swapescape";
+          xkb_options = "caps:ctrl_modifier";
           xkb_numlock = "enabled";
 
           repeat_delay = "300";
