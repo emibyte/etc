@@ -13,6 +13,8 @@ in {
     ./hardware-configuration.nix
   ];
 
+  boot.kernelParams = ["i915.force_probe=46a6" "i915.enable_guc=3"];
+
   # tuxedo
   # TODO: doesn't work right now tuxedo-keyboard needs to be bumped
   #       there's a pr for that
@@ -105,7 +107,7 @@ in {
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
-    videoDrivers = ["intel"];
+    videoDrivers = ["modesetting"];
 
     xkb.layout = "de";
     xkb.variant = "";
@@ -130,8 +132,10 @@ in {
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
-    extraPackages = with pkgs; [intel-media-driver intel-ocl intel-vaapi-driver vpl-gpu-rt];
+    extraPackages = with pkgs; [intel-media-driver vpl-gpu-rt];
+    extraPackages32 = with pkgs.pkgsi686Linux; [intel-vaapi-driver];
   };
+  environment.sessionVariables = {LIBVA_DRIVER_NAME = "iHD";};
 
   # Steam stuff, probably make a steam.nix
   programs.steam = {
