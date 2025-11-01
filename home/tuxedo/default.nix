@@ -4,7 +4,7 @@
   ...
 }: {
   imports = [
-    ./themes
+    # ./themes
     ./wayland
     ./dunst.nix
     ./flameshot.nix
