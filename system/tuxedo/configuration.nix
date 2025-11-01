@@ -98,6 +98,7 @@ in {
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
+    videoDrivers = ["intel"];
 
     xkb.layout = "de";
     xkb.variant = "";
@@ -120,6 +121,30 @@ in {
   security.polkit.enable = true;
   security.pam.services.swaylock = {};
   hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [intel-media-driver intel-ocl intel-vaapi-driver vpl-gpu-rt];
+  };
+
+  # Steam stuff, probably make a steam.nix
+  programs.steam = {
+    enable = true;
+    gamescopeSession.enable = true;
+    remotePlay.openFirewall = true; # Open ports in firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    extraCompatPackages = with pkgs; [
+      proton-ge-bin
+    ];
+  };
+
+  programs.gamemode = {
+    enable = true;
+    settings.general.inhibit_screensaver = 0;
+  };
+
+  hardware.xone.enable = true;
 
   xdg = {
     portal = {
