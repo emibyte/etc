@@ -133,10 +133,10 @@
           "${mod}+Shift+r" = "reload";
 
           # kill window
-          "${mod}+Shift+q" = "kill";
+          "${mod}+c" = "kill";
 
           # alternate between the tiled and monocle layout
-          "${mod}+z" = "layout toggle splith tabbed";
+          "${mod}+t" = "layout toggle splith tabbed";
 
           # Cycle through the nodes (leaves only) of the current desktop
           "${mod}+space" = "exec ${pkgs.i3-cycle-focus}/bin/i3-cycle-focus cycle";
@@ -150,9 +150,9 @@
 
           "${mod}+f" = "fullscreen toggle";
 
-          "${mod}+Shift+space" = "floating toggle";
+          "${mod}+v" = "floating toggle";
 
-          "${mod}+v" = "layout toggle splitv splith";
+          "${mod}+Shift+space" = "layout toggle splitv splith";
 
           # FOCUS/SWAP
 
