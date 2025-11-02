@@ -63,6 +63,7 @@ in {
   networking.networkmanager.enable = true;
 
   # Enable bluetooth (hopefully)
+  services.blueman.enable = true;
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
