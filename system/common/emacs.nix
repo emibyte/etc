@@ -105,6 +105,8 @@ in {
         epkgs.org-bullets
         epkgs.visual-fill-column
         epkgs.racket-mode
+        epkgs.tuareg
+        epkgs.ocp-indent
       ]))
 
     emacs-lsp-booster
