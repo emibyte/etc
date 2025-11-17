@@ -3,6 +3,7 @@
 ;;; Code:
 
 (require 'opal-package)
+(require 'ef-themes)
 
 (set-frame-font "Iosevka Comfy:pixelsize=20")
 (set-face-font 'default "Iosevka Comfy:pixelsize=20")
@@ -18,7 +19,6 @@
 
 (defun opal/pick-random-ef-dark-theme ()
   "Pick a theme randomly out of the `ef-themes-dark-themes' on startup."
-  (require 'ef-themes)
   (let* ((dark-themes ef-themes-dark-themes)
          (length-dark-themes (length dark-themes)))
     (nth (random length-dark-themes) ef-themes-dark-themes)))
