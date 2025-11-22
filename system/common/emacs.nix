@@ -88,7 +88,6 @@ in {
         epkgs.ef-themes
         epkgs.catppuccin-theme
         epkgs.spacemacs-theme
-        epkgs.doom-modeline
         epkgs.nerd-icons
         epkgs.doom-themes
         epkgs.gruber-darker-theme
@@ -107,6 +106,9 @@ in {
         epkgs.racket-mode
         epkgs.tuareg
         epkgs.ocp-indent
+
+        epkgs.doom-modeline
+        epkgs.minions
       ]))
 
     emacs-lsp-booster

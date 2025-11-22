@@ -53,9 +53,9 @@
 (require 'opal-vc)
 (require 'opal-syntax)
 (require 'opal-theme)
+(require 'opal-projectile)
 (require 'opal-lsp)
 (require 'opal-completion)
-(require 'opal-projectile)
 (require 'opal-help)
 (require 'opal-workspaces)
 
