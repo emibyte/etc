@@ -214,6 +214,8 @@
 
   hardware.xone.enable = true;
 
+  programs.gpu-screen-recorder.enable = true;
+
   # Enable the KDE Plasma Desktop Environment.
   services = {
     displayManager = {
@@ -312,6 +314,7 @@
     via
 
     sddm-astronaut
+    gpu-screen-recorder-gtk
   ];
   environment.pathsToLink = ["/share/zsh"];
 
