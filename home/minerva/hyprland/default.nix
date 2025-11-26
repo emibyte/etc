@@ -80,6 +80,7 @@ in {
         "opacity 1.0 override, class:^(librewolf)$"
         "opacity 1.0 override, class:^(discord)$"
         "opacity 1.0 override, class:^(desmume)$"
+        "opacity 1.0 override, class:^(emacs)$"
       ];
 
       windowrulev2 = [
