@@ -54,6 +54,8 @@ in {
     pkgs.nvibrant-git
     pkgs.lm_sensors
 
+    pkgs.far2l
+
     pkgs.discord
     # pkgs.spotify
     pkgs.vlc
