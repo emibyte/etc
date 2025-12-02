@@ -20,7 +20,7 @@
   };
 
   environment.systemPackages = with pkgs; [
-    kdePackages.xwaylandvideobridge
+    # kdePackages.xwaylandvideobridge
     # libsForQt5.xwaylandvideobridge
     playerctl
     pavucontrol
