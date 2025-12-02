@@ -7,7 +7,7 @@
   programs.rofi = {
     enable = true;
     theme = lib.mkForce ./catppuccin-macchiato.rasi;
-    package = pkgs.rofi-wayland;
+    package = pkgs.rofi;
     modes = ["drun" "run"];
     location = "center";
     font = "Iosevka Comfy 16";

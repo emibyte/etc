@@ -6,7 +6,7 @@
   programs.rofi = {
     enable = true;
 
-    package = pkgs.rofi-wayland.override {plugins = [pkgs.rofi-emoji];};
+    package = pkgs.rofi.override {plugins = [pkgs.rofi-emoji];};
     font = "Fira Code 16";
     extraConfig = {
       case-sensitive = false;
