@@ -17,14 +17,6 @@ in {
       package = pkgs.catppuccin-gtk;
     };
 
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "frappe";
-        accent = "pink";
-      };
-    };
-
     # cursorTheme = cursor;
 
     gtk3.extraConfig = {
