@@ -169,7 +169,12 @@ in {
   };
 
   # Enable corsair driver
-  hardware.ckb-next.enable = true;
+  hardware.ckb-next = {
+    enable = true;
+    package = pkgs.ckb-next.overrideAttrs (old: {
+      cmakeFlags = (old.cmakeFlags or [ ]) ++ [ "-DUSE_DBUS_MENU=0" ];
+    });
+  };
 
   # Configure console keymap
   console.keyMap = "de";
