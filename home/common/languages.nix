@@ -26,9 +26,9 @@ in {
     pkgs.lua-language-server
     pkgs.nixd
     pkgs.basedpyright
+    pkgs.dockerfile-language-server
     pkgs.nodePackages."bash-language-server"
     pkgs.nodePackages."diagnostic-languageserver"
-    pkgs.nodePackages."dockerfile-language-server-nodejs"
     pkgs.nodePackages."typescript"
     pkgs.nodePackages."typescript-language-server"
     pkgs.nodePackages."vscode-langservers-extracted"
