@@ -92,9 +92,9 @@ in {
 
   programs.git = {
     enable = true;
-    userName = "emibyte";
-    userEmail = "fevymarine@gmail.com";
-    extraConfig = {
+    settings.user.name = "emibyte";
+    settings.user.email = "fevymarine@gmail.com";
+    settings = {
       pull.rebase = true; # to prevent merge commits on pull
     };
   };
@@ -136,18 +136,6 @@ in {
   gtk = {
     enable = true;
     cursorTheme = cursorMiku;
-    # theme = {
-    #   name = "catppuccin-mocha-standard-pink";
-    #   package = pkgs.catppuccin-gtk;
-    # };
-
-    iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "pink";
-      };
-    };
 
     gtk3 = {
       extraConfig = {
