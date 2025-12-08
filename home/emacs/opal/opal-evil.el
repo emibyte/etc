@@ -24,6 +24,7 @@
   (evil-define-key 'normal 'global (kbd "<leader>bd") #'kill-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bk") #'kill-current-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bi") #'ibuffer)
+  (evil-define-key 'normal 'global (kbd "<leader>bR") #'revert-buffer-quick)
   ;;(evil-define-key 'normal 'global (kbd "<leader>bb") #'switch-to-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>bb") #'consult-buffer)
   (evil-define-key 'normal 'global (kbd "<leader>SPC") #'consult-buffer)
