@@ -45,6 +45,11 @@ in {
   home.username = "emily";
   home.homeDirectory = "/home/emily";
   xdg.configFile."emacs".source = config.lib.file.mkOutOfStoreSymlink emacsCfgPath;
+  xdg.mimeApps.enable = true;
+  xdg.mimeApps.defaultApplications = {
+    "inode/directory" = ["thunar.desktop"];
+    "application/pdf" = ["org.pwmt.zathura.desktop"];
+  };
 
   fonts.fontconfig.enable = true;
 
