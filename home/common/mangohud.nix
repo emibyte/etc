@@ -41,7 +41,7 @@
       # # battery_color = "92e79a";
       # media_player_format = "{title};{artist};{album}";
     };
-    enableSessionWide = true;
+    enableSessionWide = false;
     settingsPerApplication = {
       foliate = {
         no_display = true;
