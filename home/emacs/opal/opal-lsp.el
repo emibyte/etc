@@ -22,7 +22,7 @@
   (lsp-lens-enable nil)
   (lsp-prefer-flymake nil)
   (lsp-enable-snippet t)
-  (lsp-eldoc-render-all t) ;; minibuffer showing doc
+  (lsp-eldoc-render-all t) ;; minibuffer showing doc (i think setting it to nil will still show type info (not sure))
   (lsp-log-io nil)
   :commands (lsp lsp-deferred)
   :hook (lsp-mode . opal/lsp-mode-setup)
