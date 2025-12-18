@@ -114,14 +114,20 @@
   boot.supportedFilesystems = ["ntfs"];
   fileSystems."/run/media/emily/Seagate Portable Drive" = {
     device = "/dev/disk/by-uuid/58C68B69C68B45EA";
-    fsType = "ntfs";
+    fsType = "ntfs-3g";
     options = ["users" "nofail" "exec"];
   };
 
   fileSystems."/run/media/emily/External 1" = {
     device = "/dev/disk/by-uuid/4E1AEA7B1AEA6007";
-    fsType = "ntfs";
+    fsType = "ntfs-3g";
     options = ["users" "nofail" "exec"];
+  };
+
+  fileSystems."/run/media/emily/SteamLib" = {
+    device = "/dev/disk/by-uuid/2C4E62404E6202C6";
+    fsType = "ntfs-3g";
+    options = ["users" "nofail" "exec" "rw" "uid=1000"];
   };
 
   networking.hostName = "minerva"; # Define your hostname.
@@ -199,6 +205,7 @@
   # Steam stuff, probably make a steam.nix
   programs.steam = {
     enable = true;
+    protontricks.enable = true;
     gamescopeSession.enable = true;
     remotePlay.openFirewall = true; # Open ports in firewall for Steam Remote Play
     dedicatedServer.openFirewall = true; # Open ports in firewall for Source Dedicated Server
