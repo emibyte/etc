@@ -11,7 +11,7 @@
     ./hardware-configuration.nix
     ./monitoring.nix
     ./hyprland.nix
-    # ./vm.nix
+    ./vm.nix
   ];
 
   # NOTE: this entire thing should probably be refactored into multiple files
