@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.librewolf = {
-    enable = true;
-    package = pkgs.librewolf-bin;
+    enable = false;
+    package = pkgs.librewolf;
 
     profiles = {
       emi = {
