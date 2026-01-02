@@ -38,7 +38,7 @@
           # Sunset Rainbow
           # format =  "[e](bold #FF6F61)[m](bold #FF9A00)[i](bold #FFD700)[l](bold #A3D9FF)[y](bold #6A5ACD)@";
           # Bold and Bright
-          format = "[e](bold #FF3D00)[m](bold #FFEA00)[i](bold #00E676)[l](bold #00B0FF)[y](bold #6200EA)@";
+          format = "[e](bold #FF3D00)[m](bold #FFEA00)[i](bold #00E676)[l](bold #00B0FF)[y](bold #6200EA)::";
         };
         hostname = {
           ssh_only = false;
