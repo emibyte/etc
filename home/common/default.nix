@@ -90,6 +90,8 @@ in {
     pkgs.gdb
     pkgs.tree
     pkgs.gparted
+
+    pkgs.qpwgraph # audio stuffies
   ];
 
   services.sxhkd.enable = true;
