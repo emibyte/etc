@@ -25,9 +25,10 @@
 
 (use-package ef-themes
   :config
+  (load-theme 'catppuccin t nil))
   ;; (load-theme (opal/pick-random-ef-dark-theme) t nil))
   ;; (load-theme 'kaolin-eclipse t nil))
-  (load-theme 'gruber-darker t nil))
+  ;; (load-theme 'gruber-darker t nil))
   ;; (load-theme 'naysayer t nil ))
   ;; (load-theme 'ef-maris-dark t nil))
   ;; (load-theme 'doom-moonlight t nil))
