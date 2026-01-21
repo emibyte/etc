@@ -81,7 +81,7 @@ in {
         "opacity 1.0 override, class:^(discord)$"
         "opacity 1.0 override, class:^(desmume)$"
         "opacity 1.0 override, class:^(mpv)$"
-        "opacity 1.0 override, class:^(emacs)$"
+        "opacity 0.9 override, class:^(emacs)$"
       ];
 
       windowrulev2 = [
@@ -116,10 +116,10 @@ in {
       # source = "./macchiato.conf";
 
       general = {
-        gaps_in = "0";
+        gaps_in = "5";
         gaps_out = "0";
 
-        border_size = "1";
+        border_size = "2";
 
         # https://wiki.hypr.land/Configuring/Variables/#variable-types for info about colors
         "col.active_border" = colors.pink;
@@ -137,8 +137,8 @@ in {
       decoration = {
         # rounding = "10";
         # rounding_power = "5";
-        rounding = "0";
-        rounding_power = "0";
+        rounding = "10";
+        rounding_power = "5";
 
         # https://wiki.hypr.land/Configuring/Variables/#blur
         blur = {
@@ -167,6 +167,9 @@ in {
           "col.active" = colors.sapphire;
           "col.inactive" = "0xff${colors.baseAlpha}";
           render_titles = false;
+          keep_upper_gap = false;
+          gaps_out = 2;
+          indicator_height = 3;
         };
       };
 
@@ -340,13 +343,13 @@ in {
   #        https://wiki.hypr.land/Hypr-Ecosystem/xdg-desktop-portal-hyprland/
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [xdg-desktop-portal-gtk];
+    extraPortals = with pkgs; [xdg-desktop-portal-hyprland];
     config = {
       hyprland = {
         default = ["hyprland" "gtk"];
         # "org.freedesktop.impl.portal.FileChooser" = ["kde"];
         # "org.freedesktop.impl.portal.FileChooser" = "kde";
-        "org.freedesktop.portal.Settings" = "gtk";
+        # "org.freedesktop.portal.Settings" = "gtk";
       };
     };
   };
