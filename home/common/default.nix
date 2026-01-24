@@ -62,7 +62,6 @@ in {
     pkgs.far2l
 
     pkgs.discord
-    pkgs.vencord
 
     # pkgs.spotify
     pkgs.vlc
