@@ -2,11 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(add-to-list 'load-path "~/src/flycheck-inline")
 (require 'opal-package)
 (require 'dash)
 (require 'flymake)
-(require 'flycheck-inline)
 (require 'quick-peek)
 
 (use-package flycheck
@@ -20,20 +18,6 @@
   (add-hook 'after-init-hook #'global-flycheck-mode))
 
 (use-package quick-peek)
-
-(use-package flycheck-inline
-  :config
-  (setq flycheck-inline-display-function
-        (lambda (msg &optional pos err)
-          (ignore err)
-          (set-text-properties 0 (length msg) nil msg)
-          (let* ((ov (quick-peek-overlay-ensure-at pos))
-                 (contents (quick-peek-overlay-contents ov)))
-            (setf (quick-peek-overlay-contents ov)
-                  (concat contents (when contents "\n") msg))
-            (quick-peek-update ov)))
-        flycheck-inline-clear-function #'quick-peek-hide)
-  (global-flycheck-inline-mode))
 
 (use-package flymake
   :config
