@@ -17,8 +17,7 @@
  (setq-local indent-tabs-mode nil)
  (setq-local tab-width 2)
  (setq-local c-basic-offset 2)
- (direnv-update-directory-environment)
- (lsp-deferred))
+ (direnv-update-directory-environment))
 
 (use-package c-mode
   :hook (c-mode . opal/c-setup))
