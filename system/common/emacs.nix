@@ -107,7 +107,6 @@ in {
         epkgs.tuareg
         epkgs.ocp-indent
 
-        epkgs.doom-modeline
         epkgs.minions
       ]))
 
