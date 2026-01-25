@@ -26,23 +26,6 @@
 (use-package ef-themes
   :config
   (load-theme 'catppuccin t nil))
-  ;; (load-theme (opal/pick-random-ef-dark-theme) t nil))
-  ;; (load-theme 'kaolin-eclipse t nil))
-  ;; (load-theme 'gruber-darker t nil))
-  ;; (load-theme 'naysayer t nil ))
-  ;; (load-theme 'ef-maris-dark t nil))
-  ;; (load-theme 'doom-moonlight t nil))
-  ;; (load-theme 'stimmung-themes-dark t nil))
-  ;; (load-theme 'ef-rosa t nil))
-  ;; (load-theme 'kaolin-shiva t nil))
-  ;; (load-theme 'kaolin-valley-light t nil))
-  ;; (load-theme 'doom-pine t nil))
-  ;; (load-theme 'stimmung-themes-dark t nil))
-
-(use-package doom-modeline
-  :init
-  (doom-modeline-mode 1)
-  (setq nerd-icons-scale-factor 1.1))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
