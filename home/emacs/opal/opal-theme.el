@@ -85,7 +85,7 @@
 
                 (:eval (or lsp-mode-line--code-actions-string ""))
 
-                (:propertize "4l:3%c" face mode-line-buffer-id)))
+                (:propertize "%4l:%c" face mode-line-buffer-id)))
 
 (provide 'opal-theme)
 ;;; opal-theme.el ends here
