@@ -54,7 +54,38 @@
 
 ;; https://emacsredux.com/blog/2020/11/21/disable-global-hl-line-mode-for-specific-modes/
 (add-hook 'vterm-mode-hook (lambda () (setq-local global-hl-line-mode nil)))
-  
+
+;;; modeline
+(column-number-mode t)
+(defvar lsp-modeline--code-actions-string nil)
+
+(setq-default mode-line-format
+              '("%e"
+                (:propertize " " display (raise +0.4)) ;; padding top
+                (:propertize " " display (raise -0.4)) ;; padding bottom
+
+                (:propertize "λ " face font-lock-comment-face)
+                mode-line-frame-identification
+                mode-line-buffer-identification
+
+                (:eval (when-let (vc vc-mode)
+                         (list (propertize "   " 'face 'font-lock-comment-face)
+                               ;; Truncate branch name to 50 characters
+                               (propertize (truncate-string-to-width
+                                            (substring vc 5) 50)
+                                           'face 'font-lock-comment-face))))
+
+                (:eval (propertize
+                        " " 'display
+                        `((space :align-to
+                                 (-  (+ right right-fringe right-margin)
+                                     ,(+ 3
+                                         (string-width (or lsp-modeline--code-actions-string ""))
+                                         (string-width "%4l:3%c")))))))
+
+                (:eval (or lsp-mode-line--code-actions-string ""))
+
+                (:propertize "4l:3%c" face mode-line-buffer-id)))
 
 (provide 'opal-theme)
 ;;; opal-theme.el ends here
