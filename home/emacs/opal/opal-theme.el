@@ -80,8 +80,11 @@
                         `((space :align-to
                                  (-  (+ right right-fringe right-margin)
                                      ,(+ 3
+                                         (string-width (mapconcat 'identity (persp-mode-line) ""))
                                          (string-width (or lsp-modeline--code-actions-string ""))
                                          (string-width "%4l:3%c")))))))
+
+                (:eval (persp-mode-line))
 
                 (:eval (or lsp-mode-line--code-actions-string ""))
 
