@@ -92,7 +92,7 @@
 ;; Re-enable garbage collection after startup
 (setq
  gc-cons-threshold 100000000
- gc-cons-percentage 0.1)
+ gc-cons-percentage 1)
 
 (provide 'init)
 ;;; init.el ends here
