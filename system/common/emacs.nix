@@ -108,6 +108,9 @@ in {
         epkgs.ocp-indent
 
         epkgs.minions
+        epkgs.nerd-icons
+        epkgs.nerd-icons-dired
+        epkgs.nerd-icons-ibuffer
       ]))
 
     emacs-lsp-booster

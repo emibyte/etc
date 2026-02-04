@@ -63,6 +63,9 @@
               '("%e"
                 (:propertize " " display (raise +0.4)) ;; padding top
                 (:propertize " " display (raise -0.4)) ;; padding bottom
+;;; nerd-icons
+(use-package nerd-icons-dired
+  :hook (dired-mode . nerd-icons-dired-mode))
 
                 (:propertize "λ " face font-lock-comment-face)
                 mode-line-frame-identification
@@ -89,6 +92,8 @@
                 (:eval (or lsp-mode-line--code-actions-string ""))
 
                 (:propertize "%4l:%c" face mode-line-buffer-id)))
+(use-package nerd-icons-ibuffer
+  :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
 
 (provide 'opal-theme)
 ;;; opal-theme.el ends here
