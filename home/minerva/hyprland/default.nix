@@ -45,8 +45,8 @@ in {
     systemd.variables = ["--all"];
     settings = {
       monitor = [
-        "DP-2, highres@240, 0x0, 1" # oled 1440p 2560x1400@144
-        "DP-3, highres@highrr, -2560x0, 1.5" # ips 4k 3840x2160@60 (3840 / 1.5 = 2560)
+        "DP-2, 2560x1440@240, 0x0, 1" # oled 1440p 2560x1400@144
+        "DP-3, highres@60, -2560x0, 1.5" # ips 4k 3840x2160@60 (3840 / 1.5 = 2560)
       ];
 
       xwayland = {
