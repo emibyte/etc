@@ -56,42 +56,15 @@
 (add-hook 'vterm-mode-hook (lambda () (setq-local global-hl-line-mode nil)))
 
 ;;; modeline
-(column-number-mode t)
-(defvar lsp-modeline--code-actions-string nil)
+(use-package doom-modeline
+  :custom
+  (doom-modeline-height 25) ;; Set modeline height
+  :hook (after-init . doom-modeline-mode))
 
-(setq-default mode-line-format
-              '("%e"
-                (:propertize " " display (raise +0.4)) ;; padding top
-                (:propertize " " display (raise -0.4)) ;; padding bottom
 ;;; nerd-icons
 (use-package nerd-icons-dired
   :hook (dired-mode . nerd-icons-dired-mode))
 
-                (:propertize "λ " face font-lock-comment-face)
-                mode-line-frame-identification
-                mode-line-buffer-identification
-
-                (:eval (when-let (vc vc-mode)
-                         (list (propertize "   " 'face 'font-lock-comment-face)
-                               ;; Truncate branch name to 50 characters
-                               (propertize (truncate-string-to-width
-                                            (substring vc 5) 50)
-                                           'face 'font-lock-comment-face))))
-
-                (:eval (propertize
-                        " " 'display
-                        `((space :align-to
-                                 (-  (+ right right-fringe right-margin)
-                                     ,(+ 3
-                                         (string-width (mapconcat 'identity (persp-mode-line) ""))
-                                         (string-width (or lsp-modeline--code-actions-string ""))
-                                         (string-width "%4l:3%c")))))))
-
-                (:eval (persp-mode-line))
-
-                (:eval (or lsp-mode-line--code-actions-string ""))
-
-                (:propertize "%4l:%c" face mode-line-buffer-id)))
 (use-package nerd-icons-ibuffer
   :hook (ibuffer-mode . nerd-icons-ibuffer-mode))
 

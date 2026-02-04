@@ -30,6 +30,7 @@ in {
         (addPlistSupport epkgs.lsp-ui)
         (addPlistSupport epkgs.lsp-pyright)
         epkgs.flycheck
+        epkgs.consult-flycheck
         epkgs.consult-lsp
 
         epkgs.vterm
@@ -88,7 +89,6 @@ in {
         epkgs.ef-themes
         epkgs.catppuccin-theme
         epkgs.spacemacs-theme
-        epkgs.nerd-icons
         epkgs.doom-themes
         epkgs.gruber-darker-theme
         epkgs.moe-theme
@@ -108,6 +108,8 @@ in {
         epkgs.ocp-indent
 
         epkgs.minions
+        epkgs.doom-modeline
+
         epkgs.nerd-icons
         epkgs.nerd-icons-dired
         epkgs.nerd-icons-ibuffer
