@@ -58,6 +58,7 @@ in {
     rebuild-system
     pkgs.nvibrant-git
     pkgs.lm_sensors
+    pkgs.bat
 
     pkgs.far2l
 
