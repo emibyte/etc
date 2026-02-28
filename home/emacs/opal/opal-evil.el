@@ -32,6 +32,8 @@
   (evil-define-key 'normal 'global (kbd "<leader>bn") #'switch-to-next-buffer)
   ;; theme switching
   (evil-define-key 'normal 'global (kbd "<leader>ht") #'consult-theme)
+  ;; dired
+  (evil-define-key 'normal 'global (kbd "<leader>dd") #'dired-jump) ;; directory
   ;; compile command
   (evil-define-key 'normal 'global (kbd "<leader>cc") #'compile)
   ;; searching
