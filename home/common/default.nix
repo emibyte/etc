@@ -59,6 +59,7 @@ in {
     pkgs.nvibrant-git
     pkgs.lm_sensors
     pkgs.bat
+    pkgs.libreoffice-qt
 
     pkgs.far2l
 
