@@ -12,8 +12,8 @@
 (setcar native-comp-eln-load-path eln-cache-path) ;; eln-cache in .cache dir instead of inside config
 
 (setq
-  gc-cons-threshold 402653184
-  gc-cons-percentage 0.6)
+  gc-cons-threshold (* 1024 1024 128)
+  gc-cons-percentage 1.0)
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit) ;; literally doesn't do anything and idk why :c
@@ -69,14 +69,13 @@
 (save-place-mode         t) ;; Remember last cursor location in file
 
 (add-to-list 'load-path "~/.config/emacs/opal")
-(require 'opal-lsp-boost)
 (require 'opal-hydra)
 (require 'opal-evil)
 (require 'opal-vc)
 (require 'opal-syntax)
 (require 'opal-theme)
 (require 'opal-projectile)
-(require 'opal-lsp)
+(require 'opal-eglot)
 (require 'opal-completion)
 (require 'opal-help)
 (require 'opal-workspaces)
@@ -91,8 +90,8 @@
 
 ;; Re-enable garbage collection after startup
 (setq
- gc-cons-threshold 100000000
- gc-cons-percentage 1)
+ gc-cons-threshold (* 1024 1024 2) ;; 2 MB
+ gc-cons-percentage 0.2)
 
 (provide 'init)
 ;;; init.el ends here
