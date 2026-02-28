@@ -3,21 +3,32 @@
 ;;; Code:
 
 (require 'opal-package)
+(require 'corfu)
+(require 'yasnippet)
 
-;; Borrowed from system-crafters vid on vertico
-(defun opal/minibuffer-backward-kill (arg)
-  "Delete up to parent (ARG chars back) when completing a file name in minibuffer."
-  (interactive "p")
-  (if minibuffer-completing-file-name
-      (if (string-match-p "/." (minibuffer-contents))
-          (zap-up-to-char (- arg) ?/)
-        (delete-minibuffer-contents))
-    (delete-backward-char arg)))
+;;; yasnippet
+(use-package yasnippet
+  :hook (prog-mode . yas-minor-mode))
+
+(use-package yasnippet-snippets :defer)
+
+(defun start/corfu-yas-tab-handler ()
+  "Prioritize corfu over yasnippet when yasnippet is active."
+  (interactive)
+  ;; There is no direct way to get if corfu is currently displayed so we watch the completion index
+  (if (> corfu--index -1)
+      (corfu-complete)
+    (yas-next-field-or-maybe-expand)
+    ))
+(use-package emacs
+  :after (yasnippet corfu)
+  :bind
+  (:map yas-keymap
+        ("TAB" . start/corfu-yas-tab-handler)))
 
 ;;; Vertico setup
 (use-package vertico
   :bind (:map minibuffer-local-map
-              ("<backspace>" . opal/minibuffer-backward-kill)
               ("C-j" . vertico-next)
               ("C-k" . vertico-previous))
   :config
@@ -33,7 +44,7 @@
 
 (use-package orderless
   :config
-  (setq completion-styles '(orderless basic)))
+  (setq completion-styles '(orderless basic partial-completion)))
 
 (use-package consult
   :bind (("C-s" . consult-line)))
@@ -45,7 +56,6 @@
 (use-package embark-consult)
 
 (use-package corfu
-  :hook (lsp-completion-mode . opal/corfu-setup-lsp)
   :bind (:map corfu-map
               ("C-j" . corfu-next)
               ("C-k" . corfu-previous)
@@ -53,86 +63,76 @@
   :custom
   (corfu-auto t)
   (corfu-cycle t)
-  (corfu-auto-prefix 1)
-  (lsp-completion-provider :none)
-  (corfu-auto-delay 0.25)
-  (corfu-min-width 100)
-  (corfu-max-width corfu-min-width)
-  (corfu-count 14)
-  (corfu-scroll-margin 4)
+  (corfu-popupinfo-mode t)
+  (corfu-auto-prefix 2)
+  (corfu-auto-delay 0.5)
+  (completion-ignore-case t)
+  (corfu-scroll-margin 5)
+  ;; (corfu-count 14)
+  (corfu-min-width 200)
   :init
-  (corfu-popupinfo-mode 1)
-  (global-corfu-mode 1)
-  :config
-  (defun opal/corfu-setup-lsp ()
-    "Use orderless completion style with lsp-capf instead of the lsp-passthrough."
-    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
-          '(orderless))))
+  (global-corfu-mode 1))
 
 ;; https://github.com/minad/corfu/discussions/457
 (setopt text-mode-ispell-word-completion nil)
 (customize-set-variable 'text-mode-ispell-word-completion nil)
 
+(use-package yasnippet-capf :defer)
+
+(defun start/setup-capfs ()
+  "Configure completion backends."
+  (let ((merge-backends (list
+                         #'cape-keyword         ;; Keyword completion
+                         ;; #'cape-abbrev       ;; Complete abbreviation
+                         #'cape-dabbrev         ;; Complete word from current buffers
+                         ;; #'cape-line         ;; Complete entire line from current buffer
+                         ;; #'cape-history      ;; Complete from Eshell, Comint or minibuffer history
+                         ;; #'cape-dict         ;; Dictionary completion (Needs Dictionary file installed)
+                         ;; #'cape-tex          ;; Complete Unicode char from TeX command, e.g. \hbar
+                         ;; #'cape-sgml         ;; Complete Unicode char from SGML entity, e.g., &alpha
+                         ;; #'cape-rfc1345      ;; Complete Unicode char using RFC 1345 mnemonics
+                         ;; #'snippy-capf       ;; Vscode Snippets (Snippy needs to be installed)
+                         #'yasnippet-capf       ;; Yasnippet snippets
+                         ))
+        (seperate-backends (list
+                            #'cape-file ;; Path completion
+                            #'cape-elisp-block ;; Complete elisp in Org or Markdown mode
+                            )))
+    ;; Remove keyword completion in git commits
+    (when (derived-mode-p 'git-commit-mode)
+      (setq merge-backends (remq #'cape-keyword merge-backends)))
+
+    ;; Add Elisp symbols only in Elisp modes
+    (when (derived-mode-p 'emacs-lisp-mode 'ielm-mode)
+      (setq merge-backends (cons #'cape-elisp-symbol merge-backends))) ;; Emacs Lisp code (functions, variables)
+
+    ;; Add Eglot to the front of the list if it's active
+    (when (bound-and-true-p eglot--managed-mode)
+      (setq merge-backends (cons #'eglot-completion-at-point merge-backends)))
+
+    ;; Create the super-capf and set it buffer-locally
+    (setq-local completion-at-point-functions
+                (append
+                 seperate-backends
+                 (list (apply #'cape-capf-super merge-backends)))
+                )))
+
 (use-package cape
-  :hook ((org-mode . opal/cape-capf-setup-org-mode)
-         (emacs-lisp-mode . opal/cape-capf-setup-elisp-mode)
-         (lsp-completion-mode . opal/cape-capf-setup-lsp-mode)
-         )
-  :bind
-  ("C-c p" . cape-prefix-map)
+  :after (corfu)
   :init
-  (add-hook 'completion-at-point-functions #'cape-dabbrev)
-  (add-hook 'completion-at-point-functions #'cape-file)
-  (add-hook 'completion-at-point-functions #'cape-elisp-block)
-  ;; (add-hook 'completion-at-point-functions #'cape-elisp-symbol)
-  ;; (add-hook 'completion-at-point-functions #'cape-keyword)
-  ;;; org-mode
-  (defun opal/cape-capf-setup-org-mode ()
-    (dolist (element (list
-                      (cape-capf-super #'cape-dict #'cape-dabbrev)))
-      (add-to-list 'completion-at-point-functions element)))
-  ;;; lsp-mode
-  (defun opal/cape-capf-setup-lsp-mode ()
-    "Replace the default `lsp-completion-at-point' with its
-`cape-capf-buster' version. Also add `cape-file'
-backend. Additionally keep `dabbrev' as fallback"
-    (let ((cell (cl-member 'lsp-completion-at-point completion-at-point-functions)))
-      (when cell
-        (setf (car cell) (cape-capf-buster #'lsp-completion-at-point))))
-    (add-to-list 'completion-at-point-functions #'cape-dabbrev t))
-  ;;; elisp-mode
-  (defun opal/cape-capf-setup-elisp-mode ()
-    "Replace the default `elisp-completion-at-point'
-completion-at-point-function. Doing it this way will prevent
-disrupting the addition of other capfs (e.g. merely setting the
-variable entirely, or adding to list).
-Additionally, add `cape-file' as early as possible to the list."
-    (setf (elt (cl-member 'elisp-completion-at-point completion-at-point-functions) 0)
-          #'elisp-completion-at-point)
-    (add-to-list 'completion-at-point-functions #'cape-keyword)
-    (add-to-list 'completion-at-point-functions #'cape-elisp-symbol)
-    ;; I prefer this being early/first in the list
-    (add-to-list 'completion-at-point-functions #'cape-file))
-  )
+  ;; Add to the global default value of `completion-at-point-functions' which is
+  ;; used by `completion-at-point'.  The order of the functions matters, the
+  ;; first function returning a result wins.  Note that the list of buffer-local
+  ;; completion functions takes precedence over the global list.
 
-(use-package kind-icon
+  ;; Seperate function needed, because we use setq-local (everything is replaced)
+  (add-hook 'eglot-managed-mode-hook #'start/setup-capfs)
+  (add-hook 'prog-mode-hook #'start/setup-capfs)
+  (add-hook 'text-mode-hook #'start/setup-capfs))
+
+(use-package nerd-icons-corfu
   :after corfu
-  :custom
-  (kind-icon-default-style '(:padding 0 :stroke 0 :margin 0 :radius 0 :height 0.9 :scale 1.0
-          :background nil))
-  (kind-icon-use-icons t)
-  (kind-icon-default-face 'corfu-default) ; Have background color be the same as `corfu' face background
-  (kind-icon-blend-background nil)  ; Use midpoint color between foreground and background colors ("blended")?
-  (kind-icon-blend-frac 0.08)
-
-  ;; `kind-icon' depends `svg-lib' which creates a cache
-  (svg-lib-icons-dir "~/.cache/svg-lib/cache/") ; Change cache dir
-  :config
-  (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter) ; Enable `kind-icon'
-
-  ;; Add hook to reset cache so the icon colors match my theme
-  ;; (add-hook 'kb/themes-hooks #'(lambda () (interactive) (kind-icon-reset-cache)))
-  )
+  :init (add-to-list 'corfu-margin-formatters #'nerd-icons-corfu-formatter))
 
 (provide 'opal-completion)
 ;;; opal-completion.el ends here
