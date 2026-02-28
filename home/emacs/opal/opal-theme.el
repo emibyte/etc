@@ -19,6 +19,7 @@
 
 (defun opal/pick-random-ef-dark-theme ()
   "Pick a theme randomly out of the `ef-themes-dark-themes' on startup."
+  (interactive)
   (let* ((dark-themes ef-themes-dark-themes)
          (length-dark-themes (length dark-themes)))
     (nth (random length-dark-themes) ef-themes-dark-themes)))
@@ -62,6 +63,8 @@
   :hook (after-init . doom-modeline-mode))
 
 ;;; nerd-icons
+(use-package nerd-icons :defer)
+
 (use-package nerd-icons-dired
   :hook (dired-mode . nerd-icons-dired-mode))
 
