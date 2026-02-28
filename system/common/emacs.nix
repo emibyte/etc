@@ -3,14 +3,6 @@
   inputs,
   ...
 }: let
-  addPlistSupport = pkg:
-    pkg.overrideAttrs (old: {
-      buildPhase =
-        ''
-          export LSP_USE_PLISTS=true
-        ''
-        + (old.buildPhase or "");
-    });
   cuteEmacs = pkgs.emacs-pgtk;
 in {
   # nixpkgs.overlays = [inputs.emacs-overlay.overlay];
@@ -24,20 +16,12 @@ in {
       (epkgs: [
         epkgs.use-package
 
-        # lsp nonsense
-        # TODO: probably just make a list of the relevant packages and map over that
-        (addPlistSupport epkgs.lsp-mode)
-        (addPlistSupport epkgs.lsp-ui)
-        (addPlistSupport epkgs.lsp-pyright)
-        epkgs.flycheck
-        epkgs.consult-flycheck
-        epkgs.consult-lsp
-
         epkgs.vterm
         epkgs.eat
 
         epkgs.yasnippet
-        epkgs.quick-peek
+        epkgs.yasnippet-snippets
+        epkgs.yasnippet-capf
 
         epkgs.projectile
         epkgs.perspective
@@ -45,7 +29,6 @@ in {
         epkgs.corfu
         epkgs.corfu-terminal
         epkgs.cape
-        epkgs.kind-icon
         epkgs.consult
         epkgs.consult-projectile
         epkgs.marginalia
@@ -113,6 +96,9 @@ in {
         epkgs.nerd-icons
         epkgs.nerd-icons-dired
         epkgs.nerd-icons-ibuffer
+        epkgs.nerd-icons-corfu
+        epkgs.sideline-flymake
+        epkgs.eldoc-box
       ]))
 
     emacs-lsp-booster
