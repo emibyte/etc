@@ -109,6 +109,7 @@ in {
 
       exec-once = [
         "xwaylandvideobridge"
+        "xrandr --output DP-2 --primary"
         "waybar"
         "dunst"
         "nvibrant 0 0 0 400 0 400 0"
