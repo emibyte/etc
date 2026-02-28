@@ -5,8 +5,7 @@
 (require 'opal-package)
 
 (use-package racket-mode
-  :hook ((racket-mode . lsp-deferred)
-         (racket-mode . racket-xp-mode)
+  :hook ((racket-mode . racket-xp-mode)
          ;; NOTE: sometimes direnv loads too late resulting in the racket executable not being found which is a problem for the two hooks that follow
          (racket-mode . direnv-update-environment)))
 
