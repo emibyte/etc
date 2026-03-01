@@ -347,6 +347,8 @@
       iosevka-comfy.comfy
       noto-fonts
       inter
+      maple-mono.NF-unhinted
+      maple-mono.truetype
     ]
     ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 

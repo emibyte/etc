@@ -5,8 +5,11 @@
 (require 'opal-package)
 (require 'ef-themes)
 
-(set-frame-font "Iosevka Comfy:pixelsize=20")
-(set-face-font 'default "Iosevka Comfy:pixelsize=20")
+;; (set-frame-font "Iosevka Comfy:pixelsize=18")
+;; (set-face-font 'default "Iosevka Comfy:pixelsize=18")
+
+(set-frame-font "Maple Mono NF:pixelsize=18")
+(set-face-font 'default "Maple Mono NF:pixelsize=18")
 
 (set-fontset-font
  t 'symbol

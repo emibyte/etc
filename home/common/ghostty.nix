@@ -5,7 +5,7 @@
     enableZshIntegration = true;
     settings = {
       # font-family = "Iosevka Comfy";
-      font-family = "Hack";
+      font-family = "Maple Mono NF";
       font-size = 14;
       # theme = "ef-dark";
       # theme = "catppuccin-mocha";
