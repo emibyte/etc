@@ -99,6 +99,7 @@ in {
         epkgs.nerd-icons-corfu
         epkgs.sideline-flymake
         epkgs.eldoc-box
+        epkgs.ligature
       ]))
 
     emacs-lsp-booster
