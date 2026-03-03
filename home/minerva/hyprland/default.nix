@@ -82,6 +82,7 @@ in {
         "opacity 1.0 override, class:^(vesktop)$"
         "opacity 1.0 override, class:^(desmume)$"
         "opacity 1.0 override, class:^(mpv)$"
+        "opacity 1.0 override, class:^(.virt-manager-wrapped)$"
         "opacity 0.9 override, class:^(emacs)$"
       ];
 
