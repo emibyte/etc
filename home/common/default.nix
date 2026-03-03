@@ -60,6 +60,7 @@ in {
     pkgs.lm_sensors
     pkgs.bat
     pkgs.libreoffice-qt
+    pkgs.claude-code
 
     pkgs.far2l
 
