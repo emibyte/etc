@@ -93,6 +93,7 @@ in {
     pkgs.unzip
     pkgs.zip
     pkgs.gdb
+    pkgs.gf
     pkgs.tree
     pkgs.gparted
 
