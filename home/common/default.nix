@@ -63,6 +63,7 @@ in {
     pkgs.claude-code
 
     pkgs.far2l
+    pkgs.krita
 
     pkgs.discord
     pkgs.vesktop
