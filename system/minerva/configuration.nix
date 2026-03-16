@@ -100,6 +100,7 @@
   hardware.i2c.enable = true;
 
   hardware.keyboard.qmk.enable = true;
+  hardware.keyboard.qmk.keychronSupport = true;
   services.udev.packages = [pkgs.via];
 
   # Bootloader.
