@@ -83,6 +83,7 @@ in {
         epkgs.magit
 
         epkgs.nix-mode
+        epkgs.markdown-mode
         epkgs.org
         epkgs.org-bullets
         epkgs.visual-fill-column
