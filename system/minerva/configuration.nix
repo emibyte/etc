@@ -111,6 +111,8 @@
     "nvidia-drm.fbdev=1"
   ];
   boot.kernelModules = ["coretemp"];
+  boot.initrd.kernelModules = ["xhci_pci" "usbhid"];
+  boot.initrd.systemd.enable = true;
 
   boot.supportedFilesystems = ["ntfs"];
   fileSystems."/run/media/emily/Seagate Portable Drive" = {
