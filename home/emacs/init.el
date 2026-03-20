@@ -87,6 +87,7 @@
 (require 'opal-nix)
 (require 'opal-racket)
 (require 'opal-python)
+(require 'opal-markdown)
 
 ;; Re-enable garbage collection after startup
 (setq

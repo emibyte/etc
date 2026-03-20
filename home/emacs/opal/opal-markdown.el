@@ -10,4 +10,5 @@
   :bind (:map markdown-mode-map
          ("C-c C-e" . markdown-do)))
 
+(provide 'opal-markdown)
 ;;; opal-markdown.el ends here
