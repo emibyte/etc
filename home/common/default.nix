@@ -60,7 +60,11 @@ in {
     pkgs.lm_sensors
     pkgs.bat
     pkgs.libreoffice-qt
+
     pkgs.claude-code
+    pkgs.code-cursor
+
+    pkgs.jetbrains.clion
 
     pkgs.far2l
     pkgs.krita
