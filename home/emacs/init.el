@@ -79,6 +79,7 @@
 (require 'opal-completion)
 (require 'opal-help)
 (require 'opal-workspaces)
+(require 'opal-tree-sitter)
 
 (require 'opal-org)
 (require 'opal-elisp)

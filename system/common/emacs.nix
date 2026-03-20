@@ -49,16 +49,32 @@ in {
         (epkgs.treesit-grammars.with-grammars
           (grammars: [
             grammars.tree-sitter-bash
+            grammars.tree-sitter-cmake
             grammars.tree-sitter-c
+            grammars.tree-sitter-cpp
             grammars.tree-sitter-lua
+            grammars.tree-sitter-fennel
+            grammars.tree-sitter-go
+            grammars.tree-sitter-gomod
+            grammars.tree-sitter-hyprlang
+            grammars.tree-sitter-json
+            grammars.tree-sitter-javascript
+            grammars.tree-sitter-typescript
+            grammars.tree-sitter-tsx
+            grammars.tree-sitter-vue
+            grammars.tree-sitter-python
+            grammars.tree-sitter-yaml
+            grammars.tree-sitter-toml
+            grammars.tree-sitter-make
             grammars.tree-sitter-elisp
             grammars.tree-sitter-ocaml
             grammars.tree-sitter-rust
-            grammars.tree-sitter-cpp
             grammars.tree-sitter-scheme
             grammars.tree-sitter-nix
             grammars.tree-sitter-haskell
             grammars.tree-sitter-html
+            grammars.tree-sitter-css
+            grammars.tree-sitter-markdown
           ]))
 
         epkgs.pretty-sha-path
@@ -88,6 +104,7 @@ in {
         epkgs.org-bullets
         epkgs.visual-fill-column
         epkgs.racket-mode
+        epkgs.go-mode
         epkgs.tuareg
         epkgs.ocp-indent
 

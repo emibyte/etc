@@ -5,7 +5,13 @@
 (require 'opal-package)
 
 (use-package eglot
-  :hook ((c-mode c++-mode python-mode nix-mode)
+  :hook ((
+          c-mode      c-ts-mode
+          c++-mode    c++-ts-mode
+          python-mode python-ts-mode
+          go-mode     go-ts-mode
+          nix-mode
+          )
          . eglot-ensure)
   :custom
   ;; Good defaults
