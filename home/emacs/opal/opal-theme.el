@@ -29,7 +29,8 @@
 
 (use-package ef-themes
   :config
-  (load-theme 'catppuccin t nil))
+  (load-theme 'gruber-darker t nil))
+  ;; (load-theme 'catppuccin t nil))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))

@@ -8,7 +8,6 @@
   versionCheckHook,
   writableTmpDirAsHomeHook,
 }:
-
 buildGoModule (finalAttrs: {
   pname = "bootdev-cli";
   version = "1.27.4";
@@ -39,18 +38,18 @@ buildGoModule (finalAttrs: {
       --fish <($out/bin/bootdev completion fish)
   '';
 
-  nativeInstallCheckInputs = [ versionCheckHook ];
+  nativeInstallCheckInputs = [versionCheckHook];
   versionCheckProgram = "${placeholder "out"}/bin/bootdev";
   doInstallCheck = true;
 
-  passthru.updateScript = nix-update-script { };
+  passthru.updateScript = nix-update-script {};
 
   meta = {
     description = "CLI used to complete coding challenges and lessons on Boot.dev";
     homepage = "https://github.com/bootdotdev/bootdev";
     changelog = "https://github.com/bootdotdev/bootdev/releases/tag/v${finalAttrs.version}";
     license = lib.licenses.mit;
-    maintainers = with lib.maintainers; [ vinnymeller ];
+    maintainers = with lib.maintainers; [vinnymeller];
     mainProgram = "bootdev";
   };
 })
