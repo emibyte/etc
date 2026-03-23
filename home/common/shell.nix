@@ -7,6 +7,9 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       enableCompletion = true;
+      envExtra = ''
+        export PATH="$HOME/go/bin:$PATH"
+      '';
 
       oh-my-zsh = {
         enable = true;
