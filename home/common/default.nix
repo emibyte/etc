@@ -56,7 +56,11 @@ in {
   # Packages that should be installed to the user profile.
   home.packages = [
     rebuild-system
+
+    # NOTE: overlay packages
     pkgs.nvibrant-git
+    pkgs.bootdev-cli
+
     pkgs.lm_sensors
     pkgs.bat
     pkgs.libreoffice-qt
