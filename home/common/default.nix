@@ -64,6 +64,7 @@ in {
     pkgs.lm_sensors
     pkgs.bat
     pkgs.libreoffice-qt
+    pkgs.remmina
 
     pkgs.claude-code
     pkgs.code-cursor
