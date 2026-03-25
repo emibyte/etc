@@ -85,7 +85,7 @@ in {
         "opacity 1.0 override, class:^(.virt-manager-wrapped)$"
         "opacity 1.0 override, class:^(gamescope)$"
         "opacity 1.0 override, class:^(krita)$"
-        "opacity 0.9 override, class:^(emacs)$"
+        "opacity 1.0 override, class:^(emacs)$"
       ];
 
       windowrulev2 = [
