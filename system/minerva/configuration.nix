@@ -340,6 +340,13 @@
 
     sddm-astronaut
     gpu-screen-recorder-gtk
+
+    (heroic.override {
+      extraPkgs = pkgs': with pkgs'; [
+        gamescope
+        gamemode
+      ];
+    })
   ];
   environment.pathsToLink = ["/share/zsh"];
 
