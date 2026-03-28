@@ -107,6 +107,7 @@ in {
     pkgs.gf
     pkgs.tree
     pkgs.gparted
+    pkgs.jq
 
     pkgs.qpwgraph # audio stuffies
   ];
