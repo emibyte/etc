@@ -85,6 +85,7 @@
 (require 'opal-elisp)
 (require 'opal-c)
 (require 'opal-ocaml)
+(require 'opal-go)
 (require 'opal-nix)
 (require 'opal-racket)
 (require 'opal-python)

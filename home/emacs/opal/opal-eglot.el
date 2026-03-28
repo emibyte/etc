@@ -9,7 +9,7 @@
           c-mode      c-ts-mode
           c++-mode    c++-ts-mode
           python-mode python-ts-mode
-          go-mode     go-ts-mode
+          go-mode     ;; go-ts-mode
           nix-mode
           )
          . eglot-ensure)
