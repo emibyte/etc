@@ -5,7 +5,9 @@
 (require 'opal-package)
 
 (use-package go-mode
+  :mode "\\.go\\'"
   :hook (go-mode . (lambda ()
+                     (electric-pair-mode 1)
                      (add-hook 'before-save-hook #'eglot-format-buffer nil t))))
 
 ;; (use-package go-ts-mode

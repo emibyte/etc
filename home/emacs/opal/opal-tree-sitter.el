@@ -15,7 +15,7 @@
         (js-json-mode . json-ts-mode)
         ;; (typescript-mode . typescript-ts-mode)
         (conf-toml-mode . toml-ts-mode)
-        ;; (go-mode . go-ts-mode)
+        ;; (go-mode . go-mode)
         ;; (gdscript-mode . gdscript-ts-mode)
         ))
 (setq treesit-font-lock-level 3)
