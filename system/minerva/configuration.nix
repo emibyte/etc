@@ -306,7 +306,7 @@
   users.users.emily = {
     isNormalUser = true;
     description = "emily";
-    extraGroups = ["networkmanager" "wheel" "libvirtd" "openrazer" "gamemode"];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "openrazer" "video" "gamemode"];
     packages = [
       # pkgs.kdePackages.kate
       # pkgs.kdePackages.kcalc
