@@ -95,6 +95,8 @@ in {
     pkgs.foliate
     pkgs.chatterino2
 
+    pkgs.cameractrls
+
     # corsair opensource driver
     # pkgs.ckb-next
 
