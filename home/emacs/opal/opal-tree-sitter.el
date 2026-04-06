@@ -21,7 +21,7 @@
 (setq treesit-font-lock-level 3)
 
 (use-package cmake-ts-mode :mode ("CMakeLists\\.txt\\'" "\\.cmake\\'"))
-(use-package go-mod-ts-mode :mode "\\.mod\\'")
+;; (use-package go-mod-ts-mode :mode "\\.mod\\'")
 (use-package rust-ts-mode :mode "\\.rs\\'")
 (use-package lua-ts-mode :mode "\\.lua\\'")
 (use-package typescript-ts-mode :mode "\\.ts\\'")

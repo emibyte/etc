@@ -55,7 +55,7 @@ in {
             grammars.tree-sitter-lua
             grammars.tree-sitter-fennel
             # grammars.tree-sitter-go ;; go-ts-mode is ass
-            grammars.tree-sitter-gomod
+            # grammars.tree-sitter-gomod
             grammars.tree-sitter-hyprlang
             grammars.tree-sitter-json
             grammars.tree-sitter-javascript
