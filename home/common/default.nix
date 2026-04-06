@@ -32,7 +32,7 @@ in {
     ./shell.nix
     ./mpv.nix
     ./languages.nix
-    ./obs.nix
+    # ./obs.nix
     ./ghostty.nix
     ./xdg.nix
     ./spicetify.nix

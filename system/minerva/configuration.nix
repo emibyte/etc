@@ -210,6 +210,17 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
+  programs.obs-studio = {
+    enableVirtualCamera = true;
+    enable = true;
+    package = pkgs.obs-studio.override {cudaSupport = true;};
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+    ];
+  };
+
   # Steam stuff, probably make a steam.nix
   programs.steam = {
     enable = true;
