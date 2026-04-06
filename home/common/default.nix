@@ -96,6 +96,7 @@ in {
     pkgs.chatterino2
 
     pkgs.cameractrls
+    pkgs.cameractrls-gtk3
 
     # corsair opensource driver
     # pkgs.ckb-next
