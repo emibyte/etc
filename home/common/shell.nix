@@ -68,5 +68,7 @@
     };
 
     fzf.enable = true;
+
+    bat.enable = true;
   };
 }

@@ -62,7 +62,6 @@ in {
     pkgs.bootdev-cli
 
     pkgs.lm_sensors
-    pkgs.bat
     pkgs.libreoffice-qt
     pkgs.remmina
 
