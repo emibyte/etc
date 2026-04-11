@@ -64,6 +64,13 @@
       chromium.enable = false;
     };
 
+    fonts = {
+      monospace = {
+        package = pkgs.maple-mono.NF-unhinted;
+        name = "Maple Mono NF";
+      };
+    };
+
     icons = {
       enable = true;
       package = pkgs.catppuccin-papirus-folders.override {

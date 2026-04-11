@@ -5,8 +5,8 @@
     enableZshIntegration = true;
     settings = {
       # font-family = "Iosevka Comfy";
-      font-family = "Maple Mono NF";
-      font-size = 14;
+      font-family = [ "Maple Mono NF" ];
+      font-size = 13.5;
       # theme = "ef-dark";
       # theme = "catppuccin-mocha";
       cursor-style = "block";
