@@ -353,10 +353,11 @@
     gpu-screen-recorder-gtk
 
     (heroic.override {
-      extraPkgs = pkgs': with pkgs'; [
-        gamescope
-        gamemode
-      ];
+      extraPkgs = pkgs':
+        with pkgs'; [
+          gamescope
+          gamemode
+        ];
     })
   ];
   environment.pathsToLink = ["/share/zsh"];
