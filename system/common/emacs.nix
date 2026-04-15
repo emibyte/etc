@@ -17,6 +17,7 @@ in {
         epkgs.use-package
 
         epkgs.vterm
+        epkgs.vterm-toggle
         epkgs.eat
 
         epkgs.yasnippet
