@@ -65,7 +65,7 @@
 ;;; modeline
 (use-package doom-modeline
   :custom
-  (doom-modeline-height 25) ;; Set modeline height
+  (doom-modeline-height 40) ;; Set modeline height
   :hook (after-init . doom-modeline-mode))
 
 ;;; nerd-icons
