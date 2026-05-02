@@ -29,7 +29,7 @@
 
 (use-package ef-themes
   :config
-  (load-theme 'doom-nord t nil))
+  (load-theme 'ef-autumn t nil))
   ;; (load-theme 'catppuccin t nil))
   ;; (load-theme 'stimmung-themes-dark t nil))
   ;; (load-theme 'ef-tritanopia-dark t nil))
