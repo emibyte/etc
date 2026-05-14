@@ -87,6 +87,7 @@ in {
         epkgs.which-key
 
         epkgs.ef-themes
+        epkgs.doric-themes
         epkgs.catppuccin-theme
         epkgs.spacemacs-theme
         epkgs.doom-themes
