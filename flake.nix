@@ -34,7 +34,6 @@
     nixosConfigurations = {
       tuxedo = lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        inherit system;
         modules = [
           {
             nixpkgs.overlays = [self.overlays.additions];
@@ -59,11 +58,11 @@
             };
             home-manager.extraSpecialArgs = {inherit inputs;};
           }
+          { nixpkgs.hostPlatform = { system = system; };}
         ];
       };
       minerva = lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        inherit system;
         modules = [
           {
             nixpkgs.overlays = [self.overlays.additions];
@@ -87,6 +86,7 @@
             };
             home-manager.extraSpecialArgs = {inherit inputs;};
           }
+          { nixpkgs.hostPlatform = { system = system; };}
         ];
       };
     };
