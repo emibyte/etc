@@ -58,7 +58,7 @@
             };
             home-manager.extraSpecialArgs = {inherit inputs;};
           }
-          { nixpkgs.hostPlatform = { system = system; };}
+          {nixpkgs.hostPlatform = {system = system;};}
         ];
       };
       minerva = lib.nixosSystem {
@@ -86,7 +86,7 @@
             };
             home-manager.extraSpecialArgs = {inherit inputs;};
           }
-          { nixpkgs.hostPlatform = { system = system; };}
+          {nixpkgs.hostPlatform = {system = system;};}
         ];
       };
     };
