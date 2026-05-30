@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }: let
   # for this command to work the hostname has to match the a profile in the flake.nix
@@ -8,6 +9,7 @@
     nixos-rebuild switch --flake ${config.home.homeDirectory}/etc --verbose
   '';
   emacsCfgPath = "${config.home.homeDirectory}/etc/home/emacs";
+  system = pkgs.stdenv.hostPlatform.system;
   # TODO: move this into a cursor.nix
   getFrom = url: hash: name: {
     name = name;
@@ -57,6 +59,7 @@ in {
   home.packages = [
     rebuild-system
 
+    inputs.helium.packages.${system}.default
     # NOTE: overlay packages
     pkgs.bootdev-cli
     pkgs.nvibrant-git
