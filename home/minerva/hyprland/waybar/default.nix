@@ -37,7 +37,7 @@
 in {
   # TODO: make a notification widget, that i can enable/disable notifications
   #       but also can be opened to show a list of past notifications
-  home.packages = with pkgs; [blueberry morgen];
+  home.packages = with pkgs; [morgen];
   xdg.userDirs.enable = true;
   programs.waybar = {
     enable = true;
