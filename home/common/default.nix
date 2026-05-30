@@ -58,8 +58,8 @@ in {
     rebuild-system
 
     # NOTE: overlay packages
-    pkgs.nvibrant-git
     pkgs.bootdev-cli
+    pkgs.nvibrant-git
 
     pkgs.lm_sensors
     pkgs.libreoffice-qt

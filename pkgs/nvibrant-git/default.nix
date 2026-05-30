@@ -1,56 +1,42 @@
 {
-  git,
-  python3Packages,
-  fetchgit,
-}:
-python3Packages.buildPythonApplication rec {
-  pname = "nvibrant-git";
-  version = "1.0.5";
-  pyproject = true;
-
-  src = fetchgit {
-    url = "https://github.com/Tremeschin/nVibrant";
-    rev = "v${version}";
-    deepClone = true;
-    leaveDotGit = true;
-    fetchSubmodules = true;
-    hash = "sha256-aOhzunEsQFMhLw5QqxLIYr1oquM+6zsUW8rV7DsSG9o=";
+  stdenv,
+  fetchFromGitHub,
+  meson,
+  ninja,
+  pkg-config,
+}: let
+  openGpu = fetchFromGitHub {
+    owner = "NVIDIA";
+    repo = "open-gpu-kernel-modules";
+    rev = "595.71.05";
+    hash = "sha256-Lfz71QWKM6x/jD2B22SWpUi7/og30HRlXg1kL3EWzEw=";
   };
+in
+  stdenv.mkDerivation (finalAttrs: {
+    pname = "nvibrant";
+    version = "1.2.1";
 
-  nativeBuildInputs = [
-    python3Packages.meson
-    python3Packages.ninja
-    python3Packages.hatchling
-    git
-  ];
+    src = fetchFromGitHub {
+      owner = "Tremeschin";
+      repo = "nVibrant";
+      rev = "v${finalAttrs.version}";
+      fetchSubmodules = false;
+      hash = "sha256-pEOZQjfAlNWUEbrfFEuPAaabWjilvMaAjpdJedNPDs0=";
+    };
 
-  propagatedBuildInputs = with python3Packages; [packaging];
+    nativeBuildInputs = [meson ninja pkg-config];
 
-  patchVariables = ''
-    from nvibrant import NVIBRANT\
-    NINJA=(\"ninja\",)\
-    RESOURCES=(NVIBRANT/\"resources\")
-  '';
+    postPatch = ''
+      rm -rf open-gpu
+      cp -r ${openGpu} open-gpu
+      chmod -R u+w open-gpu
+    '';
 
-  postPatch = ''
-    # Patch the build.py file to use the correct relative paths
-    mv nvibrant/build.py ./
+    mesonBuildType = "release";
 
-    # Patch the build.py variables to call Ninja directly
-    # and move the resources folder
-    sed -i '/def build() -> None:/i ${patchVariables}' build.py
-  '';
-
-  preBuild = ''
-    # Generate the executables for the driver versions
-    python build.py
-  '';
-
-  postInstall = ''
-    libdir=$out/lib/${python3Packages.python.libPrefix}/site-packages
-
-    # Move the resources folder to the libdir to be accessible
-    # by the nvibrant wrapper
-    cp -vr resources $libdir/nvibrant
-  '';
-}
+    installPhase = ''
+      runHook preInstall
+      install -Dm755 nvibrant $out/bin/nvibrant
+      runHook postInstall
+    '';
+  })
