@@ -1,7 +1,14 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  config,
+  ...
+}: {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox-bin;
+
+    # NOTE(emi): 26.05 change default value to what it will be in the future
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
 
     profiles = {
       emi = {

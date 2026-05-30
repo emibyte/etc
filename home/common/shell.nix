@@ -1,9 +1,17 @@
-{lib, ...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   programs = {
     # configuration only, setting it as login shell has
     # to happen on system level (configuration.nix)
     zsh = {
       enable = true;
+
+      # NOTE(emi): 26.05 use new default
+      dotDir = "${config.xdg.configHome}/zsh";
+
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       enableCompletion = true;

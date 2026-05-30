@@ -10,6 +10,9 @@
 in {
   xdg = {
     enable = true;
+    userDirs = {
+      setSessionVariables = false;
+    };
     autostart = {
       enable = true;
       entries = [setVibrance];
