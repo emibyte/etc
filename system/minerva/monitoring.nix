@@ -1,6 +1,7 @@
 {...}: {
   programs.tuxclocker = {
-    enable = true;
+    # TODO(emi): 26.05 build failure dont care dont ask
+    enable = false;
     useUnfree = true;
   };
 
