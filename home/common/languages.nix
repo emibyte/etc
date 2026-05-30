@@ -27,12 +27,12 @@ in {
     pkgs.nixd
     pkgs.basedpyright
     pkgs.dockerfile-language-server
-    pkgs.nodePackages."bash-language-server"
-    pkgs.nodePackages."diagnostic-languageserver"
-    pkgs.nodePackages."typescript"
-    pkgs.nodePackages."typescript-language-server"
-    pkgs.nodePackages."vscode-langservers-extracted"
-    pkgs.nodePackages."yaml-language-server"
+    pkgs.bash-language-server
+    pkgs.diagnostic-languageserver
+    pkgs.typescript
+    pkgs.typescript-language-server
+    pkgs.vscode-langservers-extracted
+    pkgs.yaml-language-server
     pkgs.omnisharp-roslyn
     pkgs.gopls
     pkgs.rust-analyzer
