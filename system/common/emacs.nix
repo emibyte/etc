@@ -107,6 +107,7 @@ in {
         epkgs.visual-fill-column
         epkgs.racket-mode
         epkgs.go-mode
+        epkgs.lua-mode
         epkgs.tuareg
         epkgs.ocp-indent
 

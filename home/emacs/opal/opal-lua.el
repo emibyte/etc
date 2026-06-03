@@ -4,6 +4,11 @@
 
 (require 'opal-package)
 
+(use-package lua-ts-mode
+  :mode "\\.lua$"
+  :interpreter "lua")
+
+;; NOTE(emi): Fallback just in case
 (use-package lua-mode)
 
 (provide 'opal-lua)
