@@ -90,6 +90,7 @@
 (require 'opal-racket)
 (require 'opal-python)
 (require 'opal-markdown)
+(require 'opal-lua)
 
 ;; Re-enable garbage collection after startup
 (setq
