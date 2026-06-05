@@ -225,6 +225,18 @@
       wlrobs
       obs-backgroundremoval
       obs-pipewire-audio-capture
+      obs-composite-blur
+      obs-shaderfilter
+      obs-scale-to-sound
+      obs-gradient-source
+      obs-replay-source
+      obs-source-clone
+      obs-3d-effect
+      obs-livesplit-one
+      waveform
+      obs-gstreamer
+      obs-vaapi
+      obs-vkcapture
     ];
   };
 
@@ -280,6 +292,24 @@
     package = pkgs.ckb-next.overrideAttrs (old: {
       cmakeFlags = (old.cmakeFlags or []) ++ ["-DUSE_DBUS_MENU=0"];
     });
+  };
+
+  # appimage
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      fuse
+      icu
+      icu.dev
+      onnxruntime
+      sdl3
+      freetype
+      harfbuzz
+      fwupd
+    ];
   };
 
   # Enable flatpak for all users
@@ -366,6 +396,8 @@
           gamemode
         ];
     })
+
+    appimage-run
   ];
   environment.pathsToLink = ["/share/zsh"];
 
