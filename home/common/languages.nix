@@ -40,6 +40,7 @@ in {
 
     # formatters
     pkgs.nixpkgs-fmt
+    pkgs.luaformatter
     pkgs.gofumpt
     pkgs.golines
     # pkgs.python311Packages.black
