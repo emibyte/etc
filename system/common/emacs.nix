@@ -76,6 +76,7 @@ in {
             grammars.tree-sitter-html
             grammars.tree-sitter-css
             grammars.tree-sitter-markdown
+            grammars.tree-sitter-qmljs
           ]))
 
         epkgs.pretty-sha-path
@@ -108,6 +109,7 @@ in {
         epkgs.racket-mode
         epkgs.go-mode
         epkgs.lua-mode
+        epkgs.qml-mode
         epkgs.tuareg
         epkgs.ocp-indent
 
