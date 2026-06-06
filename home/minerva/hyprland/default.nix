@@ -13,9 +13,6 @@
     sapphireAlpha = "7dc4e4";
     rosewater = "rgb(f4dbd6)";
     rosewaterAlpha = "f4dbd6";
-    # TODO: try out these colors
-    # col.active_border=0xffb072d1
-    # col.inactive_border=0xff292a37
   };
 in {
   imports = [
@@ -41,6 +38,7 @@ in {
   };
 
   wayland.windowManager.hyprland = {
+    # configType = "lua";
     enable = true;
     systemd.variables = ["--all"];
     settings = {
@@ -55,44 +53,40 @@ in {
       };
 
       windowrule = [
-        "opacity 0.0 override, class:^(xwaylandvideobridge)$"
-        "noanim, class:^(xwaylandvideobridge)$"
-        "noinitialfocus, class:^(xwaylandvideobridge)$"
-        "maxsize 1 1, class:^(xwaylandvideobridge)$"
-        "noblur, class:^(xwaylandvideobridge)$"
-        "nofocus, class:^(xwaylandvideobridge)$"
+        "opacity 0.0 override, match:class ^(xwaylandvideobridge)$"
+        "no_anim 1, match:class ^(xwaylandvideobridge)$"
+        "no_initial_focus 1, match:class ^(xwaylandvideobridge)$"
+        "max_size 1 1, match:class ^(xwaylandvideobridge)$"
+        "no_blur 1, match:class ^(xwaylandvideobridge)$"
+        "no_focus 1, match:class ^(xwaylandvideobridge)$"
 
-        "suppressevent maximize, class:.*"
-        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
+        "suppress_event maximize, match:class .*"
+        "no_focus 1,match:class ^$,match:title ^$,match:xwayland 1,match:float 1,match:fullscreen 0,match:pin 0"
 
         # window rule for steam friends window to be a floating window
-        "float,class:^(steam)$,title:Friends List"
+        "float 1,match:class ^(steam)$,match:title ^Friends List$"
 
         # so that volume control opens as floating window
-        "float,class:pwvucontrol,title:pwvucontrol"
-        "float,title:Volume Control"
-        "size 1400 700,title:Volume Control"
+        "float 1,match:class pwvucontrol,match:title pwvucontrol"
+        "float 1,match:title ^Volume Control$"
+        "size 1400 700,match:title ^Volume Control$"
         # (hopefully) no opacity on browsers
-        "opacity 1.0 override, class:^(firefox)$"
-        "opacity 1.0 override, class:^(floorp)$"
-        "opacity 1.0 override, class:^(brave-browser)$"
-        "opacity 1.0 override, class:^(chromium-browser)$"
-        "opacity 1.0 override, class:^(librewolf)$"
-        "opacity 1.0 override, class:^(discord)$"
-        "opacity 1.0 override, class:^(vesktop)$"
-        "opacity 1.0 override, class:^(desmume)$"
-        "opacity 1.0 override, class:^(mpv)$"
-        "opacity 1.0 override, class:^(.virt-manager-wrapped)$"
-        "opacity 1.0 override, class:^(gamescope)$"
-        "opacity 1.0 override, class:^(krita)$"
-        "opacity 1.0 override, class:^(emacs)$"
-      ];
+        "opacity 1.0 override, match:class ^(firefox)$"
+        "opacity 1.0 override, match:class ^(floorp)$"
+        "opacity 1.0 override, match:class ^(brave-browser)$"
+        "opacity 1.0 override, match:class ^(chromium-browser)$"
+        "opacity 1.0 override, match:class ^(librewolf)$"
+        "opacity 1.0 override, match:class ^(discord)$"
+        "opacity 1.0 override, match:class ^(vesktop)$"
+        "opacity 1.0 override, match:class ^(desmume)$"
+        "opacity 1.0 override, match:class ^(mpv)$"
+        "opacity 1.0 override, match:class ^(.virt-manager-wrapped)$"
+        "opacity 1.0 override, match:class ^(gamescope)$"
+        "opacity 1.0 override, match:class ^(krita)$"
+        "opacity 1.0 override, match:class ^(emacs)$"
 
-      windowrulev2 = [
-        "float, class:^(jetbrains-.*),title:^(win.*)"
-        "noinitialfocus, opacity 0.9 0.9, class:^(jetbrains-.*)"
-        # "noinitialfocus,xwayland:1"
-        # "bordercolor ${colors.sapphire},class:*,group:1"
+        "float 1, match:class ^(jetbrains-.*),match:title ^(win.*)"
+        "no_initial_focus 1, opacity 0.9 0.9, match:class ^(jetbrains-.*)"
       ];
 
       workspace = [
@@ -213,7 +207,8 @@ in {
 
       # See https://wiki.hypr.land/Configuring/Dwindle-Layout/ for more
       dwindle = {
-        pseudotile = true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+        # TODO(emi): does not exist
+        # pseudotile = true; # Master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
         preserve_split = true; # You probably want this
         smart_split = false;
       };
@@ -273,7 +268,8 @@ in {
         "$mainMod, E, exec, dolphin"
         "$mainMod, V, togglefloating,"
         "$mainMod, P, pseudo," # dwindle
-        "$mainMod SHIFT, j, togglesplit," # dwindle
+        # TODO(emi): doesnt exist anymore
+        # "$mainMod SHIFT, j, togglesplit," # dwindle
         "$mainMod, ESCAPE, exec, wlogout,"
         "$mainMod, F, fullscreen"
 
@@ -414,13 +410,20 @@ in {
   services.hyprpaper = {
     enable = true;
     settings = {
+      splash = false;
       preload = [
         "${config.home.homeDirectory}/WPs/GT8rHAXXQAAQ6_5.jpg"
         "${config.home.homeDirectory}/WPs/wallhaven-wewl9r_2560x1600.png"
       ];
       wallpaper = [
-        "DP-2,${config.home.homeDirectory}/WPs/GT8rHAXXQAAQ6_5.jpg"
-        "DP-3,${config.home.homeDirectory}/WPs/GT8rHAXXQAAQ6_5.jpg"
+        {
+          monitor = "DP-2";
+          path = "${config.home.homeDirectory}/WPs/GT8rHAXXQAAQ6_5.jpg";
+        }
+        {
+          monitor = "DP-3";
+          path = "${config.home.homeDirectory}/WPs/GT8rHAXXQAAQ6_5.jpg";
+        }
       ];
     };
   };
