@@ -40,7 +40,7 @@
               (setq text (format "%s (%s)" text backend)))
             (add-face-text-property 0 (length text) face nil text)
             (funcall callback (list text)))))))
-  )
+ )
 
 (provide 'opal-syntax)
 ;;; opal-syntax.el ends here
