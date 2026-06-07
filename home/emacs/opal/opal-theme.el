@@ -29,7 +29,7 @@
 
 (use-package ef-themes
   :config
-  (load-theme 'doom-moonlight t nil))
+  (load-theme 'doric-mermaid t nil))
   ;; (load-theme 'kaolin-mono-dark t nil))
   ;; (load-theme 'ef-autumn t nil))
   ;; (load-theme 'catppuccin t nil))
