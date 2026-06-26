@@ -344,13 +344,16 @@ in {
   #        https://wiki.hypr.land/Hypr-Ecosystem/xdg-desktop-portal-hyprland/
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [xdg-desktop-portal-hyprland];
+    extraPortals = with pkgs; [xdg-desktop-portal-hyprland xdg-desktop-portal-gtk];
     config = {
       hyprland = {
-        default = ["hyprland" "gtk"];
+        default = ["hyprland"];
         # "org.freedesktop.impl.portal.FileChooser" = ["kde"];
         # "org.freedesktop.impl.portal.FileChooser" = "kde";
         # "org.freedesktop.portal.Settings" = "gtk";
+      };
+      common = {
+        default = ["gtk" "hyprland"];
       };
     };
   };

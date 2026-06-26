@@ -41,7 +41,6 @@ in {
     ./floorp.nix
     ./stylix.nix
     ./mangohud.nix
-    ./vesktop.nix
   ];
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -78,7 +77,7 @@ in {
     pkgs.krita
 
     pkgs.discord
-    # pkgs.vesktop
+    pkgs.vesktop
 
     # pkgs.spotify
     pkgs.vlc
