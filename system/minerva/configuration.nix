@@ -48,6 +48,7 @@
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
+    extraPackages = with pkgs; [nvidia-vaapi-driver libva-utils];
   };
 
   # python uv stuff
