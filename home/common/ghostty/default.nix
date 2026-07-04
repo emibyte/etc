@@ -1,4 +1,7 @@
-{pkgs, ...}: {
+{...}: {
+  xdg.configFile."ghostty/cursor-warp.glsl".text =
+    builtins.readFile ./cursor-warp.glsl;
+
   programs.ghostty = {
     enable = true;
     enableBashIntegration = true;
@@ -12,6 +15,8 @@
       cursor-style = "block";
       shell-integration-features = "no-cursor";
       gtk-single-instance = true;
+
+      custom-shader = "cursor-warp.glsl";
     };
     themes = {
       ef-dark = {

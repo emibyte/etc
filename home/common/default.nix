@@ -29,13 +29,13 @@
     "miku-cursor-linux";
 in {
   imports = [
+    ./ghostty
     ./firefox.nix
     ./zathura.nix
     ./shell.nix
     ./mpv.nix
     ./languages.nix
     # ./obs.nix
-    ./ghostty.nix
     ./xdg.nix
     ./spicetify.nix
     ./floorp.nix
