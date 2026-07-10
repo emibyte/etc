@@ -65,11 +65,38 @@
 ;; https://emacsredux.com/blog/2020/11/21/disable-global-hl-line-mode-for-specific-modes/
 (add-hook 'vterm-mode-hook (lambda () (setq-local global-hl-line-mode nil)))
 
+(defvar home-dir (getenv "HOME"))
+(defun opal/replace-home (dir)
+  (if (file-remote-p dir) dir
+    (s-replace home-dir "~" dir)))
+
 ;;; modeline
-(use-package doom-modeline
-  :custom
-  (doom-modeline-height 25) ;; Set modeline height
-  :hook (after-init . doom-modeline-mode))
+;; (use-package doom-modeline
+;;   :custom
+;;   (doom-modeline-height 25) ;; Set modeline height
+;;   (doom-modeline-buffer-encoding nil)
+;;   (doom-modeline-lsp nil)
+;;   (doom-modeline-check nil)
+;;   :hook (after-init . doom-modeline-mode))
+
+;; taken from lcolonq's stream emacs config
+(defun mode-line-render (left right)
+  "Return a string of `window-width' length containing LEFT and RIGHT aligned respectively."
+  (let* ((available-width (- (window-width) (length left) 3)))
+    (format (format " %%s %%%ds " available-width) left right)))
+(setq-default
+ mode-line-format
+ `((:eval
+    (mode-line-render
+     (concat
+      (propertize (format-mode-line "λ ") 'face 'bold)
+      (propertize (format-mode-line (buffer-name)) 'face 'bold)
+      (format-mode-line evil-mode-line-tag)
+      "- "
+      (format-mode-line mode-name)
+      " - "
+      (opal/replace-home default-directory))
+     (format-mode-line '(line-number-mode (" line %l" (column-number-mode " column %c"))))))))
 
 ;;; nerd-icons
 (use-package nerd-icons :defer)
