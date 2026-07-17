@@ -131,6 +131,7 @@ in {
         };
 
         network = {
+          interface = "enp*";
           format-wifi = "󰤢";
           format-ethernet = "{ifname} 󰈀";
           format-disconnected = "󰤠";
