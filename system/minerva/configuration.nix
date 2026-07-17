@@ -363,6 +363,7 @@
       # pkgs.kdePackages.dolphin
       pkgs.file-roller
       pkgs.keepassxc
+      pkgs.openvpn
       # NOTE: uses mbedtls which is unsecure
       # pkgs.openrgb-with-all-plugins
     ];
