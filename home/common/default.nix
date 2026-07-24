@@ -115,6 +115,8 @@ in {
     pkgs.jq
 
     pkgs.qpwgraph # audio stuffies
+
+    pkgs.teams-for-linux # :skull:
   ];
 
   services.sxhkd.enable = true;
