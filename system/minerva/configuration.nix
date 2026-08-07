@@ -25,8 +25,8 @@
     options = "--delete-older-than 7d";
   };
   nix.extraOptions = ''
-    keep-outputs = true
-    keep-derivations = true
+    # keep-outputs = true
+    # keep-derivations = true
   '';
 
   nix.settings.substituters = [
