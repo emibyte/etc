@@ -10,5 +10,7 @@
     xivlauncher
     nvtopPackages.full
     deadlock-mod-manager
+
+    pokemmo-installer
   ];
 }
