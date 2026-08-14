@@ -80,6 +80,7 @@
 (require 'opal-help)
 (require 'opal-workspaces)
 (require 'opal-tree-sitter)
+(require 'opal-format)
 
 (require 'opal-org)
 (require 'opal-elisp)

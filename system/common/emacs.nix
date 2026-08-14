@@ -36,6 +36,7 @@ in {
         epkgs.orderless
         epkgs.embark
         epkgs.embark-consult
+        epkgs.apheleia
 
         epkgs.helpful
         epkgs.hl-todo

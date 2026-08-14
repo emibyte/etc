@@ -11,6 +11,7 @@
           python-mode python-ts-mode
           go-mode     ;; go-ts-mode
           nix-mode
+          js-mode     js-ts-mode
           )
          . eglot-ensure)
   :custom
