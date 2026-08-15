@@ -408,6 +408,7 @@ in {
 
   services.hypridle = {
     enable = false;
+    settings.general = {};
   };
 
   services.hyprpaper = {
