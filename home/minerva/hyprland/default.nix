@@ -407,7 +407,7 @@ in {
   };
 
   services.hypridle = {
-    enable = true;
+    enable = false;
   };
 
   services.hyprpaper = {
