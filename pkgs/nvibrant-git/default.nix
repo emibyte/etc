@@ -21,7 +21,7 @@ in
       repo = "nVibrant";
       rev = "v${finalAttrs.version}";
       fetchSubmodules = false;
-      hash = "sha256-pEOZQjfAlNWUEbrfFEuPAaabWjilvMaAjpdJedNPDs0=";
+      hash = "sha256-M83WSQiJwzFZl8ECkZjKigvLTlMkzRa6o2hqPOt1378=";
     };
 
     nativeBuildInputs = [meson ninja pkg-config];
