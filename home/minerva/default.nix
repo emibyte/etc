@@ -6,11 +6,14 @@
     ./hyprland
   ];
 
-  home.packages = with pkgs; [
-    xivlauncher
-    nvtopPackages.full
-    deadlock-mod-manager
+  home.packages = [
+    pkgs.nvibrant-git
 
-    pokemmo-installer
+    pkgs.xivlauncher
+    pkgs.nvtopPackages.full
+    pkgs.deadlock-mod-manager
+
+    pkgs.pokemmo-installer
+
   ];
 }

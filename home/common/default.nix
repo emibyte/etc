@@ -62,7 +62,6 @@ in {
     inputs.helium.packages.${system}.default
     # NOTE: overlay packages
     pkgs.bootdev-cli
-    pkgs.nvibrant-git
 
     pkgs.lm_sensors
     pkgs.libreoffice-qt
