@@ -21,6 +21,11 @@
       url = "github:AlvaroParker/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+
+    noctalia ={
+     url = "github:noctalia-dev/noctalia-shell"; 
+     inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
