@@ -103,9 +103,12 @@
               self.overlays.additions
               (final: prev: {
                 linuxPackages_latest = prev.linuxPackages_latest.extend (lfinal: lprev: {
-                  openrazer = (import inputs.nixpkgs-unstable {
-                    inherit (prev) system;
-                  }).linuxPackages_latest.openrazer;
+                  openrazer = let
+                    unstablePkgs = import inputs.nixpkgs-unstable {inherit (final) system;};
+                  in
+                    lprev.openrazer.overrideAttrs (old: {
+                      inherit (unstablePkgs.linuxPackages_latest.openrazer) src version;
+                    });
                 });
               })
             ];
