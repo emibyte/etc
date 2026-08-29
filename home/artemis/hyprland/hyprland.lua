@@ -56,7 +56,7 @@ local menu        = "rofi"
 -- end)
 
 hl.on("hyprland.start", function ()
-    hl.exec_cmd("noctalia-shell")
+    hl.exec_cmd("noctalia")
 end)
 
 
