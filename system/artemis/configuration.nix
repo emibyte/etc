@@ -63,7 +63,7 @@
   };
   console = {
     useXkbConfig = true; # use xkb.options in tty.
-    console.keyMap = "us";
+    keyMap = "us";
   };
 
   programs.nix-ld = {
