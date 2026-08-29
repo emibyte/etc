@@ -28,6 +28,8 @@
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 
+  hardware.firmware = [ pkgs.sof-firmware ];
+
   hardware.graphics = {
     enable = true;
     enable32Bit = true;
