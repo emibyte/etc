@@ -104,7 +104,7 @@
               (final: prev: {
                 linuxPackages_latest = prev.linuxPackages_latest.extend (lfinal: lprev: {
                   openrazer = lprev.openrazer.overrideAttrs (old: {
-                    NIX_CFLAGS_COMPILE = (old.NIX_CFLAGS_COMPILE or "") + " -Wno-error=implicit-function-declaration";
+                    makeFlags = (old.makeFlags or []) ++ ["KCFLAGS=-Wno-error=implicit-function-declaration"];
                   });
                 });
               })
