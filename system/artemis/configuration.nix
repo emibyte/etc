@@ -17,7 +17,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.resumeDevice = "/dev/disk/by-label/swap";
-  boot.kernelParams = ["resume=/dev/disk/by-label/swap"];
+  boot.kernelParams = ["resume=/dev/disk/by-label/swap" "snd-intel-dspcfg.dsp_driver=1"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   hardware.enableRedistributableFirmware = true;
