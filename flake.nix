@@ -132,6 +132,7 @@
             home-manager.users.emily = {
               imports = [
                 ./home/common
+                ./home/artemis
                 inputs.spicetify-nix.homeManagerModules.default
               ];
             };
