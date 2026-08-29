@@ -27,24 +27,6 @@ in {
   hardware.keyboard.qmk.enable = true;
   services.udev.packages = [pkgs.via];
 
-  stylix = {
-    enable = true;
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-    targets = {
-      fontconfig.enable = false;
-      chromium.enable = false;
-    };
-
-    icons = {
-      enable = true;
-      package = pkgs.catppuccin-papirus-folders.override {
-        flavor = "mocha";
-        accent = "pink";
-      };
-      dark = "Papirus-Dark";
-    };
-  };
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.systemd-boot.configurationLimit = 5;
