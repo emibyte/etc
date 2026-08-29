@@ -63,13 +63,26 @@
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
+  # appimage
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
+
   # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
-  # services.pipewire = {
-  #   enable = true;
-  #   pulse.enable = true;
-  # };
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+
+    # use the example session manager (no others are packaged yet so this is enabled by default,
+    # no need to redefine it in your config for now)
+    #media-session.enable = true;
+  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
@@ -77,7 +90,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.emily = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager"]; # Enable ‘sudo’ for the user.
+    extraGroups = ["wheel" "networkmanager" "video" "gamemode" "openrazer"];
     packages = with pkgs; [
       tree
       vim
