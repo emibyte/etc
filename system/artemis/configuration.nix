@@ -87,6 +87,11 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
+  programs.zsh.enable = true;
+  users.users.emily.shell = pkgs.zsh;
+  users.users.emily.useDefaultShell = true;
+  environment.pathsToLink = ["/share/zsh"];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.emily = {
     isNormalUser = true;
