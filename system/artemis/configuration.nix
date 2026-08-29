@@ -86,7 +86,7 @@
   programs.dconf.enable = true;
 
   # allow unfree packages
-  nixpkgs.allowUnfree = true;
+  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
