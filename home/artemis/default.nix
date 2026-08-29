@@ -3,7 +3,10 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.noctalia.homeModules.default];
+  imports = [
+    ./hyprland
+    inputs.noctalia.homeModules.default
+  ];
 
   programs.noctalia = {
     enable = true;
