@@ -102,7 +102,6 @@ in {
     tumbler.enable = true;
   };
 
-  programs.light.enable = true;
   programs.sway.enable = true;
 
   # Enable the X11 windowing system.

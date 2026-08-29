@@ -48,8 +48,8 @@
             '';
           in "exec ${powermenu}";
 
-          XF86MonBrightnessUp = "exec ${pkgs.light}/bin/light -A 10";
-          XF86MonBrightnessDown = "exec ${pkgs.light}/bin/light -U 10";
+          # XF86MonBrightnessUp = "exec ${pkgs.light}/bin/light -A 10";
+          # XF86MonBrightnessDown = "exec ${pkgs.light}/bin/light -U 10";
 
           "${mod}+g" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
         }
@@ -122,7 +122,7 @@
           "Print" = "exec ${pkgs.flameshot}/bin/flameshot gui";
 
           # file manager
-          "${mod}+F3" = "exec ${pkgs.xfce.thunar}/bin/thunar";
+          "${mod}+F3" = "exec ${pkgs.thunar}/bin/thunar";
         }
         ########
         # Sway #
