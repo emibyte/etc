@@ -103,7 +103,7 @@
           }
           stylix.nixosModules.stylix
 
-          /.system/artemis/configuration.nix
+          ./system/artemis/configuration.nix
 
           home-manager.nixosModules.home-manager
           {
