@@ -107,6 +107,10 @@ hl.config({
         force_zero_scaling = true,
     },
 
+    binds = {
+        workspace_back_and_forth = true,
+    },
+
     general = {
         gaps_in  = 8,
         gaps_out = 8,
