@@ -99,18 +99,7 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           {
-            nixpkgs.overlays = [
-              self.overlays.additions
-              (final: prev: {
-                linuxPackages_latest = prev.linuxPackages_latest.extend (lfinal: lprev: {
-                  openrazer = lprev.openrazer.overrideAttrs (old: {
-                    postPatch = (old.postPatch or "") + ''
-  sed -i '1i #include <linux/string.h>' driver/razerkbd_driver.c driver/razermouse_driver.c driver/razeraccessory_driver.c
-'';
-                  });
-                });
-              })
-            ];
+            nixpkgs.overlays = [self.overlays.additions];
           }
           stylix.nixosModules.stylix
 
