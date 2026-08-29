@@ -41,6 +41,8 @@
   services.power-profiles-daemon.enable = true;
   services.thermald.enable = true;
 
+  services.upower.enable = true;
+
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
