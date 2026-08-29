@@ -101,6 +101,7 @@
           {
             nixpkgs.overlays = [
               self.overlays.additions
+              # TODO(emi): remove this when stable pkgs get updated (causes build error with newer kernels)
               (final: prev: {
                 linuxPackages_latest = prev.linuxPackages_latest.extend (lfinal: lprev: {
                   openrazer = let
