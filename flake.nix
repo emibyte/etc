@@ -99,7 +99,16 @@
         specialArgs = {inherit inputs outputs;};
         modules = [
           {
-            nixpkgs.overlays = [self.overlays.additions];
+            nixpkgs.overlays = [
+              self.overlays.additions
+              (final: prev: {
+                linuxPackages_latest = prev.linuxPackages_latest.extend (lfinal: lprev: {
+                  openrazer = (import inputs.nixpkgs-unstable {
+                    inherit (prev) system;
+                  }).linuxPackages_latest.openrazer;
+                });
+              })
+            ];
           }
           stylix.nixosModules.stylix
 
