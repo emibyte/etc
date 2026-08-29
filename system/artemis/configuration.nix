@@ -34,6 +34,7 @@
     extraPackages = with pkgs; [
       intel-media-driver
       vpl-gpu-rt
+      libva-utils
     ];
   };
 
@@ -62,6 +63,21 @@
   };
   console = {
     useXkbConfig = true; # use xkb.options in tty.
+    console.keyMap = "us";
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      fuse
+      icu
+      icu.dev
+      onnxruntime
+      sdl3
+      freetype
+      harfbuzz
+      fwupd
+    ];
   };
 
   services = {
@@ -75,6 +91,7 @@
       sddm.extraPackages = with pkgs; [sddm-astronaut];
     };
   };
+  services.fwupd.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -85,7 +102,7 @@
   services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.printing.enable = true;
 
   # appimage
   programs.appimage.enable = true;
