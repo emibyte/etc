@@ -333,17 +333,6 @@
   # environment.variables.GDK_DPI_SCALE = "0.4";
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-  fonts.packages = with pkgs;
-    [
-      iosevka-comfy.comfy
-      noto-fonts
-      inter
-      maple-mono.NF-unhinted
-      maple-mono.truetype
-      font-awesome
-    ]
-    ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
