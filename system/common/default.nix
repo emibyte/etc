@@ -5,6 +5,7 @@
     ./razer.nix
     ./stylix.nix
     ./fonts.nix
+    ./gaming.nix
     # ./catppuccin.nix
   ];
 }
