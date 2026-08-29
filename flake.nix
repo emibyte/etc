@@ -95,6 +95,32 @@
           {nixpkgs.hostPlatform = {system = system;};}
         ];
       };
+      artemis = lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          {
+            nixpkgs.overlays = [self.overlays.additions];
+          }
+          stylix.nixosModules.stylix
+
+          /.system/artemis/configuration.nix
+
+          home-manager.nixosModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "hm-backup";
+            home-manager.users.emily = {
+              imports = [
+                ./home/common
+                inputs.spicetify-nix.homeManagerModules.default
+              ];
+            };
+            home-manager.extraSpecialArgs = {inherit inputs;};
+          }
+          {nixpkgs.hostPlatform = {system = system;};}
+        ];
+      };
     };
   };
 }
