@@ -104,7 +104,9 @@
               (final: prev: {
                 linuxPackages_latest = prev.linuxPackages_latest.extend (lfinal: lprev: {
                   openrazer = lprev.openrazer.overrideAttrs (old: {
-                    makeFlags = (old.makeFlags or []) ++ ["KCFLAGS=-Wno-error=implicit-function-declaration"];
+                    postPatch = (old.postPatch or "") + ''
+  sed -i '1i #include <linux/string.h>' driver/razerkbd_driver.c driver/razermouse_driver.c driver/razeraccessory_driver.c
+'';
                   });
                 });
               })
