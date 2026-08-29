@@ -10,6 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./keyd.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
@@ -20,11 +21,24 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   hardware.enableRedistributableFirmware = true;
+  hardware.cpu.intel.updateMicrocode = lib.mkDefault true;
 
   networking.hostName = "artemis"; # Define your hostname.
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
+
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vpl-gpu-rt
+    ];
+  };
+
+  services.power-profiles-daemon.enable = true;
+  services.thermald.enable = true;
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
@@ -48,6 +62,18 @@
   };
   console = {
     useXkbConfig = true; # use xkb.options in tty.
+  };
+
+  services = {
+    displayManager = {
+      sddm.wayland.enable = true;
+      sddm.enable = true;
+      sddm.package = pkgs.kdePackages.sddm;
+      sddm.theme = "sddm-astronaut-theme";
+      sddm.enableHidpi = true;
+      defaultSession = "hyprland";
+      sddm.extraPackages = with pkgs; [sddm-astronaut];
+    };
   };
 
   # Enable the X11 windowing system.
@@ -97,6 +123,9 @@
     packages = with pkgs; [
       tree
       vim
+      file-roller
+      keepassxc
+      openvpn
     ];
   };
 
@@ -112,7 +141,14 @@
     vim
     wget
     git
+
+    sddm-astronaut
+    gpu-screen-recorder-gtk
   ];
+
+  environment.variables.TERMINAL = "ghostty";
+  environment.variables.XCURSOR_SIZE = 64;
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
