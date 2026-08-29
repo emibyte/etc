@@ -6,6 +6,7 @@
     ./stylix.nix
     ./fonts.nix
     ./gaming.nix
+    ./hyprland.nix
     # ./catppuccin.nix
   ];
 }
