@@ -20,6 +20,8 @@
   boot.kernelParams = ["resume=/dev/disk/by-label/swap"];
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  boot.supportedFilesystems = ["ntfs"];
+
   hardware.enableRedistributableFirmware = true;
   hardware.cpu.intel.updateMicrocode = lib.mkDefault true;
 
@@ -29,6 +31,18 @@
   networking.networkmanager.enable = true;
 
   hardware.firmware = [ pkgs.sof-firmware ];
+
+  services.gvfs.enable = true;
+  services.tumbler.enable = true;
+
+  boot.initrd.kernelModules = ["xhci_pci" "usbhid"];
+  boot.initrd.systemd.enable = true;
+
+  fileSystems."/run/media/emily/Seagate Portable Drive" = {
+    device = "/dev/disk/by-uuid/58C68B69C68B45EA";
+    fsType = "ntfs-3g";
+    options = ["users" "nofail" "exec"];
+  };
 
   # Enable bluetooth (hopefully)
   hardware.bluetooth.enable = true;
@@ -165,6 +179,7 @@
     vim
     wget
     git
+    ntfs3g
 
     sddm-astronaut
     gpu-screen-recorder-gtk
