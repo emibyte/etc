@@ -30,8 +30,6 @@
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 
-  hardware.firmware = [ pkgs.sof-firmware ];
-
   services.gvfs.enable = true;
   services.tumbler.enable = true;
 
