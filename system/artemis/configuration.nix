@@ -18,6 +18,8 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.resumeDevice = "/dev/disk/by-label/swap";
   boot.kernelParams = ["resume=/dev/disk/by-label/swap"];
+  # boot.kernelParams = [ "snd_intel_dspcfg.dsp_driver=1" ]; // NOTE(emi): maybe test??
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.supportedFilesystems = ["ntfs"];
@@ -124,8 +126,8 @@
   programs.appimage.enable = true;
   programs.appimage.binfmt = true;
 
+  hardware.enableAllFirmware = true;
   # Enable sound.
-  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
