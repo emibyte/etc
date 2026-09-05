@@ -21,6 +21,7 @@
   # boot.kernelParams = [ "snd_intel_dspcfg.dsp_driver=1" ]; // NOTE(emi): maybe test??
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.loader.systemd-boot.configurationLimit = 5;
 
   boot.supportedFilesystems = ["ntfs"];
 
