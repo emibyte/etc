@@ -29,13 +29,14 @@
 
 (use-package ef-themes
   :config
-  (load-theme 'doric-mermaid t nil))
-  ;; (load-theme 'kaolin-mono-dark t nil))
-  ;; (load-theme 'ef-autumn t nil))
-  ;; (load-theme 'catppuccin t nil))
-  ;; (load-theme 'stimmung-themes-dark t nil))
-  ;; (load-theme 'ef-tritanopia-dark t nil))
-  ;; (load-theme 'gruber-darker t nil))
+  (load-theme 'doric-plum t nil))
+;; (load-theme 'doric-mermaid t nil))
+;; (load-theme 'kaolin-mono-dark t nil))
+;; (load-theme 'ef-autumn t nil))
+;; (load-theme 'catppuccin t nil))
+;; (load-theme 'stimmung-themes-dark t nil))
+;; (load-theme 'ef-tritanopia-dark t nil))
+;; (load-theme 'gruber-darker t nil))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
