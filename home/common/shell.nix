@@ -78,5 +78,11 @@
     fzf.enable = true;
 
     bat.enable = true;
+
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+      enableBashIntegration = true;
+    };
   };
 }
