@@ -21,11 +21,6 @@
                   (org-level-8 . 1.1)))
     (set-face-attribute (car face) nil :font "Cantarell" :weight 'regular :height (cdr face))))
 
-(defun opal/org-mode-visual-fill-col ()
-  (setq visual-fill-column-width 100
-        visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
-
 (use-package org
   :custom
   (org-directory "~/notes")
@@ -62,8 +57,11 @@
   ;; (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
   )
 
-(use-package visual-fill-column
-  :hook (org-mode . opal/org-mode-visual-fill-col))
+(use-package olivetti
+  :hook (org-mode . olivetti-mode)
+  :custom
+  (olivetti-body-width 100)
+  (olivetti-style t))  ; or 'fancy
 
 (provide 'opal-org)
 ;;; opal-org.el ends here
