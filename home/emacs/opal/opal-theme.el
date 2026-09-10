@@ -80,24 +80,27 @@
 ;;   (doom-modeline-check nil)
 ;;   :hook (after-init . doom-modeline-mode))
 
-;; taken from lcolonq's stream emacs config
 (defun mode-line-render (left right)
-  "Return a string of `window-width' length containing LEFT and RIGHT aligned respectively."
-  (let* ((available-width (- (window-width) (length left) 3)))
-    (format (format " %%s %%%ds " available-width) left right)))
+  "Return a mode-line string with LEFT flush-left and RIGHT flush-right."
+  (concat
+   left
+   (propertize " "
+               'display
+               `(space :align-to (- right ,(string-width (format-mode-line right)))))
+   right))
 (setq-default
  mode-line-format
  `((:eval
     (mode-line-render
      (concat
-      (propertize (format-mode-line "λ ") 'face 'bold)
+      (propertize (format-mode-line " λ ") 'face 'bold)
       (propertize (format-mode-line (buffer-name)) 'face 'bold)
       (format-mode-line evil-mode-line-tag)
       "- "
       (format-mode-line mode-name)
       " - "
       (opal/replace-home default-directory))
-     (format-mode-line '(line-number-mode (" line %l" (column-number-mode " column %c"))))))))
+     (format-mode-line '(line-number-mode (" line %l" (column-number-mode " column %c "))))))))
 
 ;;; nerd-icons
 (use-package nerd-icons :defer)
