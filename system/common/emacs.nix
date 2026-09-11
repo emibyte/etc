@@ -110,6 +110,7 @@ in {
         epkgs.racket-mode
         epkgs.go-mode
         epkgs.lua-mode
+        epkgs.haskell-mode
         epkgs.qml-mode
         epkgs.tuareg
         epkgs.ocp-indent
