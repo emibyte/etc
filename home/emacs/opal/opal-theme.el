@@ -29,7 +29,7 @@
 
 (use-package ef-themes
   :config
-  (load-theme 'doric-plum t nil))
+  (load-theme 'modus-vivendi t nil))
 ;; (load-theme 'doric-mermaid t nil))
 ;; (load-theme 'kaolin-mono-dark t nil))
 ;; (load-theme 'ef-autumn t nil))
