@@ -42,6 +42,17 @@ in {
   programs.waybar = {
     enable = true;
 
+    # NOTE(emi): this is so i got a newer waybar version that supports the lua ipc stuff (so left clicking on a workspace works properly)
+    package = pkgs.waybar.overrideAttrs (old: {
+      src = pkgs.fetchFromGitHub {
+        owner = "Alexays";
+        repo = "waybar";
+        rev = "05945748dccce28bf96d26d8f64a9e69a8dd49ba";
+        hash = "sha256-51R3mIt8cLNvh/X5qe9vOqeJCj0U9KRyemVE5y+OhiU=";
+      };
+      mesonFlags = old.mesonFlags ++ ["-Dcava=disabled"];
+    });
+
     settings = {
       mainBar = {
         layer = "top";
@@ -90,6 +101,9 @@ in {
             active = "";
             default = "";
           };
+          on-click = "activate";
+          on-scroll-up = "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'";
+          on-scroll-down = "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'";
         };
 
         bluetooth = {
