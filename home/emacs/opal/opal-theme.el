@@ -27,16 +27,17 @@
          (length-dark-themes (length dark-themes)))
     (nth (random length-dark-themes) ef-themes-dark-themes)))
 
+(defun opal/switch-to-custom-catppuccin-theme ()
+  "Set a custom cursor color and background and load the catppuccin theme."
+  (interactive)
+  (load-theme 'catppuccin t nil)
+  (catppuccin-set-color 'base "#000000")
+  (catppuccin-reload)
+  (set-face-attribute 'cursor nil :background (catppuccin-get-color 'mauve)))
+
 (use-package ef-themes
   :config
-  (load-theme 'modus-vivendi t nil))
-;; (load-theme 'doric-mermaid t nil))
-;; (load-theme 'kaolin-mono-dark t nil))
-;; (load-theme 'ef-autumn t nil))
-;; (load-theme 'catppuccin t nil))
-;; (load-theme 'stimmung-themes-dark t nil))
-;; (load-theme 'ef-tritanopia-dark t nil))
-;; (load-theme 'gruber-darker t nil))
+  (load-theme (opal/pick-random-ef-dark-theme) t nil))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
@@ -95,8 +96,8 @@
      (concat
       (propertize (format-mode-line " λ ") 'face 'bold)
       (propertize (format-mode-line (buffer-name)) 'face 'bold)
-      (format-mode-line evil-mode-line-tag)
-      "- "
+      ;; (format-mode-line evil-mode-line-tag)
+      " - "
       (format-mode-line mode-name)
       " - "
       (opal/replace-home default-directory))
