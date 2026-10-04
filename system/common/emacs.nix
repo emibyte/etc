@@ -105,7 +105,6 @@ in {
         epkgs.nix-mode
         epkgs.markdown-mode
         epkgs.org
-        epkgs.org-bullets
         epkgs.racket-mode
         epkgs.go-mode
         epkgs.lua-mode

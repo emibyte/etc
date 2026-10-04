@@ -49,13 +49,5 @@
 
 (setq org-startup-folded 'content)
 
-(use-package org-bullets
-  :after org
-  :hook (org-mode . org-bullets-mode)
-  ;; in case i want it simpler
-  ;; :custom
-  ;; (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
-  )
-
 (provide 'opal-org)
 ;;; opal-org.el ends here
