@@ -57,11 +57,5 @@
   ;; (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●"))
   )
 
-(use-package olivetti
-  :hook (org-mode . olivetti-mode)
-  :custom
-  (olivetti-body-width 100)
-  (olivetti-style t))  ; or 'fancy
-
 (provide 'opal-org)
 ;;; opal-org.el ends here

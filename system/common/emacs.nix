@@ -106,7 +106,6 @@ in {
         epkgs.markdown-mode
         epkgs.org
         epkgs.org-bullets
-        epkgs.olivetti
         epkgs.racket-mode
         epkgs.go-mode
         epkgs.lua-mode
