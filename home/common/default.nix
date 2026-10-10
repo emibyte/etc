@@ -81,7 +81,7 @@ in {
     # pkgs.spotify
     pkgs.vlc
     pkgs.amberol
-    pkgs.thunderbird-140
+    pkgs.thunderbird-esr-bin
 
     pkgs.brave
 
