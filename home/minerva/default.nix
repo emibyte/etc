@@ -14,5 +14,7 @@
     pkgs.deadlock-mod-manager
 
     pkgs.pokemmo-installer
+
+    pkgs.r2modman
   ];
 }
