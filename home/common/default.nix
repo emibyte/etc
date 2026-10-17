@@ -72,7 +72,6 @@ in {
 
     pkgs.jetbrains.clion
 
-    pkgs.far2l
     pkgs.krita
 
     pkgs.discord
