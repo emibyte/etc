@@ -99,6 +99,7 @@ in {
         epkgs.inkpot-theme
         epkgs.stimmung-themes
         epkgs.naysayer-theme
+        epkgs.almost-mono-themes
 
         epkgs.magit
 
