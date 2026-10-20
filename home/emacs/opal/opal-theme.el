@@ -33,11 +33,13 @@
   (load-theme 'catppuccin t nil)
   (catppuccin-set-color 'base "#000000")
   (catppuccin-reload)
-  (set-face-attribute 'cursor nil :background (catppuccin-get-color 'mauve)))
+  (set-face-attribute 'cursor nil :background (catppuccin-get-color 'mauve))
+  (opal/update-eldoc-box-border))
 
 (use-package ef-themes
   :config
-  (load-theme (opal/pick-random-ef-dark-theme) t nil))
+  (load-theme 'doom-horizon t nil))
+;; (load-theme (opal/pick-random-ef-dark-theme) t nil))
 
 (use-package rainbow-delimiters
   :hook (prog-mode . rainbow-delimiters-mode))
