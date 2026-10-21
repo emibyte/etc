@@ -7,6 +7,7 @@
     ./fonts.nix
     ./gaming.nix
     ./hyprland.nix
+    ./security.nix
     # ./catppuccin.nix
   ];
 }
