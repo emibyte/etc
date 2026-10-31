@@ -42,6 +42,18 @@ in {
   programs.waybar = {
     enable = true;
 
+    # NOTE(emi): this is so i got a newer waybar version that supports the lua ipc stuff (so left clicking on a workspace works properly)
+    package = pkgs.waybar.overrideAttrs (old: {
+      src = pkgs.fetchFromGitHub {
+        owner = "Alexays";
+        repo = "waybar";
+        rev = "master";
+        hash = "sha256-CZR26099bnlOWgLpMOPwdpmocSAGetbepjkP661qml4=";
+      };
+      buildInputs = old.buildInputs ++ [ pkgs.modemmanager ];
+      mesonFlags = old.mesonFlags ++ ["-Dcava=disabled"];
+    });
+
     settings = {
       mainBar = {
         layer = "top";
