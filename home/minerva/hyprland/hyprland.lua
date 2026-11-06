@@ -347,6 +347,8 @@ hl.bind(mainMod .. " + N", hl.dsp.layout("togglesplit"))    -- dwindle only
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("rofi -show drun"))
 
+hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd("pkill -SIGUSR1 waybar"))
+
 hl.bind("SUPER + SHIFT + O", hl.dsp.exec_cmd("hyprshot -m region"))
 
 hl.bind(mainMod .. " + T", hl.dsp.group.toggle())
