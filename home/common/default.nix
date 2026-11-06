@@ -82,8 +82,6 @@ in {
     pkgs.amberol
     pkgs.thunderbird-esr-bin
 
-    pkgs.brave
-
     pkgs.font-awesome
 
     pkgs.keepassxc
