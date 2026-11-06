@@ -39,6 +39,7 @@ hl.monitor({ output = "DP-3", mode = "highres@60", position = "-2560x0", scale =
 -- Set programs that you use
 local terminal    = "ghostty"
 local fileManager = "thunar"
+local browser     = "firefox"
 local menu        = "rofi"
 -- TODO(emi): think about switching to hyprlauncher
 -- local menu        = "hyprlauncher"
@@ -338,6 +339,7 @@ hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())

@@ -36,6 +36,8 @@
     };
   };
 
+  stylix.targets.firefox.enable = true;
+  # stylix.targets.firefox.firefoxGnomeTheme.enable = true;
   stylix.targets.firefox.profileNames = ["emi"];
   stylix.targets.firefox.colorTheme.enable = true;
 }
