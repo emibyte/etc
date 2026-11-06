@@ -139,7 +139,7 @@ hl.config({
 
         shadow = {
             enabled = true,
-            range = 4,
+            range = 2,
             render_power = 3,
             color = Colors.pink,
             color_inactive = "0xff" .. Colors.baseAlpha,
