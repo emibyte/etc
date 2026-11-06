@@ -169,7 +169,7 @@ hl.config({
             render_titles = false,
             keep_upper_gap = false,
             gaps_out = 2,
-            indicator_height = 4,
+            indicator_height = 3,
         },
     },
 
