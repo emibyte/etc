@@ -27,6 +27,7 @@
     "https://github.com/supermariofps/hatsune-miku-windows-linux-cursors/releases/download/1.2.6/miku-cursor-linux.tar.xz"
     "sha256-qxWhzTDzjMxK7NWzpMV9EMuF5rg9gnO8AZlc1J8CRjY="
     "miku-cursor-linux";
+  defaultBrowser = "firefox.desktop"; # or "helium-browser.desktop"
 in {
   imports = [
     ./ghostty
@@ -51,6 +52,12 @@ in {
   xdg.mimeApps.defaultApplications = {
     "inode/directory" = ["thunar.desktop"];
     "application/pdf" = ["org.pwmt.zathura.desktop"];
+
+    "text/html" = defaultBrowser;
+    "x-scheme-handler/http" = defaultBrowser;
+    "x-scheme-handler/https" = defaultBrowser;
+    "x-scheme-handler/about" = defaultBrowser;
+    "x-scheme-handler/unknown" = defaultBrowser;
   };
 
   fonts.fontconfig.enable = true;
