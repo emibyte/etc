@@ -47,6 +47,9 @@
   (evil-define-key 'normal 'global (kbd "<leader>hf") #'describe-function)
 
   (evil-define-key 'normal 'global (kbd "<leader>ot") #'eat)
+
+  (evil-define-key 'normal 'global (kbd "<leader>l")  #'eglot)
+  (evil-define-key 'normal 'global (kbd "<leader>bf") #'eglot-format-buffer)
   (evil-mode))
 
 (use-package evil-collection
