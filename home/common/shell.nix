@@ -38,17 +38,8 @@
         format = lib.concatStrings [
           "$all"
         ];
-        # TODO: write a nix function that does this for any given username
         username = {
           show_always = true;
-          # style_user = "bold green";
-          # Default format
-          # format = "[$user]($style)@";
-          # Vibrant Spectrum
-          # format = "[e](bold #FF5733)[m](bold #FFBD33)[i](bold #75FF33)[l](bold #33FFBD)[y](bold #335BFF)@";
-          # Sunset Rainbow
-          # format =  "[e](bold #FF6F61)[m](bold #FF9A00)[i](bold #FFD700)[l](bold #A3D9FF)[y](bold #6A5ACD)@";
-          # Bold and Bright
           format = "[e](bold #FF3D00)[m](bold #FFEA00)[i](bold #00E676)[l](bold #00B0FF)[y](bold #6200EA)::";
         };
         hostname = {

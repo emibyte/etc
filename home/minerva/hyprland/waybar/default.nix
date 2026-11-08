@@ -50,7 +50,7 @@ in {
         rev = "master";
         hash = "sha256-CZR26099bnlOWgLpMOPwdpmocSAGetbepjkP661qml4=";
       };
-      buildInputs = old.buildInputs ++ [ pkgs.modemmanager ];
+      buildInputs = old.buildInputs ++ [pkgs.modemmanager];
       mesonFlags = old.mesonFlags ++ ["-Dcava=disabled"];
     });
 

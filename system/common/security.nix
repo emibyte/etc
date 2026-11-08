@@ -1,5 +1,4 @@
-{...}:
-{
+{...}: {
   # TODO(emi): remove once nixpkgs includes PR NixOS/nixpkgs#576390
   security.pki.caCertificateBlacklist = [
     # CVE-2026-111943
