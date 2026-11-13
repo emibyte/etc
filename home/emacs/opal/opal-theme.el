@@ -8,8 +8,8 @@
 ;; (set-frame-font "Iosevka Comfy:pixelsize=18")
 ;; (set-face-font 'default "Iosevka Comfy:pixelsize=18")
 
-(set-frame-font "Maple Mono NF:pixelsize=18")
-(set-face-font 'default "Maple Mono NF:pixelsize=18")
+(set-frame-font "Maple Mono NF:pixelsize=17")
+(set-face-font 'default "Maple Mono NF:pixelsize=17")
 
 (set-fontset-font
  t 'symbol
