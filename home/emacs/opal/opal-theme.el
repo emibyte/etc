@@ -38,7 +38,8 @@
 
 (use-package ef-themes
   :config
-  (load-theme 'doom-horizon t nil))
+  (load-theme 'doric-dark))
+;; (load-theme 'doom-horizon t nil))
 ;; (load-theme (opal/pick-random-ef-dark-theme) t nil))
 
 (use-package rainbow-delimiters
