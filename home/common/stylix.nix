@@ -5,5 +5,6 @@
     targets.waybar.enable = false;
     targets.dunst.enable = false;
     targets.spicetify.enable = false;
+    targets.starship.enable = false;
   };
 }

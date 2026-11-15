@@ -1,0 +1,60 @@
+add_newline = false
+format = '''
+[╭─](overlay)$time [󱖉](red) [\[ ](pink)$username[@](overlay)$hostname[ \]](pink) $directory $git_branch${custom.dirty}$nix_shell
+$character'''
+palette = "mocha"
+
+[palettes.mocha]
+overlay = "#6c7086"
+lavender = "#b4befe"
+red = "#f38ba8"
+pink = "#f5c2e7"
+mauve = "#cba6f7"
+peach = "#fab387"
+sapphire = "#74c7ec"
+green = "#a6e3a1"
+
+[time]
+disabled = false
+time_format = "%H:%M"
+format = '[\[ $time \]]($style)'
+style = "lavender"
+
+[username]
+show_always = true
+format = '[$user]($style)'
+style_user = "pink"
+style_root = "bold red"
+
+[hostname]
+ssh_only = false
+format = '[$ssh_symbol$hostname]($style)'
+style = "lavender"
+
+[git_branch]
+format = '[\[ $branch \]]($style) '
+style = "mauve"
+
+[nix_shell]
+format = '[\[ $symbol $state \]]($style) '
+symbol = "❄️"
+style = "sapphire"
+
+[git_status]
+disabled = true
+
+[custom.dirty]
+when = 'test -n \"$(git --no-optional-locks status --porcelain 2>/dev/null)\'
+format = '[●]($style) '
+style = "peach"
+shell = ["sh"]
+
+[directory]
+format = '[\[ $path \]]($style)'
+style = "sapphire"
+truncation_length = 0
+truncate_to_repo = false
+
+[character]
+success_symbol = '[\(｡•ᴗ•｡\)⊃──❥](pink)'
+error_symbol = '[\(｡•́︿•̀｡\)⊃──❥](red)'

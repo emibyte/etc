@@ -31,9 +31,9 @@
 in {
   imports = [
     ./ghostty
+    ./shell
     ./firefox.nix
     ./zathura.nix
-    ./shell.nix
     ./mpv.nix
     ./languages.nix
     # ./obs.nix

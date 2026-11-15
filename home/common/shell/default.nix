@@ -34,31 +34,32 @@
       enable = true;
       enableZshIntegration = true;
       enableBashIntegration = true;
-      settings = {
-        format = lib.concatStrings [
-          "$all"
-        ];
-        username = {
-          show_always = true;
-          format = "[e](bold #FF3D00)[m](bold #FFEA00)[i](bold #00E676)[l](bold #00B0FF)[y](bold #6200EA)::";
-        };
-        hostname = {
-          ssh_only = false;
-          format = "[$ssh_symbol$hostname]($style): ";
-          style = "bold #335BFF";
-        };
-        character = {
-          success_symbol = "[λ](bold #ff8bc1)";
-          error_symbol = "[λ](bold red)";
-          # success_symbol = "[➜](bold green)";
-          # error_symbol = "[➜](bold red)";
-        };
+      settings = fromTOML (builtins.readFile ./starship.toml);
+      # settings = {
+      #   format = lib.concatStrings [
+      #     "$all"
+      #   ];
+      #   username = {
+      #     show_always = true;
+      #     format = "[e](bold #FF3D00)[m](bold #FFEA00)[i](bold #00E676)[l](bold #00B0FF)[y](bold #6200EA)::";
+      #   };
+      #   hostname = {
+      #     ssh_only = false;
+      #     format = "[$ssh_symbol$hostname]($style): ";
+      #     style = "bold #335BFF";
+      #   };
+      #   character = {
+      #     success_symbol = "[λ](bold #ff8bc1)";
+      #     error_symbol = "[λ](bold red)";
+      #     # success_symbol = "[➜](bold green)";
+      #     # error_symbol = "[➜](bold red)";
+      #   };
 
-        nix_shell = {
-          format = "[$symbol $state]($style) ";
-          symbol = "❄️";
-        };
-      };
+      #   nix_shell = {
+      #     format = "[$symbol $state]($style) ";
+      #     symbol = "❄️";
+      #   };
+      # };
     };
 
     direnv = {
