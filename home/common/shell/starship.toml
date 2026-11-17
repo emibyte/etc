@@ -44,7 +44,8 @@ style = "sapphire"
 disabled = true
 
 [custom.dirty]
-when = 'test -n \"$(git --no-optional-locks status --porcelain 2>/dev/null)\'
+when = 'test -n "$(git --no-optional-locks status --porcelain 2>/dev/null)"'
+require_repo = true
 format = '[●]($style) '
 style = "peach"
 shell = ["sh"]
