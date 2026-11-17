@@ -1,6 +1,6 @@
 add_newline = false
 format = '''
-[╭─](overlay)$time [󱖉](red) [\[ ](pink)$username[@](overlay)$hostname[ \]](pink) $directory $git_branch${custom.dirty}$nix_shell
+[╭─](overlay)$time [󱖉](red) [\[ ](pink)$username[@](overlay)$hostname[ \]](pink) $directory $git_branch${custom.dirty}$nix_shell$c$cpp$odin$python$golang$rust$haskell$ocaml$dotnet$lua$nodejs$zig
 $character'''
 palette = "mocha"
 
@@ -59,3 +59,6 @@ truncate_to_repo = false
 [character]
 success_symbol = '[\(｡•ᴗ•｡\)⊃──❥](pink)'
 error_symbol = '[\(｡•́︿•̀｡\)⊃──❥](red)'
+
+[cpp]
+disabled = false
