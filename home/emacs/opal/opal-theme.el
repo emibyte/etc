@@ -38,7 +38,7 @@
 
 (use-package ef-themes
   :config
-  (load-theme 'doric-dark t nil))
+  (load-theme 'ef-duo-dark t nil))
 ;; (load-theme 'doom-horizon t nil))
 ;; (load-theme (opal/pick-random-ef-dark-theme) t nil))
 
