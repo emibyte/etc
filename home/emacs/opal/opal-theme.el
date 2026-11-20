@@ -110,7 +110,7 @@
       (format-mode-line mode-name)
       " - "
       (opal/replace-home default-directory)
-      " - "
+      " "
       (nyan-create))
      (format-mode-line '(line-number-mode (" line %l" (column-number-mode " column %c "))))))))
 
