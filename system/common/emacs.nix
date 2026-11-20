@@ -91,6 +91,7 @@ in {
         epkgs.ef-themes
         epkgs.doric-themes
         epkgs.catppuccin-theme
+        epkgs.batppuccin
         epkgs.spacemacs-theme
         epkgs.doom-themes
         epkgs.gruber-darker-theme
