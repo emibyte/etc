@@ -44,11 +44,12 @@ in {
 
     # NOTE(emi): this is so i got a newer waybar version that supports the lua ipc stuff (so left clicking on a workspace works properly)
     package = pkgs.waybar.overrideAttrs (old: {
+      version = "0.16.0";
       src = pkgs.fetchFromGitHub {
         owner = "Alexays";
         repo = "waybar";
-        rev = "master";
-        hash = "sha256-CZR26099bnlOWgLpMOPwdpmocSAGetbepjkP661qml4=";
+        rev = "11c771ef072c6c5f7114b4c4ab57147c9ed5aa18";
+        hash = "sha256-wSW8BGSv+cM7ojPMThybFQzCBzG2IUmqYAXt/E0beb4=";
       };
       buildInputs = old.buildInputs ++ [pkgs.modemmanager];
       mesonFlags = old.mesonFlags ++ ["-Dcava=disabled"];
