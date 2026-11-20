@@ -103,6 +103,8 @@ in {
 
         epkgs.magit
 
+        epkgs.nyan-mode
+
         epkgs.nix-mode
         epkgs.markdown-mode
         epkgs.org
