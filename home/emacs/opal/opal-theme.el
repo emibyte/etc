@@ -84,6 +84,12 @@
 ;;   (doom-modeline-check nil)
 ;;   :hook (after-init . doom-modeline-mode))
 
+(use-package nyan-mode
+  :config
+  (nyan-mode +1)
+  (setq nyan-minimum-window-width 120)
+  (setq nyan-bar-length 16))
+
 (defun mode-line-render (left right)
   "Return a mode-line string with LEFT flush-left and RIGHT flush-right."
   (concat
@@ -103,7 +109,9 @@
       " - "
       (format-mode-line mode-name)
       " - "
-      (opal/replace-home default-directory))
+      (opal/replace-home default-directory)
+      " - "
+      (nyan-create))
      (format-mode-line '(line-number-mode (" line %l" (column-number-mode " column %c "))))))))
 
 ;;; nerd-icons
