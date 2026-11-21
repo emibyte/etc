@@ -1,6 +1,6 @@
 add_newline = false
 format = '''
-[╭─](overlay)$time [󱖉](red) [\[ ](pink)$username[@](overlay)$hostname[ \]](pink) $directory $git_branch${custom.dirty}$nix_shell$c$cpp$odin$python$golang$rust$haskell$ocaml$dotnet$lua$nodejs$zig
+[╭─](overlay)$time [󱖉](red) [\[ ](pink)$username[@](overlay)$hostname[ \]](pink) $directory $git_branch$git_status$nix_shell$c$cpp$odin$python$golang$rust$haskell$ocaml$dotnet$lua$nodejs$zig
 $character'''
 palette = "mocha"
 
@@ -41,14 +41,7 @@ symbol = "❄️"
 style = "sapphire"
 
 [git_status]
-disabled = true
-
-[custom.dirty]
-when = 'test -n "$(git --no-optional-locks status --porcelain 2>/dev/null)"'
-require_repo = true
-format = '[●]($style) '
 style = "peach"
-shell = ["sh"]
 
 [directory]
 format = '[\[ $path \]]($style)'
